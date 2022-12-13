@@ -4,4 +4,7 @@ const informationC=require('../controllers/information.c')
 
 router.get('/',informationC.menuPage)
 router.get('/rule',informationC.rulePage)
+router.get('/resultLeague',informationC.resultMatch)
+router.get('/team',informationC.allTeamPage)
+router.get('/team/:id(\\d+)',informationC.getPlayer)
 module.exports = router

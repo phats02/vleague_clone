@@ -1,5 +1,5 @@
 const pgp = require('pg-promise')();
-const cn = 'postgres://postgres:quangphat@localhost:5432/User';
+const cn = require('../config/pg-config')
 const db = pgp(cn);
 
 module.exports={
