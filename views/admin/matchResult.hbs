@@ -1,0 +1,65 @@
+<form action="/{{currentURL}}" method="POST" class="w-100">
+    <div class="form row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="So ban thang doi {{matches.CauThuDoi1.0.TenDoi}}" class="score" id="score-team-1" name="score-team-1">
+            <div class="player-team-1">
+
+            </div>
+
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="So ban thang doi {{matches.CauThuDoi2.0.TenDoi}}" class="score" id="score-team-2" name="score-team-2">
+            <div class="player-team-2">
+            </div>
+        </div>
+    </div>
+    <div class="row w-25 mx-auto"> <button type="submit" class="btn btn-primary">Gui</button></div>
+</form>
+<script>
+    $("#score-team-1").on("input",()=>{
+        $(".player-team-1").html("")
+        console.log($("#score-team-1").val())
+        for (var i=0;i<$("#score-team-1").val();i++){
+            $(".player-team-1").append(` <div class="w-75 mr-auto">
+                <div class="row">
+                    <select class="form-control col-8" aria-label="Default select example" name="player-team-1">
+                        <option selected>None</option>
+                        {{#each matches.CauThuDoi1}}
+                          <option value="{{this.MaCauThu}}">{{this.TenCauThu}}</option>
+                        {{/each}}
+                    </select>
+                    <input type="text" class="col-2 ml-auto form-control" placeholder="Phut ghi ban" name="time-team-1">
+                    <select class="form-control col-2" aria-label="Default select example" name="loaiban-team-1">
+                        <option selected>None</option>
+                        {{#each LoaiBanThang}}
+                          <option value="{{this.MaLoaiBanThang}}">{{this.TenLoaiBanThang}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>`)
+        }
+    })
+    $("#score-team-2").on("input",()=>{
+        $(".player-team-2").html("")
+        console.log($("#score-team-2").val())
+        for (var i=0;i<$("#score-team-2").val();i++){
+            $(".player-team-2").append(` <div class="w-75 ml-auto">
+                <div class="row">
+                    <select class="form-control col-8" aria-label="Default select example" name="player-team-2">
+                        <option selected>None</option>
+                        {{#each matches.CauThuDoi2}}
+                          <option value="{{this.MaCauThu}}">{{this.TenCauThu}}</option>
+                        {{/each}}
+                    </select>
+                    <input type="text" class="col-2 ml-auto form-control" placeholder="Phut ghi ban" name="time-team-2">
+                    <select class="form-control col-2" aria-label="Default select example" name="loaiban-team-2">
+                        <option selected>None</option>
+                        {{#each LoaiBanThang}}
+                          <option value="{{this.MaLoaiBanThang}}">{{this.TenLoaiBanThang}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>`)
+        }
+    })
+</script>
