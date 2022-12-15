@@ -43,20 +43,59 @@ module.exports = {
         match.banThangDoi2 = ghibanDoi2
         return match
     },
-    updateMatch: async(data,id)=>{
-            const rs=await db.query(`update "TRANDAU" set "SoBanThangDoi1"=${data["score-team-1"]}, "SoBanThangDoi2"=${data["score-team-2"]} where "MaTranDau"=${id} RETURNING "MaTranDau"`)
-            console.log(data)
-            for (var i=0;i<data["player-team-1"].length;i++){
-                var entity={"MaTranDau":id,"MaCauThu":data["player-team-1"][i],"ThoiDiem":data["time-team-1"][i],"MaLoaiBanThang":data["loaiban-team-1"][i]}
-                await db.insert("GHIBAN",entity)
+    updateMatch: async (data, id) => {
+        const rs = await db.query(`update "TRANDAU" set "SoBanThangDoi1"=${data["score-team-1"]}, "SoBanThangDoi2"=${data["score-team-2"]} where "MaTranDau"=${id} RETURNING "MaTranDau"`)
+        console.log(data)
+        if (data["player-team-1"]) {
+            for (var i = 0; i < data["player-team-1"].length; i++) {
+                var entity = { "MaTranDau": id, "MaCauThu": data["player-team-1"][i], "ThoiDiem": data["time-team-1"][i], "MaLoaiBanThang": data["loaiban-team-1"][i] }
+                await db.insert("GHIBAN", entity)
             }
-            for (var i=0;i<data["player-team-2"].length;i++){
-                var entity={"MaTranDau":id,"MaCauThu":data["player-team-2"][i],"ThoiDiem":data["time-team-2"][i],"MaLoaiBanThang":data["loaiban-team-2"][i]}
-                await db.insert("GHIBAN",entity)
+        }
+        if (data["player-team-2"]) {
+            for (var i = 0; i < data["player-team-2"].length; i++) {
+                var entity = { "MaTranDau": id, "MaCauThu": data["player-team-2"][i], "ThoiDiem": data["time-team-2"][i], "MaLoaiBanThang": data["loaiban-team-2"][i] }
+                await db.insert("GHIBAN", entity)
             }
+        }
     },
-    getLoaiBanThang: async()=>{
-        const rs=await db.getAll("LOAIBANTHANG")
+    getLoaiBanThang: async () => {
+        const rs = await db.getAll("LOAIBANTHANG")
         return rs
+    },
+    getAllThamSo: async () => {
+        const rs = await db.getOne("THAMSO", "MaThamSo", 1)
+        return rs
+    },
+    updateThamSo: async (data) => {
+        const rs = await db.query(`Update "THAMSO" set "TuoiToiThieu"=${data["TuoiToiThieu"]},"TuoiToiDa"=${data["TuoiToiDa"]},"SoCauthutoiThieu"=${data["SoCauthutoiThieu"]}, "SoCauThuNuocNgoaiToiDa"=${data["SoCauThuNuocNgoaiToiDa"]},"SoCauThuToiDa"=${data["SoCauThuToiDa"]},"TDGhiBanToithieu"=${data["TDGhiBanToithieu"]},"TDGhiBanToiDa"=${data["TDGhiBanToiDa"]},"DiemBanThang"=${data["DiemBanThang"]},"DiemBanHoa"=${data["DiemBanHoa"]},"DiemBanThua"=${data["DiemBanThua"]} where "MaThamSo"=1`)
+        return rs
+    },
+    getAllLoaiBanThang: async () => {
+        return await db.getAll("LOAIBANTHANG")
+    },
+    addLoaiBanThang: async(name)=>{
+        var loai=await db.getOne("LOAIBANTHANG","TenLoaiBanThang",name)
+        if (loai != null) return -1
+        else {
+            const entity={"TenLoaiBanThang":name}
+            try{
+                await db.insert("LOAIBANTHANG",entity)
+                return 1
+            }
+            catch(err){
+                console.log(err)
+                return -1
+            }
+        }
+    },
+    deleteLoaiBanThang: async (id)=>{
+        try{
+            await db.delete("LOAIBANTHANG","MaLoaiBanThang",id)
+            return 1
+        }
+        catch(err){
+            return -1
+        }
     }
 }

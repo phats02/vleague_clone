@@ -1,6 +1,8 @@
 const e = require('express')
 const adminM = require('../models/admin.m')
 const url_helper = require('../helper/url_helper')
+const { updateThamSo } = require('../models/admin.m')
+const db = require('../models/db')
 
 exports.menu = (req, res, next) => {
     res.render('admin/menu', {
@@ -24,6 +26,8 @@ exports.mathResult = async (req, res, next) => {
     }
     else if (req.method == 'POST') {
         try{
+            if (req.body['player-team-1'] && typeof req.body['player-team-1']=='int') req.body['player-team-1']=new Array(req.body['player-team-1'])
+            if (req.body['player-team-2'] && typeof req.body['player-team-2']=='int') req.body['player-team-2']=new Array(req.body['player-team-2'])
             const rs=await adminM.updateMatch(req.body,idMatch)
             res.redirect('/admin')
 
@@ -38,4 +42,28 @@ exports.redirectMatchResult=async(req,res,next)=>{
     res.redirect(`/admin/matchResult/${matches[0].MaTran}`)
     // res.json(await adminM.getallMatch())
 
+}
+exports.changeRule=async (req,res,next)=>{
+    if (req.method=='GET'){
+        const THAMSO=await adminM.getAllThamSo()
+        const LOAIBANTHANG=await adminM.getAllLoaiBanThang()
+        res.render('admin/changeRule',{
+            title: "Change Rule",
+            THAMSO:THAMSO,
+            LOAIBANTHANG:LOAIBANTHANG,
+            currentURl: url_helper.formatURL(req.originalUrl),
+        })
+    }
+    else if (req.method=='POST'){
+        await adminM.updateThamSo(req.body)
+        res.redirect('/admin')
+    }
+}
+exports.addLoaiBanThang=async(req,res,next)=>{
+    const status = await adminM.addLoaiBanThang(req.query.name)
+    res.json(status)
+}
+exports.deleteLoaiBanThang=async(req,res,next)=>{
+    const status = await adminM.deleteLoaiBanThang(req.params.id)
+    res.json(status)
 }
