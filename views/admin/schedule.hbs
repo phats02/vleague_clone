@@ -1,0 +1,23 @@
+<a class="btn btn-primary w-100" href="./addMatch" role="button">+</a>
+<div class="w-75 mx-auto">
+{{#each TRANDAU}}
+<p>{{this.NgayGio}}</p>
+<div class="row">
+    <input value="{{this.TenDoi1}} vs {{this.TenDoi2}}" disabled>
+    <button type="button" class="btn btn-outline-danger col-2 delete-Tran" id="delete-Tran-{{this.MaTran}}">X</button>
+</div>
+{{/each}}
+</div>
+<script>
+    $(".delete-Tran").click((e)=>{
+        var id=event.srcElement.id.split('-')[2]
+        $.post('/admin/deleteMatch?id='+id,(status)=>{
+            if (status ==-1){
+                        alert('Khong the xoa Loai ban thang')
+                    }
+                    else {
+                         location.reload();
+                    }
+        })
+    })
+</script>

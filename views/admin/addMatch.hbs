@@ -1,0 +1,24 @@
+<form method="POST" action="/{{currentURL}}" class="w-50 mx-auto">
+    <select class="form-control" aria-label="Default select example" name="MaDoi1">
+        <option selected>Chon Doi 1</option>
+        {{#each DOI}}
+        <option value="{{this.MaDoi}}">{{this.TenDoi}}</option>
+        {{/each}}
+    </select>
+    <select class="form-control" aria-label="Default select example" name="MaDoi2">
+        <option selected>Chon Doi 2</option>
+        {{#each DOI}}
+        <option value="{{this.MaDoi}}">{{this.TenDoi}}</option>
+        {{/each}}
+    </select>
+    <input type="datetime-local" class="form-control" name="NgayGio">
+    <select class="form-control" aria-label="Default select example" name="MaSan">
+        <option selected>Chon San</option>
+        {{#each SAN}}
+        <option value="{{this.MaSan}}">{{this.TenSan}}</option>
+        {{/each}}
+    </select>
+    <input type="text" placeholder="Vong Dau" class="form-control" name="VongDau">
+    <div class="row w-25 mx-auto"> <button type="submit" class="btn btn-primary">Gui</button></div>
+
+</form>

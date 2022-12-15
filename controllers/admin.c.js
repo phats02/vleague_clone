@@ -1,7 +1,7 @@
 const e = require('express')
 const adminM = require('../models/admin.m')
 const url_helper = require('../helper/url_helper')
-const { updateThamSo } = require('../models/admin.m')
+const { updateThamSo, getMatchUnfinished } = require('../models/admin.m')
 const db = require('../models/db')
 
 exports.menu = (req, res, next) => {
@@ -65,5 +65,37 @@ exports.addLoaiBanThang=async(req,res,next)=>{
 }
 exports.deleteLoaiBanThang=async(req,res,next)=>{
     const status = await adminM.deleteLoaiBanThang(req.params.id)
+    res.json(status)
+}
+exports.schedule=async(req,res,next)=>{
+    const TRANDAU=await getMatchUnfinished('NULL','NULL')
+    // console.log(TRANDAU)
+    res.render('admin/schedule',{
+        title:'Schedule',
+        TRANDAU:TRANDAU
+    })
+}
+exports.addMatch=async(req,res,next)=>{
+    if (req.method=='GET'){
+        const san=await db.getAll("SAN")
+        const doi=await db.getAll("DOI")
+        res.render('admin/addMatch',{
+            SAN:san,
+            DOI:doi,
+            currentURL: url_helper.formatURL(req.originalUrl),
+        })
+    }
+    else{
+        try{
+            await adminM.addMatch(req.body)
+            res.redirect('/admin')
+        }
+        catch(err){
+            next(err)
+        }
+    }
+}
+exports.deleteMatch=async(req,res,next)=>{
+    const status = await adminM.deleteMatch(req.query.id)
     res.json(status)
 }

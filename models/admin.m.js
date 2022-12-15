@@ -6,8 +6,8 @@ module.exports = {
     getMatchUnfinished: async (page, perPage) => {
         let match = await db.query(`select DISTINCT "td"."MaTranDau" as "MaTran" ,"d1"."MaDoi" as "MaDoi1","d1"."TenDoi" as "TenDoi1","td"."MaDoi2" as "MaDoi2", "d2"."TenDoi" as "TenDoi2","SAN"."TenSan","td"."NgayGio"
         from "TRANDAU" as "td","DOI" as "d1", "DOI" as "d2","SAN"
-        where "td"."SoBanThangDoi1" is null or "td"."SoBanThangDoi2" is null and "d1"."MaDoi"="td"."MaDoi1" and "d1"."MaDoi"="td"."MaDoi2" and "SAN"."MaSan"="td"."MaSan" and "d1"."MaDoi" != "d2"."MaDoi"
-        order by "td"."NgayGio" offset ${page * perPage} limit ${perPage}`)
+        where "td"."SoBanThangDoi1" is null and "td"."SoBanThangDoi2" is null and "d1"."MaDoi"="td"."MaDoi1" and "d2"."MaDoi"="td"."MaDoi2" and "SAN"."MaSan"="td"."MaSan" and "d1"."MaDoi" != "d2"."MaDoi"
+        order by "td"."NgayGio" offset ${page * perPage || 0} limit ${perPage}`)
         for (var i = 0; i < match.length; i++) {
             let playerOfTeam1 = await db.query(`Select "CAUTHU"."TenCauThu" as "TenCauThu", "LOAICAUTHU"."TenLoaiCauThu" as "LoaiCauThu","CAUTHU"."MaCauThu" as "MaCauThu"
             from "CAUTHU","LOAICAUTHU"
@@ -92,6 +92,19 @@ module.exports = {
     deleteLoaiBanThang: async (id)=>{
         try{
             await db.delete("LOAIBANTHANG","MaLoaiBanThang",id)
+            return 1
+        }
+        catch(err){
+            return -1
+        }
+    },
+    addMatch:async(data)=>{
+        const rs=await db.insert("TRANDAU",data)
+        return rs
+    },
+    deleteMatch: async(id)=>{
+        try{
+            await db.delete("TRANDAU","MaTranDau",id)
             return 1
         }
         catch(err){
