@@ -39,7 +39,9 @@ Make sure you have PostgreSQL installed on your system and that you have a datab
 <li>In the Query Tool window, click the "Open" button and select the script was stored in folder <b>db</b>.</li>
 <li>Click the "Execute" button to run the script. If the script contains any variables or parameters, you can specify their values in the "Variables" tab before executing the script.</li>
 <li>The results of the script will be displayed in the "Output" tab.</li>
-</ol>  
+</ol>    
+
+
 ####  Config database  
 
 You change your personal config for your postgresql in <b>config/pg-config.js</b>  
