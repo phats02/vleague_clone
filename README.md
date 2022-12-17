@@ -1,5 +1,5 @@
 
-# A Vleauge Clone Project by @phats-dev, @nthanhnhan-dev
+# A Vleauge Clone Project
 ## Introduction
 The Project of Introduction of Software.
 
