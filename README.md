@@ -36,11 +36,12 @@ Make sure you have PostgreSQL installed on your system and that you have a datab
 <ol>
 <li>Open pgAdmin and connect to the database server.</li>
 <li>In the Object browser on the left, expand the tree to find the database you want to use, then right-click on the database and select "Query Tool".</li>
-<li>In the Query Tool window, click the "Open" button and select the script was stored in folder db.</li>
+<li>In the Query Tool window, click the "Open" button and select the script was stored in folder <b>db</b>.</li>
 <li>Click the "Execute" button to run the script. If the script contains any variables or parameters, you can specify their values in the "Variables" tab before executing the script.</li>
 <li>The results of the script will be displayed in the "Output" tab.</li>
 </ol>  
-
+#### Config database
+You change you personal config for your postgresql in <b>config/pg-config.js</b>
 ## II. Assignment Sheet:
 | Desciption | MSSV | Member|
 | --- | ----------- |-------|
