@@ -42,6 +42,7 @@ Make sure you have PostgreSQL installed on your system and that you have a datab
 </ol>  
 #### Config database
 You change you personal config for your postgresql in <b>config/pg-config.js</b>  
+
 ## II. Assignment Sheet:
 | Desciption | MSSV | Member|
 | --- | ----------- |-------|
