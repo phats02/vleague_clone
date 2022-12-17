@@ -1,70 +1,70 @@
 /* San */
-INSERT INTO "SAN" ("MaSan","TenSan") values(1,'Old Trafford');
-INSERT INTO "SAN" ("MaSan","TenSan") values(2,'Etihad Stadium');
+INSERT INTO "SAN" ("TenSan") values('Old Trafford');
+INSERT INTO "SAN" ("TenSan") values('Etihad Stadium');
 
 /* Loai ban thang */
-INSERT INTO "LOAIBANTHANG" ("MaLoaiBanThang","TenLoaiBanThang")
-values (1,'Pen');
-INSERT INTO "LOAIBANTHANG" ("MaLoaiBanThang","TenLoaiBanThang")
-values (2,'No-Pen');
+INSERT INTO "LOAIBANTHANG" ("TenLoaiBanThang")
+values ('Pen');
+INSERT INTO "LOAIBANTHANG" ("TenLoaiBanThang")
+values ('No-Pen');
 
 /* Doi */
-INSERT INTO "DOI" ("MaDoi","TenDoi","MaSan","SoCauThu")
-values (1,'Portugal',1,5);
-INSERT INTO "DOI" ("MaDoi","TenDoi","MaSan","SoCauThu")
-values (2,'Maroccos',2,5);
+INSERT INTO "DOI" ("TenDoi","MaSan","SoCauThu")
+values ('Portugal',1000,5);
+INSERT INTO "DOI" ("TenDoi","MaSan","SoCauThu")
+values ('Maroccos',1001,5);
 
 /* Loai cau thu */
-INSERT INTO "LOAICAUTHU" ("MaLoaiCauThu","TenLoaiCauThu")
-values (1,'Thủ môn');
-INSERT INTO "LOAICAUTHU" ("MaLoaiCauThu","TenLoaiCauThu")
-values (2,'Hậu vệ');
-INSERT INTO "LOAICAUTHU" ("MaLoaiCauThu","TenLoaiCauThu")
-values (3,'Tiền vệ');
-INSERT INTO "LOAICAUTHU" ("MaLoaiCauThu","TenLoaiCauThu")
-values (4,'Tiền đạo');
+INSERT INTO "LOAICAUTHU" ("TenLoaiCauThu")
+values ('Thủ môn');
+INSERT INTO "LOAICAUTHU" ("TenLoaiCauThu")
+values ('Hậu vệ');
+INSERT INTO "LOAICAUTHU" ("TenLoaiCauThu")
+values ('Tiền vệ');
+INSERT INTO "LOAICAUTHU" ("TenLoaiCauThu")
+values ('Tiền đạo');
 
 
 /* Cau thu */
-INSERT INTO "CAUTHU" ("MaCauThu","TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
-values (1,'Costa','1/1/1999',1,1,0);
-INSERT INTO "CAUTHU" ("MaCauThu","TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
-values (2,'DaLot','1/2/1999',2,1,0);
-INSERT INTO "CAUTHU" ("MaCauThu","TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
-values (3,'PePe','1/3/1999',2,1,1);
-INSERT INTO "CAUTHU" ("MaCauThu","TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
-values (4,'Bruno','1/4/1999',4,1,0);
-INSERT INTO "CAUTHU" ("MaCauThu","TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
-values (5,'Ronaldo','5/1/1999',4,1,4);
+INSERT INTO "CAUTHU" ("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
+values ('Costa','1/1/1999',1000,1000,0);
+INSERT INTO "CAUTHU" ("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
+values ('DaLot','1/2/1999',1001,1000,0);
+INSERT INTO "CAUTHU" ("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
+values ('PePe','1/3/1999',1001,1000,1);
+INSERT INTO "CAUTHU" ("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
+values ('Bruno','1/4/1999',1003,1000,0);
+INSERT INTO "CAUTHU" ("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
+values ('Ronaldo','5/1/1999',1003,1000,4);
 
-INSERT INTO "CAUTHU" ("MaCauThu","TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
-values (6,'Bono','1/1/1998',1,2,0);
-INSERT INTO "CAUTHU" ("MaCauThu","TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
-values (7,'Hakimi','1/2/1998',2,2,0);
-INSERT INTO "CAUTHU" ("MaCauThu","TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
-values (8,'Allah','1/3/1998',2,2,0);
-INSERT INTO "CAUTHU" ("MaCauThu","TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
-values (9,'Yamiq','1/4/1998',3,2,0);
-INSERT INTO "CAUTHU" ("MaCauThu","TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
-values (10,'Ounahi','5/1/1998',3,2,0);
+INSERT INTO "CAUTHU" ("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
+values ('Bono','1/1/1998',1000,1001,0);
+INSERT INTO "CAUTHU" ("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
+values ('Hakimi','1/2/1998',1001,1001,0);
+INSERT INTO "CAUTHU" ("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
+values ('Allah','1/3/1998',1001,1001,0);
+INSERT INTO "CAUTHU" ("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
+values ('Yamiq','1/4/1998',1002,1001,0);
+INSERT INTO "CAUTHU" ("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan")
+values ('Ounahi','5/1/1998',1002,1001,0);
 
 
 /* Tran dau */
-INSERT INTO "TRANDAU" ("MaTranDau","MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThangDoi1","SoBanThangDoi2")
-values (1,1,2,'12/11/2022',2,1,5,0);
+INSERT INTO "TRANDAU" ("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThangDoi1","SoBanThangDoi2")
+values (1000,1001,'12/11/2022 10:00:00 PM',1001,1,5,0);
 
 
 /* Ghi ban */
-INSERT INTO "GHIBAN" ("MaBanThang","MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang")
-values (1,1,5,10,1);
-INSERT INTO "GHIBAN" ("MaBanThang","MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang")
-values (2,1,5,12,1);
-INSERT INTO "GHIBAN" ("MaBanThang","MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang")
-values (3,1,2,30,1);
-INSERT INTO "GHIBAN" ("MaBanThang","MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang")
-values (4,1,5,75,1);
-INSERT INTO "GHIBAN" ("MaBanThang","MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang")
-values (5,1,5,89,1);
+INSERT INTO "GHIBAN" ("MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang")
+values (1000,1004,10,1000);
+INSERT INTO "GHIBAN" ("MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang")
+values (1000,1004,12,1000);
+INSERT INTO "GHIBAN" ("MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang")
+values (1000,1003,30,1001);
+INSERT INTO "GHIBAN" ("MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang")
+values (1000,1004,75,1001);
+INSERT INTO "GHIBAN" ("MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang")
+values (1000,1004,89,1000);
 
 
 
