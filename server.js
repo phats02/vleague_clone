@@ -13,7 +13,7 @@ app.engine('hbs',exphbs.engine({
     partialsDir:'views/_partials',
 }));
 app.set('view engine','hbs')
-app.use(express.static(__dirname+'/db/pid'))
+app.use(express.static(__dirname+'/public'))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
