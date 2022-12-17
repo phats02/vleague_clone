@@ -41,7 +41,7 @@ Make sure you have PostgreSQL installed on your system and that you have a datab
 <li>The results of the script will be displayed in the "Output" tab.</li>
 </ol>  
 #### Config database
-You change you personal config for your postgresql in <b>config/pg-config.js</b>
+You change you personal config for your postgresql in <b>config/pg-config.js</b>  
 ## II. Assignment Sheet:
 | Desciption | MSSV | Member|
 | --- | ----------- |-------|
