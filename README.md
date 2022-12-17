@@ -40,7 +40,7 @@ Make sure you have PostgreSQL installed on your system and that you have a datab
 <li>Click the "Execute" button to run the script. If the script contains any variables or parameters, you can specify their values in the "Variables" tab before executing the script.</li>
 <li>The results of the script will be displayed in the "Output" tab.</li>
 </ol>  
-#### Config database
+#### Config database  
 You change you personal config for your postgresql in <b>config/pg-config.js</b>  
 
 ## II. Assignment Sheet:
