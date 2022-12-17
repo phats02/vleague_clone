@@ -1,4 +1,86 @@
-<a class="btn btn-primary" href="/{{currentURL}}/rule" role="button">Quy định giải đấu</a>
-<a class="btn btn-primary" href="/{{currentURL}}/resultLeague" role="button">Kết quả thi đấu</a>
-<a class="btn btn-primary" href="/{{currentURL}}/raking" role="button">Báo cáo giải</a>
-<a class="btn btn-primary" href="/{{currentURL}}/team" role="button">Dach sách cầu thủ</a>
+<div class="con">
+    <div class="title">
+        Thông tin giải đấu
+    </div>
+    <div class="butcon">
+        <div class="butcon2">
+            <div class="button" style="background: linear-gradient(180deg, #F73E70 0%, #590BA8 100%);
+            border-radius: 15px;"> <a href="/{{currentURL}}/rule">Quy Định Giải Đấu </a></div>
+            <div class="button" style="background: conic-gradient(from 180deg at 50% 50%, #3A8891 -20.63deg, rgba(84, 88, 99, 0) 168.75deg, #3A8891 339.37deg, rgba(84, 88, 99, 0) 528.75deg);
+            border-radius: 15px;"> <a href="/{{currentURL}}/resultLeague"> Kết Qủa Thi Đấu </a></div>
+        </div>
+        <div class="butcon2">
+            <div class="button" style="background: linear-gradient(180deg, #15A6E5 19.79%, #3472EF 63.02%);
+            border-radius: 15px;"><a href="/{{currentURL}}/raking">Báo Cáo Giải </a>
+            </div>
+            <div class="button" style="background: radial-gradient(50% 50% at 50% 50%, #2DB25E 0%, #096D3A 100%);
+            border-radius: 15px;"> <a href="/{{currentURL}}/team"> Danh sách cầu thủ </a></div>
+        </div>
+    </div>
+</div>
+<style>
+    .title {
+
+        margin: auto;
+        width: 80%;
+        height: 10%;
+
+        text-align: center;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3vw;
+        line-height: 3vw;
+        color: #E32B19;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-bottom: solid 1vh #E32B19;
+
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(180deg, #F03B3B 0%, #D9D9D9 26.56%);
+    }
+
+    .con {
+        margin: auto;
+        width: 95%;
+        height: 80%;
+        background: #FFFCFC;
+        border: solid black 1px;
+    }
+
+    .butcon {
+        margin-top: 5%;
+        width: 100%;
+        height: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .butcon2 {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .button {
+        width: 30%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2vw;
+        text-align: center;
+        color: #FFFFFF;
+    }
+</style>
