@@ -12,13 +12,13 @@ module.exports = app => {
     app.use(cookieParser())
 
     passport.serializeUser(function (user, done) {
-        done(null, user.username)
+        done(null, user.TenTaiKhoanAdmin)
     });
 
     passport.deserializeUser(async function (username, done) {
         try {
-            const user = await db.getOne("users", "username", username)
-            done(null, user.username);
+            const user = await db.getOne('TAIKHOAN','TenTaiKhoanAdmin',username)
+            done(null, user);
         }
         catch (err) {
             done(err, null)
@@ -26,10 +26,9 @@ module.exports = app => {
     });
     passport.use(new JwtStrategy(opts, async function (jwt_payload, done) {
         try {
-            const user = await db.getOne("users", "username", jwt_payload.user)
+            const user = await db.getOne('TAIKHOAN','TenTaiKhoanAdmin',jwt_payload.user)
             if (user) return done(null, user);
             else done(null, false)
-
         }
         catch (err) {
             return done(err, false)

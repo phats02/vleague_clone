@@ -1,0 +1,93 @@
+<form method="POST" action="/{{currentURl}}" class="w-25 mx-auto">
+    <div class="row">
+        <label for="exampleInputEmail1" class="col-8">Tuổi tối thiểu</label>
+        <input type="text" name="TuoiToiThieu" value="{{THAMSO.TuoiToiThieu}}" class="form-control col-4">
+    </div>
+    <div class="row">
+        <label for="exampleInputEmail1" class="col-8">Tuổi tối đa</label>
+        <input type="text" name="TuoiToiDa" value="{{THAMSO.TuoiToiDa}}" class="form-control col-4">
+    </div>
+    <div class="row">
+        <label for="exampleInputEmail1" class="col-8">Số cầu thủ tối thiểu</label>
+        <input type="text" name="SoCauthutoiThieu" value="{{THAMSO.SoCauthutoiThieu}}" class="form-control col-4">
+    </div>
+    <div class="row">
+        <label for="exampleInputEmail1" class="col-8">Số cầu thủ nước ngoài tối đa</label>
+        <input type="text" name="SoCauThuNuocNgoaiToiDa" value="{{THAMSO.SoCauThuNuocNgoaiToiDa}}"
+            class="form-control col-4">
+    </div>
+    <div class="row">
+        <label for="exampleInputEmail1" class="col-8">Số cầu thủ tối đa</label>
+        <input type="text" name="SoCauThuToiDa" value="{{THAMSO.SoCauThuToiDa}}" class="form-control col-4">
+    </div>
+    <div class="row">
+        <label for="exampleInputEmail1" class="col-8">Thời điểm ghi bàn tối thiếu</label>
+        <input type="text" name="TDGhiBanToithieu" value="{{THAMSO.TDGhiBanToithieu}}" class="form-control col-4">
+    </div>
+    <div class="row">
+        <label for="exampleInputEmail1" class="col-8">Thời điểm ghi bàn tối đa</label>
+        <input type="text" name="TDGhiBanToiDa" value="{{THAMSO.TDGhiBanToiDa}}" class="form-control col-4">
+    </div>
+    <div class="row">
+        <label for="exampleInputEmail1" class="col-8">Điểm thắng</label>
+        <input type="text" name="DiemBanThang" value="{{THAMSO.DiemBanThang}}" class="form-control col-4">
+    </div>
+    <div class="row">
+        <label for="exampleInputEmail1" class="col-8">Điểm hoà</label>
+        <input type="text" name="DiemBanHoa" value="{{THAMSO.DiemBanHoa}}" class="form-control col-4">
+    </div>
+    <div class="row">
+        <label for="exampleInputEmail1" class="col-8">Điểm thua</label>
+        <input type="text" name="DiemBanThua" value="{{THAMSO.DiemBanThua}}" class="form-control col-4">
+    </div>
+    <div class="row">Chỉnh sửa loại bàn thắng</div>
+    {{#each LOAIBANTHANG}}
+    <div class="row">
+        <input type="text" name="BanThang-{{this.MaLoaiBanThang}}" value="{{this.TenLoaiBanThang}}"
+            class="form-control col-10" disabled>
+        <button type="button" class="btn btn-outline-danger col-2 delete-Loai" id="delete-Loai-{{this.MaLoaiBanThang}}">X</button>
+    </div>
+    {{/each}}
+    <div class="content">
+
+    </div>
+    <button type="button" class="btn btn-outline-success w-100" id="addLoaiBanThang">➕</button>
+
+    <div class="row w-25 mx-auto"> <button type="submit" class="btn btn-primary">Gui</button></div>
+</form>
+<script>
+    $(document).ready(async function () {
+        var i = 1
+        $('#addLoaiBanThang').click(() => {
+            $(".content").append(`<div class="row">
+        <input type="text" name="newBanThang" class="form-control col-10" placeholder="Ten loai ban thang" id="valueLoaiBanThang-${i}">
+        <button type="button" class="btn btn-outline-success col-2" id="addLoaiBanThang-${i}">✔️</button>
+        </div>
+        <script>
+            $(\`#addLoaiBanThang-${i}\`).click(() => {
+                $.post("/admin/createLoaiBanThang?name="+$(\`#valueLoaiBanThang-${i}\`).val(),(status)=>{
+                    if (status ==-1){
+                        alert('Ten Loai Ban Thang Da Ton Tai')
+                    }
+                    else {
+                         location.reload();
+                    }
+                })
+        })
+        <\/script>`)
+            i++
+        })
+        $(".delete-Loai").click((e)=>{
+            var id=event.srcElement.id.split('-')[2]
+            console.log(id)
+            $.post('/admin/deleteLoaiBanThang/'+id,(status)=>{
+                if (status ==-1){
+                        alert('Khong the xoa Loai ban thang')
+                    }
+                    else {
+                         location.reload();
+                    }
+            })
+        })
+    });
+</script>
