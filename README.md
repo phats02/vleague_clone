@@ -3,7 +3,7 @@
 ## Introduction
 The Project of Introduction of Software.
 
-## I. How to use
+## I. How to run
 ###  I.1. Init Modules
 To install the modules listed above, follow these steps:  
 <ol> 
@@ -45,7 +45,10 @@ Make sure you have PostgreSQL installed on your system and that you have a datab
 ####  Config database  
 
 You change your personal config for your postgresql in <b>config/pg-config.js</b>  
-
+## I.3. Run the server:  
+```console
+npm start
+```
 ## II. Assignment Sheet:
 | Desciption | MSSV | Member|
 | --- | ----------- |-------|
