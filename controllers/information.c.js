@@ -18,8 +18,9 @@ exports.resultMatch=async(req,res,next)=>{
     res.json(match)
 }
 exports.allTeamPage=async(req,res,next)=>{
-    const allTeam=await informationM.getAllTeam()
-    res.json(allTeam)
+    //const allTeam=await informationM.getAllTeam()
+    //res.json(allTeam)
+    res.render('information/allteam')
 }
 exports.getPlayer=async (req,res,next)=>{
     const idDoi=req.params.id

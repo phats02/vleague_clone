@@ -1,22 +1,6 @@
-{{!-- <form action="/login" method="POST">
-  <div class="form-group">
-    <label for="text">Username:</label>
-    <input type="text" class="form-control" placeholder="Enter username" id="email" name="user">
-  </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password">
-  </div>
-  <div class="form-group form-check">
-    <label class="form-check-label">
-      <input class="form-check-input" type="checkbox"> Remember me
-    </label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form> --}}
 <div class="con">
-  <div></div>
-  <div style="width:40%;">
+  <div style=""><img style="width:80%"src="../Vector.png" alt=""></div>
+  <div style="width:60%;padding-left:10%; border-left : solid black 1px; height:70%">
     <h1>Đăng nhập vào hệ quản trị</h1>
     <form action="/login" method="POST">
       <div class="form-group">
@@ -32,7 +16,7 @@
           <input class="form-check-input" type="checkbox"> Ghi nhớ đăng nhập
         </label>
       </div>
-      <button type="submit" class="button">Submit</button>
+      <button type="submit" class="button">Đăng nhập</button>
     </form>
   </div>
 </div>
@@ -40,20 +24,26 @@
   body {
     width: 100vw;
     height: 100vh;
+    background-color: #cccccc;
+
+    background-image: url('../background.png');
+    
   }
 
   .con {
     margin: auto;
+    padding-top: 8%;
     width: 80%;
+    height: 70%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .button {
     display: flex;
     justify-content: center;
-    width: 5%;
+    width: 7%;
     height: 5%;
 
     font-family: 'Poppins';
