@@ -31,7 +31,10 @@ exports.login=(req,res,next)=>{
 exports.registration=async (req,res,next)=>{
     const rule=await homeM.getRule()
     const loaicauthu=await homeM.getLoaiCauThu()
-    //  res.render("regis")
     rule['LoaiCauThu']=loaicauthu
-    res.json(rule)
+    //  res.json(rule);
+    res.render("regis",{
+        Luat: rule,
+    })
+
 }

@@ -4,27 +4,39 @@
         Đăng ký tham gia đội bóng
     </div>
     <form action="" method="POST" style="display:flex; flex-direction:column; height:90%;">
-        <div style="display: flex; flex-direction:row; width:100%; height:70%; margin-top: 1%; justify-content:center">
+        <div style="display: flex; flex-direction:row; width:100%; height:80%; margin-top: 1%; justify-content:center">
             <div class="TeamInfo">
                 <div style="border-bottom: solid black 1px;"><i>*Thông tin đội bóng</i>
                 </div>
                 <div style="margin-top:5%">
                     <div class="form-group">
                         <label for="text">Tên đội:</label>
-                        <input type="text" class="form-control" name="TeamName">
+                        <input type="text" class="form-control teaminput" name="TeamName">
                     </div>
                     <div class="form-group">
                         <label for="pwd">Sân nhà:</label>
-                        <input type="text" class="form-control" name="TeamField">
+                        <input type="text" class="form-control teaminput" name="TeamField">
                     </div>
                     <div class="form-group">
                         <label for="pwd">Số lượng cầu thủ:</label>
-                        <input type="number" class="form-control" name="PlayerNum" id="PlayerNum">
+                        <input type="number" class="form-control teaminput" name="PlayerNum" id="PlayerNum">
                     </div>
+                    <div class="form-group">
+                        <label for="formFile" class="form-label">Chọn logo cho đội: </label>
+                        <input class="form-control teaminput" type="file" id="formFile">
+                    </div>
+                    <div class="form-group">
+                        <label for="formFile" class="form-label">Xác nhận: </label>
+                        <div style="display: flex; justify-content:start; width:60%">
+                            <input type="checkbox" id="confirmBut" class="teaminput">
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="PlayerInfo">
                 <div style="border-bottom: solid black 1px;"><i>*Thông tin cầu thủ</i></div>
+               
             </div>
         </div>
 
@@ -41,6 +53,10 @@
         border-right: solid black 1px;
     }
 
+    .form-control {
+        height: ;
+    }
+
     .PlayerInfo {
         font-size: 1.5vw;
         width: 55%;
@@ -54,12 +70,14 @@
 
     .form-control {
         width: 60%;
+        height: 100%;
     }
 
     .form-group {
         display: flex;
         flex-direction: row;
-        justify-content: space-around
+        justify-content: space-around;
+        height: 10%;
     }
 
     .button {
@@ -74,8 +92,6 @@
         border-radius: 1vh;
 
         color: #000000;
-
-
     }
 
     .but {
@@ -100,27 +116,35 @@
             $(".butCon").remove()
             for (var i = 1; i <= $("#PlayerNum").val(); i++) {
                 $(".PlayerInfo").append(`
-                    <div class="PlayerForm" style="margin-top:3.2%">
+                   <div class="PlayerForm" style="margin-top:3.2%">
                     <div class="form-group">
                         <label for="text">Tên cầu thủ ${i}:</label>
                         <input type="text" class="form-control" name="PlayerName">
                     </div>
                     <div class="form-group">
                         <label for="pwd">Ngày sinh cầu thủ ${i}:</label>
-                        <input type="date" class="form-control" name="TeamField">
+                        <input type="date" class="form-control" name="PlayerBD">
                     </div>
                     <div class="form-group">
                         <label for="pwd">Loại cầu thủ ${i}:</label>
-                        <input type="text" class="form-control" name="PlayerNum">
+                        <select name="PlayerType" id="cars" class="form-control">
+                            {{#each Luat.LoaiCauThu}}
+                            <option value={{MaLoaiCauThu}}>{{TenLoaiCauThu}}</option>
+                            {{/each}}
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Ghi chú cầu thủ ${i}:</label>
-                        <input type="text" class="form-control" name="PlayerNum">
+                        <input type="text" class="form-control" name="PlayerNote">
+                    </div>
+                    <div class="form-group" style="justify-content: start; padding-left:2.25%">
+                        <label for="pwd">Là cầu thủ nước ngoài:</label>
+                        <input type="checkbox" style="margin-left:6%">
                     </div>
                 </div>
                 `)
             }
-            if ($('#PlayerNum').val()) {
+            if ($('PlayerNum') && $('#PlayerNum').val() != 0) {
                 $('.PlayerInfo').append(`
                  <div style="display: flex; flex-direction:row; justify-content:end; height:10%;" class="butCon">
                     <div class="but"><img src="../back.png" alt="" id="pre"></div>
@@ -148,6 +172,9 @@
                 }
                 show()
             });
+        })
+        $('#confirmBut').click(function () {
+            $('.teaminput').attr("disabled", "true")
         })
 
     });
