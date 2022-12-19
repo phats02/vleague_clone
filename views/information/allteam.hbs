@@ -1,21 +1,12 @@
-<link rel="stylesheet" href="../CSS/information.css">
+<link rel="stylesheet" href="/CSS/information.css">
 <div class="con">
     <div class="title">
         Danh Sách Đội Bóng
     </div>
     <div class="imagecon">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-        <img src="../Logo/Sai-Gon 7.png" alt="">
-       
+    {{#each Doi }}
+        <img src="../Logo/{{MaDoi}}.png" id={{MaDoi}} alt="">
+    {{/each}}
     </div>
 </div>
 <style>
@@ -31,8 +22,19 @@
         overflow-y: auto;
         overflow-x: hidden;
     }
-    .imagecon img{
+    img{
         width:18% ;
         height:35% ;
     }
 </style>
+
+<script>
+    {{#each Doi}}
+    $(function(){
+         $(`#{{MaDoi}}`).click(function () {
+            window.location.href = `/information/team/{{MaDoi}}`;
+            return false;
+        });
+    })
+    {{/each}}
+</script>

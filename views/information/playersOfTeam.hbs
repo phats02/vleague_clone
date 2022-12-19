@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../CSS/information.css">
+<link rel="stylesheet" href="/CSS/information.css">
 <div class="con">
     <div class="title">
         Danh sách cầu thủ
@@ -6,86 +6,21 @@
     <table class="table scrolldown">
         <thead>
             <tr>
-                <th scope="col">STT</th>
+                <th scope="col">Mã Cầu Thủ</th>
                 <th scope="col"> Cầu thủ</th>
                 <th scope="col">Loại cầu thủ</th>
                 <th scope="col">Số bàn thắng</th>
             </tr>
         </thead>
         <tbody>
+            {{#each CauThu}}
             <tr>
-                <th scope="row">1</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
+                <th scope="row">{{MaCauThu}}</th>
+                <td>{{TenCauThu}}</td>
+                <td>{{LoaiCauThu}}</td>
+                <td>{{SoBanThang}}</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">6</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">7</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">8</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">9</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">10</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">11</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">12</th>
-                <td>Bùi Tấn Trường</td>
-                <td>Thủ môn</td>
-                <td>0</td>
-            </tr>
-
+           {{/each}}
 
         </tbody>
     </table>
@@ -93,10 +28,6 @@
 </div>
 
 <style>
-    .con {
-        overflow: unset;
-    }
-
     .table {
   
         font-size: 1.5vw;
