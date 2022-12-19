@@ -6,6 +6,7 @@ var upload = multer({ storage: multer.memoryStorage({}) })
 var passport = require('passport');
 
 router.get('/',homeC.landingPage)
+router.get('/registration',homeC.registration)
 router.use('/information',require("./information.r"))
 router.get('/login',homeC.login)
 router.post('/login',homeC.login)

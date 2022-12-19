@@ -1,4 +1,61 @@
-<a class="btn btn-primary" href="/{{currentURL}}/matchResult" role="button">Ghi kết quả trận đấu</a>
+{{!-- <a class="btn btn-primary" href="/{{currentURL}}/matchResult" role="button">Ghi kết quả trận đấu</a>
 <a class="btn btn-primary" href="/{{currentURL}}/report" role="button">Lập báo cáo giải</a>
 <a class="btn btn-primary" href="/{{currentURL}}/schedule" role="button">Chỉnh sửa lịch thi đấu</a>
-<a class="btn btn-primary" href="/{{currentURL}}/changeRule" role="button">Thay đổi quy định</a>
+<a class="btn btn-primary" href="/{{currentURL}}/changeRule" role="button">Thay đổi quy định</a> --}}
+
+
+<div class="con">
+    <div class="title">
+        Đăng Nhập Thành Công
+    </div>
+    <div class="butcon">
+        <div class="butcon2">
+            <div class="button" style=  "background: radial-gradient(50% 50% at 50% 50%, #2DB25E 0%, #096D3A 100%);
+            border-radius: 15px;"> <a href="/{{currentURL}}/matchResult">Ghi Kết Quả Trận </a></div>
+            <div class="button" style="background: linear-gradient(180deg, #F73E70 0%, #590BA8 100%);
+            border-radius: 15px;"> <a href="/{{currentURL}}/report"> Lập Báo Cáo Giải </a></div>
+        </div>
+        <div class="butcon2">
+            <div class="button" style="background: conic-gradient(from 180deg at 50% 50%, #3A8891 -20.63deg, #545863 168.75deg, #3A8891 339.37deg, #545863 528.75deg);
+            border-radius: 15px;"><a href="/{{currentURL}}/schedule">Chỉnh Sửa Lịch Thi Đấu</a>
+            </div>
+            <div class="button" style="background: linear-gradient(180deg, #15A6E5 19.79%, #3472EF 63.02%);
+            border-radius: 15px;"> <a href="/{{currentURL}}/changeRule"> Thay Đổi Quy Định </a></div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="../CSS/admin.css">
+<style>
+    .butcon {
+        margin-top: 5%;
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .butcon2 {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .button {
+        width: 30%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2vw;
+        text-align: center;
+        color: #FFFFFF;
+    }
+</style>

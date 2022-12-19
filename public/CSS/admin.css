@@ -1,0 +1,37 @@
+.title {
+
+    margin: auto;
+    margin-top: 0.5%;
+    width: 80%;
+    height: 10%;
+
+    text-align: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3vw;
+    line-height: 3vw;
+    color: black;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-bottom: solid 1vh black;
+
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #cccccc;
+
+    background-image: url('../background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+  }
+
+  .con {
+    margin: auto;
+    width: 80%;
+    height: 70%;
+  }
+
+  

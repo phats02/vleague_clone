@@ -7,4 +7,5 @@ router.get('/rule',informationC.rulePage)
 router.get('/resultLeague',informationC.resultMatch)
 router.get('/team',informationC.allTeamPage)
 router.get('/team/:id(\\d+)',informationC.getPlayer)
+router.get('/ranking',informationC.ranking)
 module.exports = router

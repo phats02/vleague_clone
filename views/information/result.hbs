@@ -1,0 +1,160 @@
+<link rel="stylesheet" href="../CSS/information.css">
+<div class="con">
+    <div class="title">
+        Kết Qủa Trận Đấu
+    </div>
+    <div style="display: flex; flex-direction:row; justify-content:space-around; height:80% ;width:90%; margin:auto">
+        <div class="but"><img src="../back.png" alt="" id="pre"></div>
+        <div class="teamScoreCon">
+            <div class="team">
+                <img src="../Logo/Sai-Gon 7.png" alt="">
+                <div class="teamname">Sông Lâm Nghệ An</div>
+                <div class="playergoal">
+                    <div>Mario Arqués 22'</div>
+                </div>
+            </div>
+            <div class="score">
+                <div class="teamname" style="border-bottom:0px; padding-bottom:5%">
+                    <b>18/12/2022 18:00 </b>
+                    <b> Sân vận động Vinh </b>
+                </div>
+                <div class="recScore">2 - 1</div>
+                <div class="teamname"></div>
+                <div class="playergoal">⚽</div>
+            </div>
+            <div class="team">
+                <img src="../Logo/Sai-Gon 8.png" alt="">
+                <div class="teamname"> Nam định</div>
+                <div class="playergoal">
+                    <div>Mario Arqués 22'</div>
+                </div>
+            </div>
+        </div>
+        <div class="teamScoreCon">
+            <div class="team">
+                <img src="../Logo/Sai-Gon 9.png" alt="">
+                <div class="teamname">Sông Lâm Nghệ An</div>
+                <div class="playergoal">
+                    <div>Mario Arqués 22'</div>
+                </div>
+            </div>
+            <div class="score">
+                <div class="recScore">3 - 0</div>
+                <div class="teamname">18/12/2022 18h</div>
+                <div class="playergoal">⚽</div>
+            </div>
+            <div class="team">
+                <img src="../Logo/Sai-Gon 10.png" alt="">
+                <div class="teamname"> Nam định</div>
+                <div class="playergoal">
+                    <div>Mario Arqués 22'</div>
+                </div>
+            </div>
+        </div>
+        <div class="but"><img src="../next.png" alt="" id="next"></div>
+    </div>
+</div>
+
+
+<style>
+    .teamScoreCon {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    .but {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 5%;
+        height: 100%;
+    }
+
+    .team {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .team img {
+        height: 35%;
+    }
+
+    .score {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .recScore {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: 35%;
+        background: #000000;
+        border-radius: 3vw;
+        color: white;
+        font-size: 9vw;
+    }
+
+    .teamname {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 20%;
+        text-align: center;
+        font-size: 2vw;
+        font-weight: 400;
+        font-family: 'Poppins';
+        border-bottom: solid black 1px;
+    }
+
+    .playergoal {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        height: 20%;
+        text-align: center;
+        font-size: 1.5vw;
+        font-weight: 400;
+        font-family: 'Poppins';
+        overflow: auto;
+    }
+</style>
+
+<script>
+    var visibleTeamScore = 0;
+    function show() {
+        $(".teamScoreCon").hide();
+        $(".teamScoreCon:eq(" + visibleTeamScore + ")").css("display", "flex");
+
+    }
+    $(function () {
+
+        show()
+        $("#next").click(function () {
+            if (visibleTeamScore == $(".teamScoreCon").length - 1) {
+                visibleTeamScore = 0;
+            }
+            else {
+                visibleTeamScore++;
+            }
+            show()
+        });
+        $("#pre").click(function () {
+            if (visibleTeamScore == 0) {
+                visibleTeamScore = $(".teamScoreCon").length - 1;
+            }
+            else {
+                visibleTeamScore--;
+            }
+            show()
+        });
+    });
+
+</script>

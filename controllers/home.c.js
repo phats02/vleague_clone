@@ -28,3 +28,6 @@ exports.login=(req,res,next)=>{
         }
     }
 }
+exports.registration=(req,res,next)=>(
+     res.render("regis")
+)

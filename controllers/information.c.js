@@ -14,16 +14,23 @@ exports.rulePage=(req,res,next)=>{
     })
 }
 exports.resultMatch=async(req,res,next)=>{
-    const match=await informationM.getResultMath(req.query.page || 0,1)
-    res.json(match)
+    // const match=await informationM.getResultMath(req.query.page || 0,1)
+    // res.json(match)
+    res.render('information/result')
 }
 exports.allTeamPage=async(req,res,next)=>{
     //const allTeam=await informationM.getAllTeam()
     //res.json(allTeam)
-    res.render('information/allteam')
+    // res.render('information/allteam')
+    res.render('information/playersOfTeam')
 }
 exports.getPlayer=async (req,res,next)=>{
     const idDoi=req.params.id
     const players=await informationM.getPlayerOfTeam(idDoi)
     res.json(players)
+}
+
+exports.ranking=async(req,res,next)=>{
+    
+     res.render('information/ranking')
 }

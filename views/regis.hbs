@@ -1,0 +1,154 @@
+<link rel="stylesheet" href="../CSS/information.css">
+<div class="con">
+    <div class="title">
+        Đăng ký tham gia đội bóng
+    </div>
+    <form action="" method="POST" style="display:flex; flex-direction:column; height:90%;">
+        <div style="display: flex; flex-direction:row; width:100%; height:70%; margin-top: 1%; justify-content:center">
+            <div class="TeamInfo">
+                <div style="border-bottom: solid black 1px;"><i>*Thông tin đội bóng</i>
+                </div>
+                <div style="margin-top:5%">
+                    <div class="form-group">
+                        <label for="text">Tên đội:</label>
+                        <input type="text" class="form-control" name="TeamName">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Sân nhà:</label>
+                        <input type="text" class="form-control" name="TeamField">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Số lượng cầu thủ:</label>
+                        <input type="number" class="form-control" name="PlayerNum" id="PlayerNum">
+                    </div>
+                </div>
+            </div>
+            <div class="PlayerInfo">
+                <div style="border-bottom: solid black 1px;"><i>*Thông tin cầu thủ</i></div>
+            </div>
+        </div>
+
+        <div style="width:100%; height:7%; padding-left:35%; margin-top: 2%"><button type="submit" class="button">Đăng
+                ký</button></div>
+    </form>
+</div>
+
+<style>
+    .TeamInfo {
+        font-size: 1.5vw;
+        width: 35%;
+        height: 100%;
+        border-right: solid black 1px;
+    }
+
+    .PlayerInfo {
+        font-size: 1.5vw;
+        width: 55%;
+        height: 100%;
+    }
+
+    label {
+        width: 30%;
+        font-size: 1.2vw;
+    }
+
+    .form-control {
+        width: 60%;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around
+    }
+
+    .button {
+        width: 7%;
+        height: 5%;
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 2vh;
+        text-align: center;
+        border-radius: 1vh;
+
+        color: #000000;
+
+
+    }
+
+    .but {
+        margin-left: 5%;
+    }
+
+    img {
+
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<script>
+    var visiblePlayer = 0;
+    function show() {
+        $(".PlayerForm").hide();
+        $(".PlayerForm:eq(" + visiblePlayer + ")").show();
+    }
+    $(function () {
+        $("#PlayerNum").on("input", () => {
+            $(".PlayerForm").remove()
+            $(".butCon").remove()
+            for (var i = 1; i <= $("#PlayerNum").val(); i++) {
+                $(".PlayerInfo").append(`
+                    <div class="PlayerForm" style="margin-top:3.2%">
+                    <div class="form-group">
+                        <label for="text">Tên cầu thủ ${i}:</label>
+                        <input type="text" class="form-control" name="PlayerName">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Ngày sinh cầu thủ ${i}:</label>
+                        <input type="date" class="form-control" name="TeamField">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Loại cầu thủ ${i}:</label>
+                        <input type="text" class="form-control" name="PlayerNum">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Ghi chú cầu thủ ${i}:</label>
+                        <input type="text" class="form-control" name="PlayerNum">
+                    </div>
+                </div>
+                `)
+            }
+            if ($('#PlayerNum').val()) {
+                $('.PlayerInfo').append(`
+                 <div style="display: flex; flex-direction:row; justify-content:end; height:10%;" class="butCon">
+                    <div class="but"><img src="../back.png" alt="" id="pre"></div>
+                    <div class="but"><img src="../next.png" alt="" id="next"></div>
+                </div>`
+                )
+            }
+            visiblePlayer = 0;
+            show()
+            $("#next").click(function () {
+                if (visiblePlayer == $(".PlayerForm").length - 1) {
+                    visiblePlayer = 0;
+                }
+                else {
+                    visiblePlayer++;
+                }
+                show()
+            });
+            $("#pre").click(function () {
+                if (visiblePlayer == 0) {
+                    visiblePlayer = $(".PlayerForm").length - 1;
+                }
+                else {
+                    visiblePlayer--;
+                }
+                show()
+            });
+        })
+
+    });
+</script>
