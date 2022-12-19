@@ -29,5 +29,6 @@ module.exports={
         where "CAUTHU"."MaDoi"=${maDoi} and "LOAICAUTHU"."MaLoaiCauThu"="CAUTHU"."MaLoaiCauThu"
         order by "LOAICAUTHU"."MaLoaiCauThu" `)
         return rs
-    }
+    },
+
 }

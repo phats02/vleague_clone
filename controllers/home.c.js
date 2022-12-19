@@ -28,6 +28,10 @@ exports.login=(req,res,next)=>{
         }
     }
 }
-exports.registration=(req,res,next)=>(
-     res.render("regis")
-)
+exports.registration=async (req,res,next)=>{
+    const rule=await homeM.getRule()
+    const loaicauthu=await homeM.getLoaiCauThu()
+    //  res.render("regis")
+    rule['LoaiCauThu']=loaicauthu
+    res.json(rule)
+}
