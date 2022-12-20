@@ -22,8 +22,9 @@ require('./config/passport.js')(app)
 app.use('/',routersHome)
 
 app.use((err,req,res,next)=>{
-    const status=err.status | 500
-    res.status(status).send(err.message)
+    res.render('404',{
+        title:'404'
+    })
 })
 
 app.listen(port,()=>console.log(`Running app in port ${port}`))

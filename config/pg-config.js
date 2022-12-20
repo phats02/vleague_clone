@@ -3,6 +3,6 @@ module.exports = {
     port: 5432,
     database: 'QuanLyBongDa',
     user: 'postgres',
-    password: '010203',
+    password: 'quangphat1',
     max: 30 // use up to 30 connections
 };
