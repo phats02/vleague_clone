@@ -177,6 +177,7 @@
                 else {
                     visiblePlayer++;
                 }
+                $("#registration").valid()
                 show()
             });
             $("#pre").click(function () {
@@ -186,6 +187,7 @@
                 else {
                     visiblePlayer--;
                 }
+                $("#registration").valid()
                 show()
             });
         }
@@ -207,7 +209,7 @@
                 },
                 PlayerNum: {
                     required: true,
-                    min: 0 ,//{{ Luat.SoCauthutoiThieu }},
+                    min: {{ Luat.SoCauthutoiThieu }},
                     max: {{ Luat.SoCauThuToiDa }},
                     },
                 logo: {
@@ -261,20 +263,22 @@
 
         $.validator.addMethod("cRequired", $.validator.methods.required, "Hãy nhập thông tin");
 
-        $.validator.addClassRules("PlayerBD", { cAge: true });
+        $.validator.addClassRules("PlayerBD", { cAge: true,cRequired:true });
         $.validator.addClassRules("PlayerName", { cRequired: true, });
 
 
         $.validator.addMethod("cForeignCount", function(value,element){
-            console.log(element.name)
-            eleName=element.name;
-            if($(`[name=${eleName}]`).is(":checked")){
-                ForCount++;
-            }
-            console.log(ForCount)
+            
+                for(var i=0;i<$('.isFor').length;i++){
+                    if($(`[name=isFor${i+1}]`).is(":checked")){
+                        ForCount++;
+                    }
+                }
             if(ForCount>3){
+                ForCount=0;
                 return false
             }
+            ForCount=0;
             return true;
         },"Số cầu thủ nước ngoài phải dưới 3")
         $.validator.addClassRules("isFor",{cForeignCount:true})
