@@ -3,12 +3,14 @@ const adminM = require('../models/admin.m')
 const url_helper = require('../helper/url_helper')
 const { updateThamSo, getMatchUnfinished } = require('../models/admin.m')
 const db = require('../models/db')
+const jwt = require('jsonwebtoken')
 
 exports.menu = (req, res, next) => {
     try {
         res.render('admin/menu', {
             title: "Admin Menu",
-            currentURL: url_helper.formatURL(req.originalUrl)
+            currentURL: url_helper.formatURL(req.originalUrl),
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
         })
     }
     catch (err) {
@@ -26,7 +28,8 @@ exports.mathResult = async (req, res, next) => {
             matches: matches,
             title: "Change Match Result",
             currentURL: url_helper.formatURL(req.originalUrl),
-            LoaiBanThang: LoaiBanThang
+            LoaiBanThang: LoaiBanThang,
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
         })
     }
     else if (req.method == 'POST') {
@@ -35,7 +38,6 @@ exports.mathResult = async (req, res, next) => {
             if (req.body['player-team-2'] && typeof req.body['player-team-2'] == 'int') req.body['player-team-2'] = new Array(req.body['player-team-2'])
             const rs = await adminM.updateMatch(req.body, idMatch)
             res.redirect('/admin')
-
         }
         catch (err) {
             next(err)
@@ -64,6 +66,7 @@ exports.changeRule = async (req, res, next) => {
                 THAMSO: THAMSO,
                 LOAIBANTHANG: LOAIBANTHANG,
                 currentURl: url_helper.formatURL(req.originalUrl),
+                account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
             })
         }
         else if (req.method == 'POST') {
@@ -99,7 +102,8 @@ exports.schedule = async (req, res, next) => {
         // console.log(TRANDAU)
         res.render('admin/schedule', {
             title: 'Schedule',
-            TRANDAU: TRANDAU
+            TRANDAU: TRANDAU,
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
         })
     }
     catch (err) {
@@ -115,6 +119,7 @@ exports.addMatch = async (req, res, next) => {
                 SAN: san,
                 DOI: doi,
                 currentURL: url_helper.formatURL(req.originalUrl),
+                account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
             })
         }
         else {

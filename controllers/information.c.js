@@ -2,11 +2,13 @@ const e = require('express')
 const informationM = require('../models/information.m')
 const url_helper = require('../helper/url_helper')
 const db = require('../models/db')
+const jwt=require('jsonwebtoken')
 exports.menuPage = (req, res, next) => {
     try {
         res.render('information/menu', {
             title: 'Thông tin giải đấu',
-            currentURL: url_helper.formatURL(req.originalUrl)
+            currentURL: url_helper.formatURL(req.originalUrl),
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
         })
     }
     catch (err) {
@@ -16,6 +18,7 @@ exports.menuPage = (req, res, next) => {
 exports.rulePage = (req, res, next) => {
     res.render('information/rule', {
         title: 'Luật',
+        account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
     })
 }
 exports.resultMatch = async (req, res, next) => {
@@ -24,6 +27,8 @@ exports.resultMatch = async (req, res, next) => {
         //  res.json(match)
         res.render('information/result', {
             Tran: match,
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null,
+            title:'Match Result'
         })
     }
     catch (err) {
@@ -35,7 +40,9 @@ exports.allTeamPage = async (req, res, next) => {
         const allTeam = await informationM.getAllTeam()
         //res.json(allTeam)
         res.render('information/allteam', {
-            Doi: allTeam
+            Doi: allTeam,
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null,
+            title:"Teams"
         })
     }
     catch (err) {
@@ -49,6 +56,8 @@ exports.getPlayer = async (req, res, next) => {
         //res.json(players)
         res.render('information/playersOfTeam', {
             CauThu: players,
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null,
+            title:"Players"
         })
     } catch (err) {
         next(err)
@@ -57,7 +66,10 @@ exports.getPlayer = async (req, res, next) => {
 
 exports.ranking = async (req, res, next) => {
     try {
-        res.render('information/ranking')
+        res.render('information/ranking',{
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null,
+            title:'Ranking'
+        })
     }
     catch (err) {
         next(err)

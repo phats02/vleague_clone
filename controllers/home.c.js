@@ -4,8 +4,10 @@ var jwt = require('jsonwebtoken');
 var opts = require("../config/opts")
 exports.landingPage = (req, res, next) => {
     try {
+        
         res.render('home/landingPage', {
-            title: 'Home'
+            title: 'Home',
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
         })
     }
     catch (err) {
@@ -15,8 +17,12 @@ exports.landingPage = (req, res, next) => {
 exports.login = (req, res, next) => {
     if (req.method == 'GET') {
         try {
+            if (req.isAuthenticated()){
+                return res.redirect('/admin')
+            }
             res.render('login', {
-                title: "Login"
+                title: "Login",
+                account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
             })
         }
         catch (err) {
@@ -34,7 +40,8 @@ exports.login = (req, res, next) => {
             }
             else {
                 res.render('login', {
-                    title: "Login"
+                    title: "Login",
+                    account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
                 })
             }
         }
@@ -44,16 +51,21 @@ exports.login = (req, res, next) => {
     }
 }
 exports.registration = async (req, res, next) => {
-    try{
-    const rule = await homeM.getRule()
-    const loaicauthu = await homeM.getLoaiCauThu()
-    rule['LoaiCauThu'] = loaicauthu
-    //  res.json(rule);
-    res.render("regis", {
-        Luat: rule,
-    })
+    try {
+        const rule = await homeM.getRule()
+        const loaicauthu = await homeM.getLoaiCauThu()
+        rule['LoaiCauThu'] = loaicauthu
+        //  res.json(rule);
+        res.render("regis", {
+            Luat: rule,
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
+        })
     }
-    catch(err){
+    catch (err) {
         next(err)
     }
+}
+exports.logout=(req,res,next)=>{
+    res.cookie('jwt','',{ maxAge:1, httpOnly: true, })
+    res.redirect('/')
 }
