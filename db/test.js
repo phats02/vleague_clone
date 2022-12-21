@@ -24,7 +24,7 @@ for (let i = 1 ; i < 3 ; i++){
                 }
             }
             trandau[a] = {
-                VongDau: sovong,
+                vongDau: sovong,
                 NgayGio: gio[Math.floor(Math.random() * 3)],
                 San: TenSan,
                 Doi1: dsDoiBongThamDu[home-1].TenDoi,
@@ -51,7 +51,7 @@ for (let i = 1 ; i < 3 ; i++){
                 if(sovong == 1)
                 {
                     trandau[a] = {
-                    VongDau: sovong,
+                    vongDau: sovong,
                     NgayGio: gio[Math.floor(Math.random() * 3)],
                     San: TenSan,
                     Doi1: dsDoiBongThamDu[home-1].TenDoi,
@@ -63,13 +63,11 @@ for (let i = 1 ; i < 3 ; i++){
                 }
                 else{
                     trandau[a] = {
-                        VongDau: sovong,
+                        vongDau: sovong,
                         NgayGio: gio[Math.floor(Math.random() * 3)],
                         San: TenSan,
                         Doi1:  dsDoiBongThamDu[home-1].TenDoi,
                         Doi2: dsDoiBongThamDu[away-1].TenDoi, 
-                        SoBanThangDoi1: null,
-                        SoBanThangDoi2: null 
                     }
                     a++;
                 }

@@ -276,20 +276,35 @@
     ],
     "San":
     [
-        {"MaSan":"1000","TenSan":"Sân vận động Hàng Đẫy"},
-        {"MaSan":"1001","TenSan":"Sân vận động Lạch Tray"},
-        {"MaSan":"1002","TenSan":"Sân vận động Qui Nhơn"},
-        {"MaSan":"1003","TenSan":"Sân vận động Hàng Đẫy"},
-        {"MaSan":"1004","TenSan":"Sân vận động Vinh"},
-        {"MaSan":"1005","TenSan":"Sân vận động Pleiku"},
-        {"MaSan":"1006","TenSan":"Sân vận động Gò Đậu"},
-        {"MaSan":"1007","TenSan":"Sân vận động Thanh Hóa"},
-        {"MaSan":"1008","TenSan":"Sân vận động Thống Nhất"},
-        {"MaSan":"1009","TenSan":"Sân Vận Động Hòa Xuân"},
-        {"MaSan":"1010","TenSan":"Sân Vận động tỉnh Hà Tĩnh"},
-        {"MaSan":"1011","TenSan":"Sân vận động Thiên Trường"},
-        {"MaSan":"1012","TenSan":"Sân vận động Thống Nhất"},
-        {"MaSan":"1013","TenSan":"Sân vận động Quảng Nam"}
+
+        {"TenSan":"Sân vận động Hàng Đẫy"},
+        {"TenSan":"Sân vận động Lạch Tray"},
+        {"TenSan":"Sân vận động Qui Nhơn"},
+        {"TenSan":"Sân vận động Hàng Đẫy"},
+        {"TenSan":"Sân vận động Vinh"},
+        {"TenSan":"Sân vận động Pleiku"},
+        {"TenSan":"Sân vận động Gò Đậu"},
+        {"TenSan":"Sân vận động Thanh Hóa"},
+        {"TenSan":"Sân vận động Thống Nhất"},
+        {"TenSan":"Sân Vận Động Hòa Xuân"},
+        {"TenSan":"Sân Vận động tỉnh Hà Tĩnh"},
+        {"TenSan":"Sân vận động Thiên Trường"},
+        {"TenSan":"Sân vận động Thống Nhất"},
+        {"TenSan":"Sân vận động Quảng Nam"}
+            ],
+    "LoaiBanThang":
+    [
+        {"TenLoaiBanThang":"Penaty"},
+        {"TenLoaiBanThang":"Đánh đầu"},
+        {"TenLoaiBanThang":"Sút phạt"},
+        {"TenLoaiBanThang":"Sút"}
+    ],
+    "LoaiCauThu":
+    [
+        {"TenLoaiCauThu":"Thủ môn"},
+        {"TenLoaiCauThu":"Hậu"},
+        {"TenLoaiCauThu":"Tiền vệ"},
+        {"TenLoaiCauThu":"Tiền đạo"}
     ]
-   
 }
+

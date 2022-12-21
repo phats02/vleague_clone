@@ -61,8 +61,7 @@ for (let i = 1 ; i < 2*n ; i++){
                     VongDau: sovong,
                     Doi1:  dsDoiBongThamDu[home-1].TenDoi,
                     Doi2: dsDoiBongThamDu[away-1].TenDoi, 
-                    SoBanThangDoi1: Math.floor(Math.random() * 5),
-                    SoBanThangDoi2: Math.floor(Math.random() * 5)
+                    Tiso: SoBanThangDoi1 + ' - ' + SoBanThangDoi2
                     }
                     console.log(trandau);
             }

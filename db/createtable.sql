@@ -5,18 +5,19 @@ BEGIN;
 
 CREATE TABLE IF NOT EXISTS public."CAUTHU"
 (
-    "MaCauThu" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( START 1000 ),
+    "MaCauThu" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     "TenCauThu" character varying(40) COLLATE pg_catalog."default" NOT NULL,
     "NgaySinh" date NOT NULL,
     "MaLoaiCauThu" integer NOT NULL,
     "MaDoi" integer NOT NULL,
     "GhiBan" integer NOT NULL,
+    "NgoaiQuoc" boolean NOT NULL DEFAULT false,
     CONSTRAINT "CAUTHU_pkey" PRIMARY KEY ("MaCauThu")
 );
 
 CREATE TABLE IF NOT EXISTS public."DOI"
 (
-    "MaDoi" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( START 1000 ),
+    "MaDoi" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     "TenDoi" character varying(40) COLLATE pg_catalog."default" NOT NULL,
     "MaSan" integer NOT NULL,
     "SoCauThu" integer NOT NULL,
@@ -25,7 +26,7 @@ CREATE TABLE IF NOT EXISTS public."DOI"
 
 CREATE TABLE IF NOT EXISTS public."GHIBAN"
 (
-    "MaBanThang" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( START 1000 ),
+    "MaBanThang" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     "MaTranDau" integer NOT NULL,
     "MaCauThu" integer NOT NULL,
     "ThoiDiem" integer NOT NULL,
@@ -35,28 +36,39 @@ CREATE TABLE IF NOT EXISTS public."GHIBAN"
 
 CREATE TABLE IF NOT EXISTS public."LOAIBANTHANG"
 (
-    "MaLoaiBanThang" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( START 1000 ),
+    "MaLoaiBanThang" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     "TenLoaiBanThang" character varying(40) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "LOAIBANTHANG_pkey" PRIMARY KEY ("MaLoaiBanThang")
 );
 
 CREATE TABLE IF NOT EXISTS public."LOAICAUTHU"
 (
-    "MaLoaiCauThu" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( START 1000 ),
+    "MaLoaiCauThu" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     "TenLoaiCauThu" character varying(40) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "LOAICAUTHU_pkey" PRIMARY KEY ("MaLoaiCauThu")
 );
 
+CREATE TABLE IF NOT EXISTS public."RANKING"
+(
+    "MaDoi" integer NOT NULL,
+    "SoTranThang" integer,
+    "SoTranHoa" integer,
+    "SoTranThua" integer,
+    "HieuSo" integer,
+    "Rank" integer,
+    CONSTRAINT "RANKING_pkey" PRIMARY KEY ("MaDoi")
+);
+
 CREATE TABLE IF NOT EXISTS public."SAN"
 (
-    "MaSan" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( START 1000 ),
+    "MaSan" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     "TenSan" character varying(40) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "SAN_pkey" PRIMARY KEY ("MaSan")
 );
 
 CREATE TABLE IF NOT EXISTS public."TAIKHOAN"
 (
-    "MaTK" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( START 1000 ),
+    "MaTK" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     "TenTaiKhoanAdmin" character varying(10) COLLATE pg_catalog."default" NOT NULL,
     "MatKhau" character varying(40) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "TAIKHOAN_pkey" PRIMARY KEY ("MaTK")
@@ -78,14 +90,14 @@ CREATE TABLE IF NOT EXISTS public."THAMSO"
 
 CREATE TABLE IF NOT EXISTS public."TRANDAU"
 (
-    "MaTranDau" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( START 1000 ),
+    "MaTranDau" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     "MaDoi1" integer NOT NULL,
     "MaDoi2" integer NOT NULL,
-    "NgayGio" date NOT NULL,
+    "NgayGio" timestamp with time zone NOT NULL,
     "MaSan" integer NOT NULL,
     "VongDau" integer NOT NULL,
-    "SoBanThangDoi1" integer NOT NULL,
-    "SoBanThangDoi2" integer NOT NULL,
+    "SoBanThangDoi1" integer,
+    "SoBanThangDoi2" integer,
     CONSTRAINT "MaSan" PRIMARY KEY ("MaTranDau")
 );
 
@@ -135,6 +147,16 @@ ALTER TABLE IF EXISTS public."GHIBAN"
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."RANKING"
+    ADD CONSTRAINT "MaDoi" FOREIGN KEY ("MaDoi")
+    REFERENCES public."DOI" ("MaDoi") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+CREATE INDEX IF NOT EXISTS "RANKING_pkey"
+    ON public."RANKING"("MaDoi");
 
 
 ALTER TABLE IF EXISTS public."TRANDAU"
