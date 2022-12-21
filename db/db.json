@@ -13,7 +13,7 @@
         {"TenDoi": "Hồng Lĩnh Hà Tĩnh","MaSan":"1010","SoCauThu": 15},
         {"TenDoi": "Nam Định","MaSan":"1011","SoCauThu": 16},
         {"TenDoi": "Sài Gòn","MaSan":"1012","SoCauThu": 17},
-        {"TenDoi": "Quảng Nam","MaSan":"1013","SoCauThu": 17}
+        {"TenDoi": "Quảng Nam","MaSan":"1013","SoCauThu": 16}
     ],  
     "CauThu":
     [
@@ -254,6 +254,24 @@
             {"TenCauThu":"Hoàng Minh Tuấn","NgaySinh":"26/08/1995","MaLoaiCauThu":1003,"MaDoi":1012,"GhiBan":1},
             {"TenCauThu":"Đỗ Merlo","NgaySinh":"26/01/1985","MaLoaiCauThu":1003,"MaDoi":1012,"GhiBan":6},
             {"TenCauThu":"Matheus Vieira Da Silva","NgaySinh":"18/06/1997","MaLoaiCauThu":1003,"MaDoi":1012,"GhiBan":3}
+        ],
+        [
+            {"TenCauThu":"Phí Minh Long","NgaySinh":"11/02/1995","MaLoaiCauThu":1000,"MaDoi":1013,"GhiBan":0},
+            {"TenCauThu":"Tống Đức An","NgaySinh":"21/03/1991","MaLoaiCauThu":1000,"MaDoi":1013,"GhiBan":0},
+            {"TenCauThu":"Huỳnh Tấn Sinh","NgaySinh":"06/04/1998","MaLoaiCauThu":1001,"MaDoi":1013,"GhiBan":0},
+            {"TenCauThu":"Lê Thành Phong","NgaySinh":"22/04/1998","MaLoaiCauThu":1001,"MaDoi":1013,"GhiBan":0},
+            {"TenCauThu":"Nguyễn Văn Toản","NgaySinh":"18/01/1997","MaLoaiCauThu":1001,"MaDoi":1013,"GhiBan":0},
+            {"TenCauThu":"Mạc Đức Việt Anh","NgaySinh":"16/01/1997","MaLoaiCauThu":1001,"MaDoi":1013,"GhiBan":1},
+            {"TenCauThu":"Trần Văn Tâm","NgaySinh":"13/02/1991","MaLoaiCauThu":1001,"MaDoi":1013,"GhiBan":0},
+            {"TenCauThu":"Nguyễn Hữu Tuấn","NgaySinh":"26/01/1999","MaLoaiCauThu":1001,"MaDoi":1013,"GhiBan":0},
+            {"TenCauThu":"Hồ Minh Dĩ","NgaySinh":"17/02/1998","MaLoaiCauThu":1002,"MaDoi":1013,"GhiBan":2},
+            {"TenCauThu":"Mạch Ngọc Hà","NgaySinh":"10/09/2000","MaLoaiCauThu":1002,"MaDoi":1013,"GhiBan":5},
+            {"TenCauThu":"Nguyễn Vũ Tín","NgaySinh":"01/01/1998","MaLoaiCauThu":1002,"MaDoi":1013,"GhiBan":1},
+            {"TenCauThu":"Bùi Văn Hiếu","NgaySinh":"02/10/1989","MaLoaiCauThu":1002,"MaDoi":1013,"GhiBan":1},
+            {"TenCauThu":"Ngân Văn Đại","NgaySinh":"09/02/1992","MaLoaiCauThu":1002,"MaDoi":1013,"GhiBan":5},
+            {"TenCauThu":"Hoàng Thế Tài","NgaySinh":"23/06/1998","MaLoaiCauThu":1002,"MaDoi":1013,"GhiBan":3},
+            {"TenCauThu":"Lê Văn Nam","NgaySinh":"30/10/1999","MaLoaiCauThu":1003,"MaDoi":1013,"GhiBan":3},
+            {"TenCauThu":"Hà Minh Tuấn","NgaySinh":"10/01/1991","MaLoaiCauThu":1003,"MaDoi":1013,"GhiBan":5},
         ]
     ]
    
