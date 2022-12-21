@@ -68,6 +68,8 @@ for (let i = 1 ; i < 3 ; i++){
                         San: TenSan,
                         Doi1:  dsDoiBongThamDu[home-1].TenDoi,
                         Doi2: dsDoiBongThamDu[away-1].TenDoi, 
+                        SoBanThangDoi1: null,
+                        SoBanThangDoi2: null 
                     }
                     a++;
                 }
