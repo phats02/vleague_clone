@@ -1,0 +1,15 @@
+[
+    {"vongDau":1,"NgayGio":"19:00","San":"Sân vận động Hàng Đẫy","Doi1":"Hà Nội FC","Doi2":"Quảng Nam","SoBanThangDoi1":4,"SoBanThangDoi2":4},
+    {"vongDau":1,"NgayGio":"18:00","San":"Sân vận động Thống Nhất","Doi1":"Sài Gòn","Doi2":"Hải Phòng","SoBanThangDoi1":2,"SoBanThangDoi2":0},
+    {"vongDau":1,"NgayGio":"18:00","San":"Sân vận động Thiên Trường","Doi1":"Nam Định","Doi2":"Bình Định","SoBanThangDoi1":3,"SoBanThangDoi2":0},
+    {"vongDau":1,"NgayGio":"18:00","San":"Sân Vận động tỉnh Hà Tĩnh","Doi1":"Hồng Lĩnh Hà Tĩnh","Doi2":"Viettel","SoBanThangDoi1":3,"SoBanThangDoi2":1},
+    {"vongDau":1,"NgayGio":"17:00","San":"Sân Vận Động Hòa Xuân","Doi1":"SHB Đà Nẵng","Doi2":"Sông Lam Nghệ An","SoBanThangDoi1":1,"SoBanThangDoi2":3},
+    {"vongDau":1,"NgayGio":"17:00","San":"Sân vận động Thống Nhất","Doi1":"Hồ Chí Minh FC","Doi2":"Hoàng Anh Gia Lai","SoBanThangDoi1":1,"SoBanThangDoi2":2},
+    {"vongDau":1,"NgayGio":"18:00","San":"Sân vận động Thanh Hóa","Doi1":"Đông Á Thanh Hoá","Doi2":"Bình Dương","SoBanThangDoi1":0,"SoBanThangDoi2":4},
+    {"vongDau":2,"NgayGio":"18:00","San":"Sân vận động Lạch Tray","Doi1":"Hải Phòng","Doi2":"Quảng Nam","SoBanThangDoi1":3,"SoBanThangDoi2":4},
+    {"vongDau":2,"NgayGio":"19:00","San":"Sân vận động Hàng Đẫy","Doi1":"Hà Nội FC","Doi2":"Bình Định"},
+    {"vongDau":2,"NgayGio":"19:00","San":"Sân vận động Thống Nhất","Doi1":"Sài Gòn","Doi2":"Viettel"},
+    {"vongDau":2,"NgayGio":"18:00","San":"Sân vận động Thiên Trường","Doi1":"Nam Định","Doi2":"Sông Lam Nghệ An"},
+    {"vongDau":2,"NgayGio":"18:00","San":"Sân Vận động tỉnh Hà Tĩnh","Doi1":"Hồng Lĩnh Hà Tĩnh","Doi2":"Hoàng Anh Gia Lai"},
+    {"vongDau":2,"NgayGio":"17:00","San":"Sân Vận Động Hòa Xuân","Doi1":"SHB Đà Nẵng","Doi2":"Bình Dương"},
+    {"vongDau":2,"NgayGio":"18:00","San":"Sân vận động Thống Nhất","Doi1":"Hồ Chí Minh FC","Doi2":"Đông Á Thanh Hoá"}]
