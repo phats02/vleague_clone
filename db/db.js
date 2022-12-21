@@ -13,9 +13,9 @@ for (let i = 1 ; i < 2*n ; i++){
                 SoBanThangDoi1=Math.floor(Math.random() * 5);
                 SoBanThangDoi2=Math.floor(Math.random() * 5);
                 let trandau = {
-                    vongDau: sovong,
-                    doiNha:  dsDoiBongThamDu[home-1].TenDoi,
-                    doiKhach: dsDoiBongThamDu[away-1].TenDoi, 
+                    VongDau: sovong,
+                    Doi1:  dsDoiBongThamDu[home-1].TenDoi,
+                    Doi2: dsDoiBongThamDu[away-1].TenDoi, 
                     Tiso: SoBanThangDoi1 + ' - ' + SoBanThangDoi2
                 }
                 console.log(trandau);
@@ -30,9 +30,9 @@ for (let i = 1 ; i < 2*n ; i++){
                     SoBanThangDoi1=Math.floor(Math.random() * 5);
                     SoBanThangDoi2=Math.floor(Math.random() * 5);
                     let trandau = {
-                        vongDau: sovong,
-                        doiNha:  dsDoiBongThamDu[home-1].TenDoi,
-                        doiKhach: dsDoiBongThamDu[away-1].TenDoi, 
+                        VongDau: sovong,
+                        Doi1:  dsDoiBongThamDu[home-1].TenDoi,
+                        Doi2: dsDoiBongThamDu[away-1].TenDoi, 
                         Tiso: SoBanThangDoi1 + ' - ' + SoBanThangDoi2
                     }
                     console.log(trandau);
@@ -52,9 +52,9 @@ for (let i = 1 ; i < 2*n ; i++){
             SoBanThangDoi2=Math.floor(Math.random() * 5);
             let trandau = {
                      
-                vongDau: sovong,
-                doiNha:  dsDoiBongThamDu[home-1].TenDoi,
-                doiKhach: dsDoiBongThamDu[away-1].TenDoi, 
+                VongDau: sovong,
+                Doi1:  dsDoiBongThamDu[home-1].TenDoi,
+                Doi2: dsDoiBongThamDu[away-1].TenDoi, 
                 Tiso: SoBanThangDoi1 + ' - ' + SoBanThangDoi2
                 }
                 console.log(trandau);
@@ -69,9 +69,9 @@ for (let i = 1 ; i < 2*n ; i++){
                 SoBanThangDoi1=Math.floor(Math.random() * 5);
                 SoBanThangDoi2=Math.floor(Math.random() * 5);
                 let trandau = {
-                    vongDau: sovong,
-                    doiNha:  dsDoiBongThamDu[home-1].TenDoi,
-                    doiKhach: dsDoiBongThamDu[away-1].TenDoi, 
+                    VongDau: sovong,
+                    Doi1:  dsDoiBongThamDu[home-1].TenDoi,
+                    Doi2: dsDoiBongThamDu[away-1].TenDoi, 
                     Tiso: SoBanThangDoi1 + ' - ' + SoBanThangDoi2
                     }
                     console.log(trandau);
