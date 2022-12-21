@@ -1,8 +1,8 @@
 const fs = require('fs');
 
 let rawdata = fs.readFileSync('./db.json');
-let student = JSON.parse(rawdata);
-let dsDoiBongThamDu = student.Doi;
+let doibong = JSON.parse(rawdata);
+let dsDoiBongThamDu = doibong.Doi;
 var n= dsDoiBongThamDu.length/2;
 for (let i = 1 ; i < 2*n ; i++){
     let sovong=i;
