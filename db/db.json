@@ -12,7 +12,8 @@
         {"TenDoi": "SHB Đà Nẵng","MaSan":"1009","SoCauThu": 17},
         {"TenDoi": "Hồng Lĩnh Hà Tĩnh","MaSan":"1010","SoCauThu": 15},
         {"TenDoi": "Nam Định","MaSan":"1011","SoCauThu": 16},
-        {"TenDoi": "Sài Gòn","MaSan":"1012","SoCauThu": 17}
+        {"TenDoi": "Sài Gòn","MaSan":"1012","SoCauThu": 17},
+        {"TenDoi": "Quảng Nam","MaSan":"1013","SoCauThu": 17}
     ],  
     "CauThu":
     [
