@@ -189,7 +189,7 @@ BEGIN
 	FROM "temp_table"
 	WHERE "RANKING"."MaDoi"="temp_table"."MaDoi";
 	
-	--drop table "temp_table";
+	drop table "temp_table";
 	
 	RETURN NEW;
 END;
