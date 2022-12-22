@@ -1,7 +1,7 @@
 const e = require('express')
 const adminM = require('../models/admin.m')
 const url_helper = require('../helper/url_helper')
-const { updateThamSo, getMatchUnfinished } = require('../models/admin.m')
+// const { updateThamSo, getMatchUnfinished } = require('../models/admin.m')
 const db = require('../models/db')
 const jwt = require('jsonwebtoken')
 

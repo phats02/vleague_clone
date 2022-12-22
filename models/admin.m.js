@@ -1,5 +1,4 @@
-const { mathResult } = require('../controllers/admin.c.js')
-const { all } = require('../routers/admin.r.js')
+
 const db = require('./db.js')
 
 module.exports = {
