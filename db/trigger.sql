@@ -265,6 +265,3 @@ EXECUTE PROCEDURE update_ranking_function();
 
 -- select *from "RANKING"
 
-
-
-

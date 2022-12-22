@@ -1,7 +1,7 @@
 const e = require('express')
 const adminM = require('../models/admin.m')
 const url_helper = require('../helper/url_helper')
-const { updateThamSo, getMatchUnfinished } = require('../models/admin.m')
+// const { updateThamSo, getMatchUnfinished } = require('../models/admin.m')
 const db = require('../models/db')
 const jwt = require('jsonwebtoken')
 
@@ -48,7 +48,7 @@ exports.mathResult = async (req, res, next) => {
 }
 exports.redirectMatchResult = async (req, res, next) => {
     try {
-        const matches = await adminM.getMatchUnfinished(0, 1)
+        const matches = await adminM.getMatchUnfinished()
         res.redirect(`/admin/matchResult/${matches[0].MaTran}`)
         // res.json(await adminM.getallMatch())
     }
@@ -99,7 +99,7 @@ exports.deleteLoaiBanThang = async (req, res, next) => {
 }
 exports.schedule = async (req, res, next) => {
     try {
-        const TRANDAU = await getMatchUnfinished('NULL', 'NULL')
+        const TRANDAU = await getMatchUnfinished()
         // console.log(TRANDAU)
         //res.json(TRANDAU)
         res.render('admin/schedule', {

@@ -30,7 +30,8 @@ exports.rulePage = async (req, res, next) => {
 }
 exports.resultMatch = async (req, res, next) => {
     try {
-        const match = await informationM.getResultMath(req.query.page || 0, 1)
+        // const match = await informationM.getResultMath(req.query.page || 0, 1)
+        const match = await informationM.getResultMath('NULL','NULL')
          //res.json(match)
         res.render('information/result', {
             Tran: match,

@@ -342,7 +342,11 @@
         {"MaTranDau":1045,"MaDoi1":1003,"MaDoi2":1009,"NgayGio":"12/3/2022 20:00","MaSan":1003,"VongDau":7,"SoBanThangDoi1":1,"SoBanThangDoi2":4},
         {"MaTranDau":1046,"MaDoi1":1002,"MaDoi2":1010,"NgayGio":"12/3/2022 16:00","MaSan":1002,"VongDau":7,"SoBanThangDoi1":2,"SoBanThangDoi2":2},
         {"MaTranDau":1047,"MaDoi1":1001,"MaDoi2":1011,"NgayGio":"12/3/2022 20:00","MaSan":1001,"VongDau":7,"SoBanThangDoi1":1,"SoBanThangDoi2":2},
+
         {"MaTranDau":1048,"MaDoi1":1000,"MaDoi2":1012,"NgayGio":"12/3/2022 20:00","MaSan":1000,"VongDau":7,"SoBanThangDoi1":0,"SoBanThangDoi2":2},
+
+        {"MaTranDau":1048,"MaDoi1":1000,"MaDoi2":1012,"NgayGio":"12/3/2022 21:00","MaSan":1000,"VongDau":7,"SoBanThangDoi1":0,"SoBanThangDoi2":2},
+
         {"MaTranDau":1049,"MaDoi1":1007,"MaDoi2":1013,"NgayGio":"19/3/2022 18:00","MaSan":1007,"VongDau":8,"SoBanThangDoi1":3,"SoBanThangDoi2":3},
         {"MaTranDau":1050,"MaDoi1":1006,"MaDoi2":1008,"NgayGio":"19/3/2022 18:00","MaSan":1006,"VongDau":8,"SoBanThangDoi1":2,"SoBanThangDoi2":3},
         {"MaTranDau":1051,"MaDoi1":1005,"MaDoi2":1009,"NgayGio":"19/3/2022 20:00","MaSan":1005,"VongDau":8,"SoBanThangDoi1":0,"SoBanThangDoi2":2},
@@ -749,7 +753,7 @@
         {"MaBanThang":1267,"MaTranDau":1069,"MaCauThu":1042,"ThoiDiem":6,"MaLoaiBanThang":1000},
         {"MaBanThang":1268,"MaTranDau":1069,"MaCauThu":1047,"ThoiDiem":16,"MaLoaiBanThang":1002},
         {"MaBanThang":1269,"MaTranDau":1070,"MaCauThu":1174,"ThoiDiem":69,"MaLoaiBanThang":1002},
-        {"MaBanThang":1270,"MaTranDau":1070,"MaCauThu":1228,"ThoiDiem":79,"MaLoaiBanThang":1001},
+        {"MaBanThang":1270,"MaTranDau":1070,"MaCauThu":1227,"ThoiDiem":79,"MaLoaiBanThang":1001},
         {"MaBanThang":1271,"MaTranDau":1070,"MaCauThu":1218,"ThoiDiem":66,"MaLoaiBanThang":1000},
         {"MaBanThang":1272,"MaTranDau":1071,"MaCauThu":1162,"ThoiDiem":14,"MaLoaiBanThang":1002},
         {"MaBanThang":1273,"MaTranDau":1071,"MaCauThu":1154,"ThoiDiem":67,"MaLoaiBanThang":1003},

@@ -1,13 +1,12 @@
-const { mathResult } = require('../controllers/admin.c.js')
-const { all } = require('../routers/admin.r.js')
+
 const db = require('./db.js')
 
 module.exports = {
-    getMatchUnfinished: async (page, perPage) => {
+    getMatchUnfinished: async () => {
         let match = await db.query(`select DISTINCT "td"."MaTranDau" as "MaTran" ,"d1"."MaDoi" as "MaDoi1","d1"."TenDoi" as "TenDoi1","td"."MaDoi2" as "MaDoi2", "d2"."TenDoi" as "TenDoi2","SAN"."TenSan","td"."NgayGio"
         from "TRANDAU" as "td","DOI" as "d1", "DOI" as "d2","SAN"
         where "td"."SoBanThangDoi1" is null and "td"."SoBanThangDoi2" is null and "d1"."MaDoi"="td"."MaDoi1" and "d2"."MaDoi"="td"."MaDoi2" and "SAN"."MaSan"="td"."MaSan" and "d1"."MaDoi" != "d2"."MaDoi"
-        order by "td"."NgayGio" offset ${page * perPage || 0} limit ${perPage}`)
+        order by "td"."NgayGio" `)
         for (var i = 0; i < match.length; i++) {
             let playerOfTeam1 = await db.query(`Select "CAUTHU"."TenCauThu" as "TenCauThu", "LOAICAUTHU"."TenLoaiCauThu" as "LoaiCauThu","CAUTHU"."MaCauThu" as "MaCauThu"
             from "CAUTHU","LOAICAUTHU"
@@ -110,5 +109,9 @@ module.exports = {
         catch(err){
             return -1
         }
+    },
+    getRanking: async()=>{
+        let rs= await db.query(`Select "RANKING".*, "d"."TenDoi" as "TenDoi"  from "RANKING", "DOI" as "d" where "RANKING"."MaDoi"="d"."MaDoi" order by "RANKING"."Rank"`)
+        return rs
     }
 }
