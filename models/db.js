@@ -3,7 +3,7 @@ const cn = require('../config/pg-config')
 const db = pgp(cn);
 
 var fs = require('fs')
-const pathJSON='../vleague_clone/db/db.json';
+const pathJSON='./db/db.json';
 function readDataFromJson(path) {
     return new Promise((resolve, reject) => {
         fs.readFile(path, (err, data) => {
@@ -69,7 +69,7 @@ module.exports={
                 var a=data.CauThu[i][j].NgaySinh;
                 const dateArray = a.split('/')
                 const [day, month, year] = dateArray;
-                const newDateString = `${month}/${day}/${year}`;
+                const newDateString = `${day}/${month}/${year}`;
                 await db.one('INSERT INTO "CAUTHU"("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan") VALUES($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING RETURNING $1', [data.CauThu[i][j].TenCauThu,newDateString,data.CauThu[i][j].MaLoaiCauThu,data.CauThu[i][j].MaDoi,data.CauThu[i][j].GhiBan]);
             }
         }
@@ -79,7 +79,7 @@ module.exports={
             const [dateString, timeString] = a.split(' ');
             const dateArray = dateString.split('/');
             const [day, month, year] = dateArray;
-            const newDateString = `${month}-${day}-${year}`;
+            const newDateString = `${day}-${month}-${year}`;
             const newDatetimeString = `${newDateString} ${timeString}`;
             //console.log(newDatetimeString);
             await db.one('INSERT INTO "TRANDAU"("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThangDoi1","SoBanThangDoi2") VALUES($1,$2,$3,$4,$5,$6,$7) ON CONFLICT DO NOTHING RETURNING $1', [data.Trandau[i].MaDoi1,data.Trandau[i].MaDoi2,newDatetimeString,data.Trandau[i].MaSan,data.Trandau[i].VongDau,data.Trandau[i].SoBanThangDoi1,data.Trandau[i].SoBanThangDoi2]);
