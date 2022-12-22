@@ -5,22 +5,29 @@
     </div>
     <div>
         <ol type="1">
-            <li>Tuổi cầu thủ từ 16 đến 40. Có 2 loại cầu thủ (trong nước, ngoài nước). Số cầu thủ từ 15 đến 22 (tối đa 3
+            <li>Tuổi cầu thủ từ {{Luat.TuoiToiThieu}} đến {{Luat.TuoiToiDa}}. Có 2 loại cầu thủ (trong nước, ngoài
+                nước). Số cầu thủ từ {{Luat.SoCauThuToiThieu}} đến {{Luat.SoCauThuToiDa}} (tối đa {{Luat.SoCauThuNuocNgoaiToiDa}}
                 cầu thủ nước ngoài).
             </li>
             <li>Trong 1 vòng mỗi đội tham gia đúng 1 trận. Đội 1 là đội đá trên sân nhà. Trong cả giải mỗi đội thi đấu
                 đúng 2 lần với đội khác (Một lần sân nhà, một lần sân khách).</li>
-            <li>Có 3 loại bàn thắng (A, B, C). Thời điểm đến phút 96.</li>
-            <li>Xếp hạng: thắng: 3, hoà: 1, thua: 0. Xếp hạng theo điểm, hiệu số, tổng bàn thắng, đối kháng .</li>
+
+            <li>Có {{SoLoaiBanThang}} loại bàn thắng
+                 ( {{#each LoaiBanThang}}
+                    {{TenLoaiBanThang}} &nbsp;
+                 {{/each}} 
+                 ). Thời điểm ghi bàn tối đa đến phút {{Luat.TDGhiBanToiDa}}.</li>
+            <li>Xếp hạng: thắng: {{Luat.DiemBanThang}}, hoà: {{Luat.DiemBanHoa}}, thua: {{Luat.DiemBanThua}}. Xếp hạng theo điểm, hiệu số, tổng bàn thắng, đối kháng .</li>
         </ol>
     </div>
 </div>
 <style>
-    ol{
+    ol {
         padding-top: 3%;
         padding-left: 5%;
         padding-right: 2%;
     }
+
     ol li {
         text-align: left;
         font-family: 'Poppins';

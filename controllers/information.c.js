@@ -3,6 +3,7 @@ const informationM = require('../models/information.m')
 const url_helper = require('../helper/url_helper')
 const db = require('../models/db')
 const jwt=require('jsonwebtoken')
+const { getAllThamSo, getAllLoaiBanThang} = require('../models/admin.m')
 exports.menuPage = (req, res, next) => {
     try {
         res.render('information/menu', {
@@ -15,8 +16,14 @@ exports.menuPage = (req, res, next) => {
         next(err)
     }
 }
-exports.rulePage = (req, res, next) => {
+exports.rulePage = async (req, res, next) => {
+    const Luat= await getAllThamSo()
+    const LoaiBanThang = await getAllLoaiBanThang()
+    //res.json(LoaiBanThang)
     res.render('information/rule', {
+        Luat: Luat,
+        LoaiBanThang: LoaiBanThang,
+        SoLoaiBanThang: LoaiBanThang.length,
         title: 'Luật',
         account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
     })

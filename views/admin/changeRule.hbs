@@ -75,23 +75,24 @@
         <div class="form-group">
             <label for=""> Số cầu thủ tối thiểu: </label>
             <input type="number" name="SoCauthutoiThieu" value="{{THAMSO.SoCauthutoiThieu}}" class="form-control"
-                required>
+                required id="SoCauThuToiThieu" min="0">
         </div>
         <div class="form-group">
             <label for=""> Số cầu thủ tối đa: </label>
-            <input type="number" name="SoCauThuToiDa" value="{{THAMSO.SoCauThuToiDa}}" class="form-control " required>
+            <input type="number" name="SoCauThuToiDa" value="{{THAMSO.SoCauThuToiDa}}" class="form-control " required
+            id="SoCauThuToiDa" min="0">
         </div>
         <div class="form-group">
             <label for=""> Số cầu thủ nước ngoài tối đa: </label>
             <input type="number" name="SoCauThuNuocNgoaiToiDa" value="{{THAMSO.SoCauThuNuocNgoaiToiDa}}"
-                class="form-control " required>
+                class="form-control " required min="0">
         </div>
     </div>
     <div class="con1">
         <div>Bàn thắng: </div>
         <div class="form-group">
             <label for=""> Thời điểm ghi bàn tối đa: </label>
-            <input type="number" name="TDGhiBanToiDa" value="{{THAMSO.TDGhiBanToiDa}}" class="form-control " required>
+            <input type="number" name="TDGhiBanToiDa" value="{{THAMSO.TDGhiBanToiDa}}" class="form-control " min="0" required>
         </div>
          <div class="form-group" hidden>
             <label for=""> Thời điểm ghi bàn tối thiểu: </label>
@@ -119,15 +120,18 @@
         <div>Xếp hạng: </div>
         <div class="form-group">
             <label for=""> Điểm thắng: </label>
-            <input type="number" name="DiemBanThang" value="{{THAMSO.DiemBanThang}}" class="form-control " required>
+            <input type="number" name="DiemBanThang" value="{{THAMSO.DiemBanThang}}" class="form-control " required
+            id="DiemThang" >
         </div>
         <div class="form-group">
             <label for=""> Điểm hòa: </label>
-            <input type="number" name="DiemBanHoa" value="{{THAMSO.DiemBanHoa}}" class="form-control " required>
+            <input type="number" name="DiemBanHoa" value="{{THAMSO.DiemBanHoa}}" class="form-control " required
+            id="DiemHoa">
         </div>
         <div class="form-group">
             <label for=""> Điểm thua: </label>
-            <input type="number" name="DiemBanThua" value="{{THAMSO.DiemBanThua}}" class="form-control " required>
+            <input type="number" name="DiemBanThua" value="{{THAMSO.DiemBanThua}}" class="form-control " required
+            id="DiemThua">
         </div>
     </div>
     <div class="con1" id="errors"></div>
@@ -233,32 +237,29 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
 <script>
     function ruleValidate(){
-        $.validator.addMethod("AgeRes",function(value,element){
-            console.log($("#TuoiToiDa").val())
-            if(value<$("#TuoiToiDa").val()){
-                return true;
-            }
+        if($("#TuoiToiThieu").val()>$("#TuoiToiDa").val()){
             return false;
-        },"Tuổi tối thiểu phải bé hơn tuổi tối đa")
-        $("#RuleForm").validate({
-             rules:{
-                TuoiToiThieu: {
-                    AgeRes: true,
-                },
-                SoCauThuToiThieu: {
-
-                }
-            },
-            errorLabelContainer: '#errors',
-             onkeyup: false,
-           
-        })
+        }   
+        if($("#SoCauThuToiThieu").val()>$("#SoCauThuToiDa").val()){
+            return false;
+        }
+        if($("#DiemThang").val()<$("#DiemThua").val() || $("#DiemThang").val()<$("#DiemHoa").val() || $("#DiemHoa").val()<$("#DiemThua").val() ){
+            return false;
+        }
+        return true;
     }
     function color() {
         $(".form-group:even").css("background-color", "#949494")
     }
     $(document).ready(async function () {
         console.log($("#TuoiToiDa"))
+         $("#RuleForm").submit(function(e){
+            if(!ruleValidate()){
+            e.preventDefault();
+            $("#errors").append(`
+                Thông tin nhập không đúng quy định! `)
+            }
+         });
         color()
         var i = 1
         $('#addLoaiBanThang').click(() => {
