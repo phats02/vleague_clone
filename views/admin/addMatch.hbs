@@ -1,24 +1,85 @@
-<form method="POST" action="/{{currentURL}}" class="w-50 mx-auto">
-    <select class="form-control" aria-label="Default select example" name="MaDoi1">
-        <option selected>Chon Doi 1</option>
-        {{#each DOI}}
-        <option value="{{this.MaDoi}}">{{this.TenDoi}}</option>
-        {{/each}}
-    </select>
-    <select class="form-control" aria-label="Default select example" name="MaDoi2">
-        <option selected>Chon Doi 2</option>
-        {{#each DOI}}
-        <option value="{{this.MaDoi}}">{{this.TenDoi}}</option>
-        {{/each}}
-    </select>
-    <input type="datetime-local" class="form-control" name="NgayGio">
-    <select class="form-control" aria-label="Default select example" name="MaSan">
-        <option selected>Chon San</option>
-        {{#each SAN}}
-        <option value="{{this.MaSan}}">{{this.TenSan}}</option>
-        {{/each}}
-    </select>
-    <input type="text" placeholder="Vong Dau" class="form-control" name="VongDau">
-    <div class="row w-25 mx-auto"> <button type="submit" class="btn btn-primary">Gui</button></div>
+<div class="con">
+    <div class="title">
+        Thêm trận đấu
+    </div>
+    <div class="butcon">
+        <form method="POST" action="/{{currentURL}}" class="w-50 mx-auto">
+            <div class="form-group">
+                <label for=""> Chọn đội 1: </label>
+                <select class="form-control" aria-label="Default select example" name="">
+                    {{#each DOI}}
+                    <option value="{{this.MaDoi}}">{{this.TenDoi}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for=""> Chọn đội 2: </label>
+                <select class="form-control" aria-label="Default select example" name="MaDoi2">
+                    {{#each DOI}}
+                    <option value="{{this.MaDoi}}">{{this.TenDoi}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for=""> Chọn ngày giờ: </label>
+                <input type="datetime-local" class="form-control" name="NgayGio" required>
+            </div>
+            <div class="form-group">
+                <label for=""> Chọn sân: </label>
+                <select class="form-control" aria-label="Default select example" name="MaSan">
+                    {{#each SAN}}
+                    <option value="{{this.MaSan}}">{{this.TenSan}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">  Vòng đấu: </label>
+                <input type="text" placeholder="Vong Dau" class="form-control" name="VongDau" required>
+            </div>
 
-</form>
+            <div class="form-group"> <button type="submit" class="btn btn-primary" style="height: 5%;">Gửi</button></div>
+
+        </form>
+    </div>
+</div>
+<link rel="stylesheet" href="../CSS/admin.css">
+
+<style>
+    .title {
+        color: white;
+        border-bottom: solid 1vh white;
+    }
+
+    .con {
+        background: #1B1932;
+        height: 80%;
+        color: white;
+    }
+
+    .butcon {
+        padding-top: 3%
+    }
+
+    label {
+        width: 30%;
+        font-size: 1.2vw;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 70%;
+    }
+    .form-control {
+        width: 60%;
+        height: 100%;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        height: 10%;
+    }
+</style>

@@ -1,7 +1,7 @@
 <nav>
     <a href="/"><img src="/icon.png" alt="" class="navIcon"></a>
     {{#if account}}
-    <div class="display-5">Chào <em>{{account}} </em>,<a href="/logout" class="text-dark">đăng xuất</a> </div>
+    <div class="display-5">Chào <a href="/admin"><em>{{account}} </em></a>,<a href="/logout" class="text-dark">đăng xuất</a> </div>
     {{else}}
     <div><button> <a href="/login">Đăng nhập</a></button></div>
     {{/if}}

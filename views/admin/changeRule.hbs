@@ -1,51 +1,52 @@
-<form method="POST" action="/{{currentURl}}" class="w-25 mx-auto">
+{{!-- <form method="POST" action="/{{currentURl}}" class="w-25 mx-auto">
     <div class="row">
         <label for="exampleInputEmail1" class="col-8">Tuổi tối thiểu</label>
-        <input type="text" name="TuoiToiThieu" value="{{THAMSO.TuoiToiThieu}}" class="form-control col-4">
+        <input type="number" name="TuoiToiThieu" value="{{THAMSO.TuoiToiThieu}}" class="form-control ">
     </div>
     <div class="row">
         <label for="exampleInputEmail1" class="col-8">Tuổi tối đa</label>
-        <input type="text" name="TuoiToiDa" value="{{THAMSO.TuoiToiDa}}" class="form-control col-4">
+        <input type="number" name="TuoiToiDa" value="{{THAMSO.TuoiToiDa}}" class="form-control ">
     </div>
     <div class="row">
         <label for="exampleInputEmail1" class="col-8">Số cầu thủ tối thiểu</label>
-        <input type="text" name="SoCauthutoiThieu" value="{{THAMSO.SoCauthutoiThieu}}" class="form-control col-4">
+        <input type="number" name="SoCauthutoiThieu" value="{{THAMSO.SoCauthutoiThieu}}" class="form-control ">
     </div>
     <div class="row">
         <label for="exampleInputEmail1" class="col-8">Số cầu thủ nước ngoài tối đa</label>
-        <input type="text" name="SoCauThuNuocNgoaiToiDa" value="{{THAMSO.SoCauThuNuocNgoaiToiDa}}"
-            class="form-control col-4">
+        <input type="number" name="SoCauThuNuocNgoaiToiDa" value="{{THAMSO.SoCauThuNuocNgoaiToiDa}}"
+            class="form-control ">
     </div>
     <div class="row">
         <label for="exampleInputEmail1" class="col-8">Số cầu thủ tối đa</label>
-        <input type="text" name="SoCauThuToiDa" value="{{THAMSO.SoCauThuToiDa}}" class="form-control col-4">
+        <input type="number" name="SoCauThuToiDa" value="{{THAMSO.SoCauThuToiDa}}" class="form-control ">
     </div>
     <div class="row">
         <label for="exampleInputEmail1" class="col-8">Thời điểm ghi bàn tối thiếu</label>
-        <input type="text" name="TDGhiBanToithieu" value="{{THAMSO.TDGhiBanToithieu}}" class="form-control col-4">
+        <input type="number" name="TDGhiBanToithieu" value="{{THAMSO.TDGhiBanToithieu}}" class="form-control ">
     </div>
     <div class="row">
         <label for="exampleInputEmail1" class="col-8">Thời điểm ghi bàn tối đa</label>
-        <input type="text" name="TDGhiBanToiDa" value="{{THAMSO.TDGhiBanToiDa}}" class="form-control col-4">
+        <input type="number" name="TDGhiBanToiDa" value="{{THAMSO.TDGhiBanToiDa}}" class="form-control ">
     </div>
     <div class="row">
         <label for="exampleInputEmail1" class="col-8">Điểm thắng</label>
-        <input type="text" name="DiemBanThang" value="{{THAMSO.DiemBanThang}}" class="form-control col-4">
+        <input type="number" name="DiemBanThang" value="{{THAMSO.DiemBanThang}}" class="form-control ">
     </div>
     <div class="row">
         <label for="exampleInputEmail1" class="col-8">Điểm hoà</label>
-        <input type="text" name="DiemBanHoa" value="{{THAMSO.DiemBanHoa}}" class="form-control col-4">
+        <input type="number" name="DiemBanHoa" value="{{THAMSO.DiemBanHoa}}" class="form-control ">
     </div>
     <div class="row">
         <label for="exampleInputEmail1" class="col-8">Điểm thua</label>
-        <input type="text" name="DiemBanThua" value="{{THAMSO.DiemBanThua}}" class="form-control col-4">
+        <input type="number" name="DiemBanThua" value="{{THAMSO.DiemBanThua}}" class="form-control ">
     </div>
     <div class="row">Chỉnh sửa loại bàn thắng</div>
     {{#each LOAIBANTHANG}}
     <div class="row">
-        <input type="text" name="BanThang-{{this.MaLoaiBanThang}}" value="{{this.TenLoaiBanThang}}"
+        <input type="number" name="BanThang-{{this.MaLoaiBanThang}}" value="{{this.TenLoaiBanThang}}"
             class="form-control col-10" disabled>
-        <button type="button" class="btn btn-outline-danger col-2 delete-Loai" id="delete-Loai-{{this.MaLoaiBanThang}}">X</button>
+        <button type="button" class="btn btn-outline-danger col-2 delete-Loai"
+            id="delete-Loai-{{this.MaLoaiBanThang}}">X</button>
     </div>
     {{/each}}
     <div class="content">
@@ -54,15 +55,221 @@
     <button type="button" class="btn btn-outline-success w-100" id="addLoaiBanThang">➕</button>
 
     <div class="row w-25 mx-auto"> <button type="submit" class="btn btn-primary">Gui</button></div>
+</form> --}}
+<form  method="POST" action="/{{currentURl}}" class="con" id="RuleForm">
+    <div class="header"> Thay đổi quy định</div>
+    <div class="con1">
+        <div>Cầu thủ: </div>
+        <div class="form-group">
+            <label for=""> Tuổi tối thiểu: </label>
+            <input type="number" name="TuoiToiThieu" value="{{THAMSO.TuoiToiThieu}}" class="form-control" min="0" required
+            id="TuoiToiThieu">
+        </div>
+        <div class="form-group">
+            <label for=""> Tuổi tối đa: </label>
+            <input type="number" name="TuoiToiDa" value="{{THAMSO.TuoiToiDa}}" class="form-control " required id="TuoiToiDa">
+        </div>
+    </div>
+    <div class="con1">
+        <div>Đội: </div>
+        <div class="form-group">
+            <label for=""> Số cầu thủ tối thiểu: </label>
+            <input type="number" name="SoCauthutoiThieu" value="{{THAMSO.SoCauthutoiThieu}}" class="form-control"
+                required id="SoCauThuToiThieu" min="0">
+        </div>
+        <div class="form-group">
+            <label for=""> Số cầu thủ tối đa: </label>
+            <input type="number" name="SoCauThuToiDa" value="{{THAMSO.SoCauThuToiDa}}" class="form-control " required
+            id="SoCauThuToiDa" min="0">
+        </div>
+        <div class="form-group">
+            <label for=""> Số cầu thủ nước ngoài tối đa: </label>
+            <input type="number" name="SoCauThuNuocNgoaiToiDa" value="{{THAMSO.SoCauThuNuocNgoaiToiDa}}"
+                class="form-control " required min="0">
+        </div>
+    </div>
+    <div class="con1">
+        <div>Bàn thắng: </div>
+        <div class="form-group">
+            <label for=""> Thời điểm ghi bàn tối đa: </label>
+            <input type="number" name="TDGhiBanToiDa" value="{{THAMSO.TDGhiBanToiDa}}" class="form-control " min="0" required>
+        </div>
+         <div class="form-group" hidden>
+            <label for=""> Thời điểm ghi bàn tối thiểu: </label>
+            <input type="number" name="TDGhiBanToithieu" value="{{THAMSO.TDGhiBanToithieu}}" class="form-control ">
+        </div>
+    </div>
+    <div class="con1">
+        <div class="form-group" style="margin-bottom:2%">
+            <div>Chỉnh sửa loại bàn thắng</div>
+            <div><button type="button" class="btn  btn-danger" id="addLoaiBanThang">➕</button></div>
+        </div>
+        <div class="column content" style="margin-bottom:2%">
+            {{#each LOAIBANTHANG}}
+            <div class="form-group">
+                <input type="text" name="BanThang-{{this.MaLoaiBanThang}}" value="{{this.TenLoaiBanThang}}"
+                    class="form-control" style="width:50%; margin-top:2%; margin-bottom:2%" readonly>
+                <div><button type="button" class="btn  btn-danger delete-Loai"
+                        id="delete-Loai-{{this.MaLoaiBanThang}}">X</button></div>
+            </div>
+            {{/each}}
+
+        </div>
+    </div>
+    <div class="con1">
+        <div>Xếp hạng: </div>
+        <div class="form-group">
+            <label for=""> Điểm thắng: </label>
+            <input type="number" name="DiemBanThang" value="{{THAMSO.DiemBanThang}}" class="form-control " required
+            id="DiemThang" >
+        </div>
+        <div class="form-group">
+            <label for=""> Điểm hòa: </label>
+            <input type="number" name="DiemBanHoa" value="{{THAMSO.DiemBanHoa}}" class="form-control " required
+            id="DiemHoa">
+        </div>
+        <div class="form-group">
+            <label for=""> Điểm thua: </label>
+            <input type="number" name="DiemBanThua" value="{{THAMSO.DiemBanThua}}" class="form-control " required
+            id="DiemThua">
+        </div>
+    </div>
+    <div class="con1" id="errors"></div>
+    <div class="row" style="width:100%; margin-top:2%; margin-bottom:2%"><button style="margin:auto" type="submit"
+            class="btn btn-primary redbtn">Gửi</button>
+    </div>
 </form>
+<link rel="stylesheet" href="/CSS/admin.css">
+<style>
+    .con {
+        background: #B4B4B4;
+        overflow: auto;
+        height: auto;
+        background-repeat: no-repeat;
+
+        background-image: ;
+
+    }
+
+    .con:after {
+        content: '';
+        position: absolute;
+        top: 25%;
+        right: 0;
+        bottom: 0;
+        left: 50%;
+        filter:opacity(0.5);
+
+        background: url(/players\ \(2\).png) no-repeat;
+    }
+
+    .con1 {
+        margin-left: 2%;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+    }
+
+    .header {
+        background: #E32B19;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3vw;
+        text-align: center;
+
+        color: #000000;
+
+    }
+
+    .redbtn {
+        background: linear-gradient(180deg, #D9D9D9 0%, #E05A4D 15.62%, #E32B19 86.46%, #D9D9D9 100%);
+        border: 1px solid #000000;
+        box-shadow: 4px 4px 4px rgb(0 0 0 / 25%);
+        border-radius: 15px;
+        width: 10%;
+        color: black;
+    }
+
+    button {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .cauthu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-control {
+        width: 10%;
+        height: fit-content;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .form-group {
+        padding-left: 2%;
+        margin-left: -2%;
+        padding-right: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        height: 10%;
+        width: 102%;
+        margin-bottom: 0;
+
+    }
+
+    .form-group:nth-child(even) {
+        background-color: ;
+    }
+
+    label {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
 <script>
+    function ruleValidate(){
+        if($("#TuoiToiThieu").val()>$("#TuoiToiDa").val()){
+            return false;
+        }   
+        if($("#SoCauThuToiThieu").val()>$("#SoCauThuToiDa").val()){
+            return false;
+        }
+        if($("#DiemThang").val()<$("#DiemThua").val() || $("#DiemThang").val()<$("#DiemHoa").val() || $("#DiemHoa").val()<$("#DiemThua").val() ){
+            return false;
+        }
+        return true;
+    }
+    function color() {
+        $(".form-group:even").css("background-color", "#949494")
+    }
     $(document).ready(async function () {
+        console.log($("#TuoiToiDa"))
+         $("#RuleForm").submit(function(e){
+            if(!ruleValidate()){
+            e.preventDefault();
+            $("#errors").append(`
+                Thông tin nhập không đúng quy định! `)
+            }
+         });
+        color()
         var i = 1
         $('#addLoaiBanThang').click(() => {
-            $(".content").append(`<div class="row">
-        <input type="text" name="newBanThang" class="form-control col-10" placeholder="Ten loai ban thang" id="valueLoaiBanThang-${i}">
-        <button type="button" class="btn btn-outline-success col-2" id="addLoaiBanThang-${i}">✔️</button>
-        </div>
+            color()
+            $(".content").append(`
+        <div class="form-group">
+                <input type="text" name="newBanThang" class="form-control" style="width:50%; margin-top:2%; margin-bottom:2%" placeholder="Ten loai ban thang" id="valueLoaiBanThang-${i}" required>
+                <div><button type="button" class="btn  btn-success delete-Loai"
+                        id="addLoaiBanThang-${i}">✔️</button></div>
+            </div>
         <script>
             $(\`#addLoaiBanThang-${i}\`).click(() => {
                 $.post("/admin/createLoaiBanThang?name="+$(\`#valueLoaiBanThang-${i}\`).val(),(status)=>{
@@ -77,16 +284,16 @@
         <\/script>`)
             i++
         })
-        $(".delete-Loai").click((e)=>{
-            var id=event.srcElement.id.split('-')[2]
+        $(".delete-Loai").click((e) => {
+            var id = event.srcElement.id.split('-')[2]
             console.log(id)
-            $.post('/admin/deleteLoaiBanThang/'+id,(status)=>{
-                if (status ==-1){
-                        alert('Khong the xoa Loai ban thang')
-                    }
-                    else {
-                         location.reload();
-                    }
+            $.post('/admin/deleteLoaiBanThang/' + id, (status) => {
+                if (status == -1) {
+                    alert('Khong the xoa Loai ban thang')
+                }
+                else {
+                    location.reload();
+                }
             })
         })
     });

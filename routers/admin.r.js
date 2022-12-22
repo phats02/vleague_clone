@@ -14,7 +14,7 @@ router.post('/changeRule',adminC.changeRule)
 router.post('/createLoaiBanThang',adminC.addLoaiBanThang)
 router.post('/deleteLoaiBanThang/:id(\\d+)',adminC.deleteLoaiBanThang)
 router.get('/schedule',adminC.schedule)
-router.get('/addMatch',adminC.addMatch)
+router.get('/addMatch',adminC.addMatch) 
 router.post('/addMatch',adminC.addMatch)
 router.post('/deleteMatch',adminC.deleteMatch)
 module.exports = router

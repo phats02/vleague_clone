@@ -1,65 +1,258 @@
-<form action="/{{currentURL}}" method="POST" class="w-100">
+{{!-- <form action="/{{currentURL}}" method="POST" class="w-100">
     <div class="form row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="So ban thang doi {{matches.CauThuDoi1.0.TenDoi}}" class="score" id="score-team-1" name="score-team-1">
+            <input type="text" class="form-control" placeholder="So ban thang doi {{matches.CauThuDoi1.0.TenDoi}}"
+                class="score" id="score-team-1" name="score-team-1">
             <div class="player-team-1">
 
             </div>
 
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="So ban thang doi {{matches.CauThuDoi2.0.TenDoi}}" class="score" id="score-team-2" name="score-team-2">
+            <input type="text" class="form-control" placeholder="So ban thang doi {{matches.CauThuDoi2.0.TenDoi}}"
+                class="score" id="score-team-2" name="score-team-2">
             <div class="player-team-2">
             </div>
         </div>
     </div>
     <div class="row w-25 mx-auto"> <button type="submit" class="btn btn-primary">Gui</button></div>
+</form> --}}
+<link rel="stylesheet" href="/CSS/admin.css">
+<form action="/{{currentURL}}" method="POST" style="height: 100%;">
+<div class="con">
+    <div class="con1">
+        <div class="but"><img src="/back.png" alt="" id="pre"></div>
+
+        {{#with matches}}
+        <div class="teamScoreCon">
+            <div class="team">
+                <img src="/Logo/{{MaDoi1}}.png" alt="">
+                <div class="teamname">{{CauThuDoi1.0.TenDoi}}</div>
+                <div class="playergoal player-team-1">   
+                   
+                </div>
+            </div>
+            <div class="score">
+                <div class="teamname" style="border-bottom:0px; font-size:1.5vw; padding-bottom:10%">
+                    <b>{{NgayGio}} Vòng đấu:{{VongDau}}</b>
+                </div>
+                <div class="recScore">
+                    <input type="text" class="form-control"
+                        id="score-team-1"   name="score-team-1">
+                    -
+                    <input type="text" class="form-control"
+                         id="score-team-2" name="score-team-2">
+                </div>
+                <div class="teamname">
+
+                </div>
+                <div class="playergoal" style="padding-top:2%">
+                    <button type="submit" class="" style="margin-left: 8%; height:6%">Gửi</button>
+                </div>
+            </div>
+            <div class="team">
+                <img src="/Logo/{{MaDoi2}}.png" alt="">
+                <div class="teamname"> {{CauThuDoi2.0.TenDoi}}</div>
+                <div class="playergoal player-team-2">
+
+                </div>
+            </div>
+        </div>
+        {{/with}}
+        <div class="but"><img src="/next.png" alt="" id="next"></div>
+    </div>
+    <div style="display: flex; width:80%;height:30%; margin:auto; justify-content:space-around">
+        {{!-- {{#each matches}}
+        <div class="minicon">
+            <div class="minicon1">
+                <img class="minilogo" src="/Logo/{{MaDoi1}}.png" alt="">
+                <div style="text-align: center;">{{TenDoi1}}</div>
+            </div>
+            <div>{{SoBanThangDoi1}} - {{SoBanThangDoi2}}</div>
+            <div class="minicon1">
+                <img class="minilogo" src="/Logo/{{MaDoi2}}.png" alt="">
+                <div style="text-align: center;">{{Doi2}}</div>
+            </div>
+        </div>
+        {{/each}} --}}
+    </div>
+</div>
 </form>
+
+
+<style>
+    .con{
+        height: 100%;
+    }
+    .minicon {
+        display: flex;
+        flex-direction: row;
+        width: 30%;
+        height: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .minicon1 {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: 100%;
+        justify-content: center;
+    }
+
+    .minilogo {
+        width: 100%;
+        height: 50%;
+    }
+
+    .con1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 70%;
+        width: 90%;
+        margin: auto;
+        border-bottom: solid black 1px;
+    }
+
+    .teamScoreCon {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    .but {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 5%;
+        height: 100%;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .team {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .team img {
+        height: 45%;
+    }
+
+    .score {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .recScore {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        height: 35%;
+        background: #000000;
+        border-radius: 3vw;
+        color: white;
+        font-size: 7vw;
+    }
+
+    .recScore input{
+        font-size: 2.5vw;
+        text-align: center;
+        height: 50%;
+        width: 30%;
+    }
+
+    .teamname {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 20%;
+        text-align: center;
+        font-size: 2vw;
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'Poppins';
+        border-bottom: solid black 1px;
+    }
+
+    .playergoal {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        height: 20%;
+
+        text-align: center;
+        font-size: 1.5vw;
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'Poppins';
+        overflow: auto;
+    }
+    .playergoal button{
+        background: linear-gradient(180deg, #D9D9D9 0%, #E05A4D 15.62%, #E32B19 86.46%, #D9D9D9 100%);
+        border: 1px solid #000000;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        color: black;
+    }
+</style>
+
+
+
+
 <script>
-    $("#score-team-1").on("input",()=>{
+    $("#score-team-1").on("input", () => {
         $(".player-team-1").html("")
         console.log($("#score-team-1").val())
-        for (var i=0;i<$("#score-team-1").val();i++){
-            $(".player-team-1").append(` <div class="w-75 mr-auto">
-                <div class="row">
-                    <select class="form-control col-8" aria-label="Default select example" name="player-team-1">
-                        <option selected>None</option>
+        for (var i = 0; i < $("#score-team-1").val(); i++) {
+            $(".player-team-1").append(` 
+           <div style="display:flex; flex-direction:row; width:100%; margin-top:2%; margin-bottom:2%">
+                    <select class="form-control" style="width:40%" name="player-team-1">
                         {{#each matches.CauThuDoi1}}
                           <option value="{{this.MaCauThu}}">{{this.TenCauThu}}</option>
                         {{/each}}
                     </select>
-                    <input type="text" class="col-2 ml-auto form-control" placeholder="Phut ghi ban" name="time-team-1">
-                    <select class="form-control col-2" aria-label="Default select example" name="loaiban-team-1">
-                        <option selected>None</option>
+                    <input type="number" class=" form-control" style="width:25%" placeholder="Phút" name="time-team-1"  min="0" max="100" required>
+                    <select class="form-control" name="loaiban-team-1" style="width:35%">
                         {{#each LoaiBanThang}}
                           <option value="{{this.MaLoaiBanThang}}">{{this.TenLoaiBanThang}}</option>
                         {{/each}}
                     </select>
-                </div>
-            </div>`)
+                    </div>`)
         }
     })
-    $("#score-team-2").on("input",()=>{
+    $("#score-team-2").on("input", () => {
         $(".player-team-2").html("")
         console.log($("#score-team-2").val())
-        for (var i=0;i<$("#score-team-2").val();i++){
-            $(".player-team-2").append(` <div class="w-75 ml-auto">
-                <div class="row">
-                    <select class="form-control col-8" aria-label="Default select example" name="player-team-2">
-                        <option selected>None</option>
+        for (var i = 0; i < $("#score-team-2").val(); i++) {
+            $(".player-team-2").append(` 
+            <div style="display:flex; flex-direction:row; width:100%; margin-top:2%; margin-bottom:2%">
+                    <select class="form-control" style="width:40%" name="player-team-1">
                         {{#each matches.CauThuDoi2}}
                           <option value="{{this.MaCauThu}}">{{this.TenCauThu}}</option>
                         {{/each}}
                     </select>
-                    <input type="text" class="col-2 ml-auto form-control" placeholder="Phut ghi ban" name="time-team-2">
-                    <select class="form-control col-2" aria-label="Default select example" name="loaiban-team-2">
-                        <option selected>None</option>
+                    <input type="number" class=" form-control" style="width:25%" placeholder="Phút" name="time-team-1" min="0" max="100" required>
+                    <select class="form-control" name="loaiban-team-1" style="width:35%">
                         {{#each LoaiBanThang}}
                           <option value="{{this.MaLoaiBanThang}}">{{this.TenLoaiBanThang}}</option>
                         {{/each}}
                     </select>
-                </div>
-            </div>`)
+                    </div>`)
         }
     })
+
+
+
 </script>

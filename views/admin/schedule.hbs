@@ -1,4 +1,4 @@
-<a class="btn btn-primary w-100" href="./addMatch" role="button">+</a>
+{{!-- <a class="btn btn-primary w-100" href="./addMatch" role="button">+</a>
 <div class="w-75 mx-auto">
 {{#each TRANDAU}}
 <p>{{this.NgayGio}}</p>
@@ -7,7 +7,253 @@
     <button type="button" class="btn btn-outline-danger col-2 delete-Tran" id="delete-Tran-{{this.MaTran}}">X</button>
 </div>
 {{/each}}
+</div> --}}
+<div class="con">
+    <div class="title">
+        Chỉnh sửa lịch thi Đấu
+    </div>
+    <a class="btn btn-primary w-100" href="./addMatch" role="button">+</a>
+
+    <div style="display: flex; justify-content:end; padding-top:1%; padding-right:7%; width:100%">
+        <button type="button" class="btn btn-outline-danger delete-Tran" style="height:5%; width:3%; background:red; border-radius:15%; color:white" 
+        id="delete-Tran-{{this.MaTran}}">X</button>
+    </div> 
+    <div class="con1">
+        <div class="but"><img src="/whitePreBut.png" alt="" id="pre"></div>
+        {{#each TRANDAU}}
+        <div class="teamScoreCon">
+            <div class="team">
+                <img src="/Logo/{{MaDoi1}}.png" alt="">
+                <div class="teamname">{{TenDoi1}}</div>
+                <div class="playergoal">
+                </div>
+            </div>
+            <div class="score">
+                <div class="teamname" style="border-bottom:0px; font-size:1.5vw; padding-bottom:10%">
+                    <b>{{NgayGio}} {{TenSan}}</b>
+                </div>
+                <div class="recScore">VS</div>
+                <div class="teamname"></div>
+                <div class="playergoal">  
+                    ⚽
+                </div>
+            </div>
+            <div class="team">
+                <img src="/Logo/{{MaDoi2}}.png" alt="">
+                <div class="teamname"> {{TenDoi2}}</div>
+                <div class="playergoal">
+                </div>
+            </div>
+        </div>
+        {{/each}}
+  
+                    
+  
+        <div class="but">
+            
+            <img src="/whiteNextBut.png" alt="" id="next">
+        </div>
+    </div>
+    <div style="display: flex; width:80%;height:25%; flex-direction:row; justify-content:space-around; margin-left:10%">
+        {{#each TRANDAU}}
+        <div class="minicon">
+            <div class="minicon1">
+                <img class="minilogo" src="/Logo/{{MaDoi1}}.png" alt="">
+                <div style="text-align: center;">{{TenDoi1}}</div>
+            </div>
+            <div>VS</div>
+            <div class="minicon1">
+                <img class="minilogo" src="/Logo/{{MaDoi2}}.png" alt="">
+                <div style="text-align: center;">{{TenDoi2}}</div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
 </div>
+
+<link rel="stylesheet" href="../CSS/admin.css">
+<style>
+    .title{
+        color: white;
+    }
+    .con{
+        background: #1B1932;
+        height: 80%;
+        color: white;
+    }
+    .minicon {
+        display: flex;
+        flex-direction: row;
+        width: 30%;
+        height: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .minicon1 {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: 100%;
+        justify-content: center;
+    }
+
+    .minilogo {
+        width: 100%;
+        height: 50%;
+    }
+
+    .con1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 60%;
+        width: 90%;
+        margin: auto;
+        border-bottom: solid white 1px;
+    }
+
+    .teamScoreCon {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    .but {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 5%;
+        height: 100%;
+    }
+
+    .team {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .team img {
+        height: 45%;
+    }
+
+    .score {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .recScore {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: 35%;
+        background: #000000;
+        border-radius: 3vw;
+        color: white;
+        font-size: 7vw;
+    }
+
+    .teamname {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 20%;
+        text-align: center;
+        font-size: 2vw;
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'Poppins';
+        border-bottom: solid white 1px;
+    }
+
+    .playergoal {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 15%;
+        
+        text-align: center;
+        font-size: 1.5vw;
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'Poppins';
+        overflow: auto;
+    }
+</style>
+
+<script>
+    var visibleTeamScore = 0;
+    var visibleMiniMatch = [];
+
+    function show() {
+        $(".teamScoreCon").hide();
+        $(".teamScoreCon:eq(" + visibleTeamScore + ")").css("display", "flex");
+        $(" .minicon").hide();
+        for (var i = 0; i < visibleMiniMatch.length; i++) {
+            $(".minicon:eq(" + visibleMiniMatch[i] + ")").css("display", "flex");
+        }
+
+    }
+    $(function () {
+        if ($(".minicon").length == 2) {
+            visibleMiniMatch=[1];
+        }
+        else if ($(".minicon").length == 3) {
+            visibleMiniMatch = [1, 2]
+        }
+        else if($(".minicon").length > 3){
+            visibleMiniMatch = [1, 2, 3]
+        }
+        show()
+        $("#next").click(function () {
+            if (visibleTeamScore == $(".teamScoreCon").length - 1) {
+                return
+            }
+            else {
+                visibleTeamScore++;
+            }
+            console.log(visibleMiniMatch)
+            console.log($(".minicon").length - 1, $(".teamScoreCon").length - 1)
+            max = Math.max(...visibleMiniMatch)
+            if (max >= ($(".minicon").length - 1)) {
+                index = visibleMiniMatch.indexOf(max);
+                console.log("MaxIndex",index,"Max: ",max)
+                visibleMiniMatch[index] = -1;
+            }
+            for (var i = 0; i < visibleMiniMatch.length; i++) {
+                visibleMiniMatch[i]++;
+            }
+            console.log(visibleMiniMatch)
+            show()
+        });
+        $("#pre").click(function () {
+            if (visibleTeamScore == 0) {
+                {{!-- visibleTeamScore = $(".teamScoreCon").length - 1; --}}
+                return;
+            }
+            else {
+                visibleTeamScore--;
+            }
+            min = Math.min(...visibleMiniMatch)
+            if (min <= 0) {
+                index = visibleMiniMatch.indexOf(min);
+                visibleMiniMatch[index] = $(".minicon").length;
+            }
+            for (var i = 0; i < visibleMiniMatch.length; i++) {
+                visibleMiniMatch[i]--;
+            }
+            console.log(visibleMiniMatch)
+            show()
+        });
+    });
+
+</script>
 <script>
     $(".delete-Tran").click((e)=>{
         var id=event.srcElement.id.split('-')[2]
