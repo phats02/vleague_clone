@@ -140,13 +140,6 @@ BEGIN
 	sobanthangdoi1 := NEW."SoBanThangDoi1";
 	sobanthangdoi2 := NEW."SoBanThangDoi2";
 	
-	if (NOT EXISTS(SELECT *FROM "RANKING" WHERE "MaDoi"=madoi1)) THEN
-		INSERT INTO "RANKING"("MaDoi","SoTranThang","SoTranHoa","SoTranThua","HieuSo","Rank")
-		values (madoi1,0,0,0,0,0);
-	elseif (NOT EXISTS(SELECT *FROM "RANKING" WHERE "MaDoi"=madoi2)) THEN
-		INSERT INTO "RANKING"("MaDoi","SoTranThang","SoTranHoa","SoTranThua","HieuSo","Rank")
-		values (madoi2,0,0,0,0,0);
-	end if;
 	
 	SELECT "SoTranThang" into sotranthangdoi1 FROM "RANKING" WHERE "MaDoi"=madoi1;
 	SELECT "SoTranThang" into sotranthangdoi2 FROM "RANKING" WHERE "MaDoi"=madoi2;
@@ -156,9 +149,38 @@ BEGIN
 	SELECT "SoTranThua" into sotranthuadoi2 FROM "RANKING" WHERE "MaDoi"=madoi2;
 	SELECT "HieuSo" into hieusodoi1 FROM "RANKING" WHERE "MaDoi"=madoi1;
 	SELECT "HieuSo" into hieusodoi2 FROM "RANKING" WHERE "MaDoi"=madoi2;
-
+	
+	
+	if(sobanthangdoi1 is null) then
+		sobanthangdoi1 := 0;
+		raise notice 'null1';
+	end if;
+	
+	if(sobanthangdoi2 is null) then
+		sobanthangdoi2 :=0;
+		raise notice 'null2';
+	end if;
+	
+	if(hieusodoi1 is null) then
+		hieusodoi1 := 0;
+		raise notice 'null1';
+	end if;
+	
+	if(hieusodoi2 is null) then
+		hieusodoi2 :=0;
+		raise notice 'null2';
+	end if;
+	
 	hieusodoi1 := hieusodoi1+(sobanthangdoi1 - sobanthangdoi2);
 	hieusodoi2 := hieusodoi2+(sobanthangdoi2 - sobanthangdoi1);
+	
+	if (NOT EXISTS(SELECT *FROM "RANKING" WHERE "MaDoi"=madoi1)) THEN
+		INSERT INTO "RANKING"("MaDoi","SoTranThang","SoTranHoa","SoTranThua","HieuSo","Rank")
+		values (madoi1,0,0,0,hieusodoi1,0);
+	elseif (NOT EXISTS(SELECT *FROM "RANKING" WHERE "MaDoi"=madoi2)) THEN
+		INSERT INTO "RANKING"("MaDoi","SoTranThang","SoTranHoa","SoTranThua","HieuSo","Rank")
+		values (madoi2,0,0,0,hieusodoi2,0);
+	end if;
 
 	if sobanthangdoi1 > sobanthangdoi2 then
 		sotranthangdoi1 := sotranthangdoi1 +1;
@@ -176,10 +198,10 @@ BEGIN
 		sotranhoadoi2 := sotranhoadoi2 +1;
 		sotranhoadoi1 := sotranhoadoi1 +1;
 		UPDATE "RANKING" SET "SoTranHoa"=sotranhoadoi1 WHERE "MaDoi"=madoi1;
-
 		UPDATE "RANKING" SET "SoTranHoa"=sotranhoadoi2 WHERE "MaDoi"=madoi2;
 
 	end if;
+	
 	
 	UPDATE "RANKING" SET "HieuSo"=hieusodoi1 WHERE "MaDoi"=madoi1;
 	UPDATE "RANKING" SET "HieuSo"=hieusodoi2 WHERE "MaDoi"=madoi2;
@@ -211,6 +233,7 @@ AFTER INSERT ON "TRANDAU"
 FOR EACH ROW 
 EXECUTE PROCEDURE update_ranking_function();
 
+--nsert into "TRANDAU" ("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThang")
 
 -- select *from "RANKING"
 
