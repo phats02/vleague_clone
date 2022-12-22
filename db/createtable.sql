@@ -76,6 +76,7 @@ CREATE TABLE IF NOT EXISTS public."TAIKHOAN"
 
 CREATE TABLE IF NOT EXISTS public."THAMSO"
 (
+	"MaThamSo" integer NOT NULL,
     "TuoiToiThieu" integer NOT NULL,
     "TuoiToiDa" integer NOT NULL,
     "SoCauthutoiThieu" integer NOT NULL,
@@ -86,7 +87,7 @@ CREATE TABLE IF NOT EXISTS public."THAMSO"
     "DiemBanThang" integer NOT NULL,
     "DiemBanHoa" integer NOT NULL,
     "DiemBanThua" integer NOT NULL,
-    "MaThamSo" integer NOT NULL GENERATED ALWAYS AS IDENTITY,
+    
     PRIMARY KEY ("MaThamSo")
 );
 

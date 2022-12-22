@@ -139,7 +139,15 @@ BEGIN
 	madoi2 := NEW."MaDoi2";
 	sobanthangdoi1 := NEW."SoBanThangDoi1";
 	sobanthangdoi2 := NEW."SoBanThangDoi2";
-
+	
+	if (NOT EXISTS(SELECT *FROM "RANKING" WHERE "MaDoi"=madoi1)) THEN
+		INSERT INTO "RANKING"("MaDoi","SoTranThang","SoTranHoa","SoTranThua","HieuSo","Rank")
+		values (madoi1,0,0,0,0,0);
+	elseif (NOT EXISTS(SELECT *FROM "RANKING" WHERE "MaDoi"=madoi2)) THEN
+		INSERT INTO "RANKING"("MaDoi","SoTranThang","SoTranHoa","SoTranThua","HieuSo","Rank")
+		values (madoi2,0,0,0,0,0);
+	end if;
+	
 	SELECT "SoTranThang" into sotranthangdoi1 FROM "RANKING" WHERE "MaDoi"=madoi1;
 	SELECT "SoTranThang" into sotranthangdoi2 FROM "RANKING" WHERE "MaDoi"=madoi2;
 	SELECT "SoTranHoa" into sotranhoadoi1 FROM "RANKING" WHERE "MaDoi"=madoi1;
@@ -162,7 +170,6 @@ BEGIN
 		sotranthangdoi2 := sotranthangdoi2 +1;
 		sotranthuadoi1 := sotranthuadoi1 +1;
 		UPDATE "RANKING" SET "SoTranThang"=sotranthangdoi2 WHERE "MaDoi"=madoi2;
-		RAISE NOTICE 'huhu1';
 		UPDATE "RANKING" SET "SoTranThua"=sotranthuadoi1 WHERE "MaDoi"=madoi1;
 
 	elseif sobanthangdoi1 = sobanthangdoi2 then
@@ -183,11 +190,14 @@ BEGIN
 	FROM "RANKING";
 	
 	
-	
-	UPDATE "RANKING" 
-	SET "Rank"="temp_table".rank
-	FROM "temp_table"
-	WHERE "RANKING"."MaDoi"="temp_table"."MaDoi";
+-- 	if (NOT EXISTS(SELECT *FROM "RANKING","temp_table" WHERE "MaDoi"=madoi)) THEN
+-- 		raise notice 'abc1';
+-- 	elseif (EXISTS(SELECT *FROM "RANKING" WHERE "MaDoi"=madoi1)) THEN
+		UPDATE "RANKING" 
+		SET "Rank"="temp_table".rank
+		FROM "temp_table"
+		WHERE "RANKING"."MaDoi"="temp_table"."MaDoi";
+-- 	end if;
 	
 	drop table "temp_table";
 	
@@ -200,9 +210,6 @@ CREATE OR REPLACE TRIGGER trigger_update_ranking
 AFTER INSERT ON "TRANDAU"
 FOR EACH ROW 
 EXECUTE PROCEDURE update_ranking_function();
-
-INSERT INTO "TRANDAU" ("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThangDoi1","SoBanThangDoi2")
-values (1000,1001,'2022-12-19 12:34:56',1000,2,6,3);
 
 
 -- select *from "RANKING"
