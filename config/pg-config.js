@@ -10,7 +10,7 @@
 module.exports={
     host: 'localhost',
     port: 5432,
-    database:'main_CNPM',
+    database:'CNPM_test',
     user:'postgres',
     password:'1234567890',
     max: 30
