@@ -476,5 +476,13 @@
         {"MaDoi1":"1003","MaDoi2":"1008","NgayGio":"21/7/2022 20:00","MaSan":"1003","VongDau":26,"SoBanThangDoi1":null,"SoBanThangDoi2":null},
         {"MaDoi1":"1004","MaDoi2":"1007","NgayGio":"21/7/2022 18:00","MaSan":"1004","VongDau":26,"SoBanThangDoi1":null,"SoBanThangDoi2":null},
         {"MaDoi1":"1005","MaDoi2":"1006","NgayGio":"21/7/2022 20:00","MaSan":"1005","VongDau":26,"SoBanThangDoi1":null,"SoBanThangDoi2":null}
+    ],
+    "LoaiBanThang":
+    [
+        {"TenLoaiBanThang":"Penaty"},
+        {"TenLoaiBanThang":"Đánh đầu"},
+        {"TenLoaiBanThang":"Sút phạt"},
+        {"TenLoaiBanThang":"Sút"}
     ]
+
 }
