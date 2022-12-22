@@ -17,4 +17,5 @@ router.get('/schedule',adminC.schedule)
 router.get('/addMatch',adminC.addMatch) 
 router.post('/addMatch',adminC.addMatch)
 router.post('/deleteMatch',adminC.deleteMatch)
+router.get('/report',adminC.Ranking)
 module.exports = router

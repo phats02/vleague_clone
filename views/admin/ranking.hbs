@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/CSS/information.css">
+<link rel="stylesheet" href="/CSS/admin.css">
 <div class="con">
     <div class="title">
         Bảng Xếp Hạng
@@ -27,14 +27,23 @@
             {{/each}}
         </tbody>
     </table>
-
+    <div class="row" style="width:100%; margin-top:2%; margin-bottom:2%"><button style="margin:auto" type=""
+            class="btn btn-primary redbtn" id="ConBut" >Xác nhận</button>
+    </div>
 </div>
-
+<script>
+    $(function(){
+        $("#ConBut").click(function(){
+            window.location.href="/admin"
+        })
+    })
+</script>
 <style>
     .title{
         margin-top:0.5% ;
     }
     .con {
+        width: 90%;
         overflow: unset;
     }
 
@@ -102,6 +111,20 @@
         width: 15%;
         height: 100%;
         margin-right: 5%;
+    }
+    .redbtn {
+        background: linear-gradient(180deg, #D9D9D9 0%, #E05A4D 15.62%, #E32B19 86.46%, #D9D9D9 100%);
+        border: 1px solid #000000;
+        box-shadow: 4px 4px 4px rgb(0 0 0 / 25%);
+        border-radius: 15px;
+        width: 10%;
+        color: black;
+    }
+
+    button {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
     }
 
 </style>

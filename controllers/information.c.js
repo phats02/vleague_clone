@@ -3,7 +3,7 @@ const informationM = require('../models/information.m')
 const url_helper = require('../helper/url_helper')
 const db = require('../models/db')
 const jwt=require('jsonwebtoken')
-const { getAllThamSo, getAllLoaiBanThang} = require('../models/admin.m')
+const { getAllThamSo, getAllLoaiBanThang, getRanking} = require('../models/admin.m')
 exports.menuPage = (req, res, next) => {
     try {
         res.render('information/menu', {
@@ -74,7 +74,10 @@ exports.getPlayer = async (req, res, next) => {
 
 exports.ranking = async (req, res, next) => {
     try {
+        const rank= await getRanking()
+        // res.json(rank)
         res.render('information/ranking',{
+            rank:rank,
             account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null,
             title:'Ranking'
         })

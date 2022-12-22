@@ -14,12 +14,10 @@
     </div>
     <a class="btn btn-primary w-100" href="./addMatch" role="button">+</a>
 
-    <div style="display: flex; justify-content:end; padding-top:1%; padding-right:7%; width:100%">
-        <button type="button" class="btn btn-outline-danger delete-Tran" style="height:5%; width:3%; background:red; border-radius:15%; color:white" 
-        id="delete-Tran-{{this.MaTran}}">X</button>
-    </div> 
+    
     <div class="con1">
         <div class="but"><img src="/whitePreBut.png" alt="" id="pre"></div>
+        {{#if TRANDAU}}
         {{#each TRANDAU}}
         <div class="teamScoreCon">
             <div class="team">
@@ -44,9 +42,13 @@
                 <div class="playergoal">
                 </div>
             </div>
+            <button type="button" class="btn btn-outline-danger delete-Tran" style="height:5%; width:3%; background:red; border-radius:15%; color:white;left: 81%;" 
+        id="delete-Tran-{{this.MaTran}}">X</button>
         </div>
         {{/each}}
-  
+        {{else}}
+        <h1>Không có trận cần xóa! Hãy thêm trận.</h1>
+        {{/if}}
                     
   
         <div class="but">
@@ -218,18 +220,14 @@
             else {
                 visibleTeamScore++;
             }
-            console.log(visibleMiniMatch)
-            console.log($(".minicon").length - 1, $(".teamScoreCon").length - 1)
             max = Math.max(...visibleMiniMatch)
             if (max >= ($(".minicon").length - 1)) {
                 index = visibleMiniMatch.indexOf(max);
-                console.log("MaxIndex",index,"Max: ",max)
                 visibleMiniMatch[index] = -1;
             }
             for (var i = 0; i < visibleMiniMatch.length; i++) {
                 visibleMiniMatch[i]++;
             }
-            console.log(visibleMiniMatch)
             show()
         });
         $("#pre").click(function () {
@@ -248,7 +246,6 @@
             for (var i = 0; i < visibleMiniMatch.length; i++) {
                 visibleMiniMatch[i]--;
             }
-            console.log(visibleMiniMatch)
             show()
         });
     });
@@ -256,6 +253,9 @@
 </script>
 <script>
     $(".delete-Tran").click((e)=>{
+        if (!confirm("Bạn có chắc chắn muốn xóa không")){
+                return false;
+        } 
         var id=event.srcElement.id.split('-')[2]
         $.post('/admin/deleteMatch?id='+id,(status)=>{
             if (status ==-1){

@@ -18,6 +18,7 @@ exports.menu = (req, res, next) => {
     }
 }
 exports.mathResult = async (req, res, next) => {
+    //sửa cái này nè má mệt vãi 
     var idMatch = req.params.id
     if (req.method == 'GET') {
         var page = req.query.page
@@ -51,6 +52,7 @@ exports.redirectMatchResult = async (req, res, next) => {
         const matches = await adminM.getMatchUnfinished()
         res.redirect(`/admin/matchResult/${matches[0].MaTran}`)
         // res.json(await adminM.getallMatch())
+        
     }
     catch (err) {
         next(err)
@@ -99,7 +101,7 @@ exports.deleteLoaiBanThang = async (req, res, next) => {
 }
 exports.schedule = async (req, res, next) => {
     try {
-        const TRANDAU = await getMatchUnfinished()
+        const TRANDAU = await adminM.getMatchUnfinished()
         // console.log(TRANDAU)
         //res.json(TRANDAU)
         res.render('admin/schedule', {
@@ -145,5 +147,19 @@ exports.deleteMatch = async (req, res, next) => {
     }
     catch (err) {
         next(err)
+    }
+}
+
+exports.Ranking = async (req,res,next) =>{
+    try {
+        const rank= await adminM.getRanking();
+        res.render("admin/ranking",{
+            title: "Ranking",
+            rank:rank,
+            currentURl: url_helper.formatURL(req.originalUrl),
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
+        })
+    } catch (error) {
+        next(error)
     }
 }

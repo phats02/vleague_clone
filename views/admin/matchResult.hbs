@@ -18,30 +18,27 @@
     <div class="row w-25 mx-auto"> <button type="submit" class="btn btn-primary">Gui</button></div>
 </form> --}}
 <link rel="stylesheet" href="/CSS/admin.css">
-<form action="/{{currentURL}}" method="POST" style="height: 100%;">
 <div class="con">
     <div class="con1">
-        <div class="but"><img src="/back.png" alt="" id="pre"></div>
-
+        {{#if matches}}
         {{#with matches}}
-        <div class="teamScoreCon">
+        <form action="/admin/matchResult/{{MaTranDau}}" method="POST"  class="teamScoreCon">
             <div class="team">
                 <img src="/Logo/{{MaDoi1}}.png" alt="">
                 <div class="teamname">{{CauThuDoi1.0.TenDoi}}</div>
                 <div class="playergoal player-team-1">   
-                   
-                </div>
+            </div>
             </div>
             <div class="score">
                 <div class="teamname" style="border-bottom:0px; font-size:1.5vw; padding-bottom:10%">
                     <b>{{NgayGio}} Vòng đấu:{{VongDau}}</b>
                 </div>
                 <div class="recScore">
-                    <input type="text" class="form-control"
-                        id="score-team-1"   name="score-team-1">
+                    <input type="numbẻ" class="form-control"
+                        id="score-team-1"   name="score-team-1" required>
                     -
-                    <input type="text" class="form-control"
-                         id="score-team-2" name="score-team-2">
+                    <input type="number" class="form-control"
+                         id="score-team-2" name="score-team-2" required>
                 </div>
                 <div class="teamname">
 
@@ -57,12 +54,18 @@
 
                 </div>
             </div>
-        </div>
+            <script>
+                
+            </script>
+        </form>
         {{/with}}
-        <div class="but"><img src="/next.png" alt="" id="next"></div>
+        {{else}}
+       <h1> Không có trận đấu </h1>
+        {{/if}}
     </div>
     <div style="display: flex; width:80%;height:30%; margin:auto; justify-content:space-around">
-        {{!-- {{#each matches}}
+        {{#each 3Matches}}
+        <a href="/admin/matchResult/{{MaTranDau}}">
         <div class="minicon">
             <div class="minicon1">
                 <img class="minilogo" src="/Logo/{{MaDoi1}}.png" alt="">
@@ -74,7 +77,8 @@
                 <div style="text-align: center;">{{Doi2}}</div>
             </div>
         </div>
-        {{/each}} --}}
+        </a>
+        {{/each}}
     </div>
 </div>
 </form>
@@ -82,7 +86,8 @@
 
 <style>
     .con{
-        height: 100%;
+        height: 95%;
+        width: 100%;
     }
     .minicon {
         display: flex;
@@ -139,9 +144,11 @@
         display: flex;
         flex-direction: column;
         justify-content: end;
+        align-items: center;
     }
 
     .team img {
+        width: 80%;
         height: 45%;
     }
 
@@ -214,16 +221,15 @@
 <script>
     $("#score-team-1").on("input", () => {
         $(".player-team-1").html("")
-        console.log($("#score-team-1").val())
         for (var i = 0; i < $("#score-team-1").val(); i++) {
             $(".player-team-1").append(` 
            <div style="display:flex; flex-direction:row; width:100%; margin-top:2%; margin-bottom:2%">
-                    <select class="form-control" style="width:40%" name="player-team-1">
+                    <select class="form-control" style="width:45%" name="player-team-1">
                         {{#each matches.CauThuDoi1}}
                           <option value="{{this.MaCauThu}}">{{this.TenCauThu}}</option>
                         {{/each}}
                     </select>
-                    <input type="number" class=" form-control" style="width:25%" placeholder="Phút" name="time-team-1"  min="0" max="100" required>
+                    <input type="number" class=" form-control" style="width:20%" placeholder="Phút" name="time-team-1"  min="0" max="100" required>
                     <select class="form-control" name="loaiban-team-1" style="width:35%">
                         {{#each LoaiBanThang}}
                           <option value="{{this.MaLoaiBanThang}}">{{this.TenLoaiBanThang}}</option>
@@ -234,16 +240,15 @@
     })
     $("#score-team-2").on("input", () => {
         $(".player-team-2").html("")
-        console.log($("#score-team-2").val())
         for (var i = 0; i < $("#score-team-2").val(); i++) {
             $(".player-team-2").append(` 
             <div style="display:flex; flex-direction:row; width:100%; margin-top:2%; margin-bottom:2%">
-                    <select class="form-control" style="width:40%" name="player-team-1">
+                    <select class="form-control" style="width:45%" name="player-team-1">
                         {{#each matches.CauThuDoi2}}
                           <option value="{{this.MaCauThu}}">{{this.TenCauThu}}</option>
                         {{/each}}
                     </select>
-                    <input type="number" class=" form-control" style="width:25%" placeholder="Phút" name="time-team-1" min="0" max="100" required>
+                    <input type="number" class=" form-control" style="width:20%" placeholder="Phút" name="time-team-1" min="0" max="100" required>
                     <select class="form-control" name="loaiban-team-1" style="width:35%">
                         {{#each LoaiBanThang}}
                           <option value="{{this.MaLoaiBanThang}}">{{this.TenLoaiBanThang}}</option>
@@ -252,7 +257,7 @@
                     </div>`)
         }
     })
-
-
-
+    $(function(){
+    })
+ 
 </script>
