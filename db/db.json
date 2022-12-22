@@ -169,7 +169,7 @@
             {"TenCauThu":"Bùi Tiến Dũng","NgaySinh":"28/01/1997","MaLoaiCauThu":1000,"MaDoi":1008,"GhiBan":0,"value": false},
             {"TenCauThu":"Da Silva Estevam Brendon Lucas","NgaySinh":"20/05/1995","MaLoaiCauThu":1001,"MaDoi":1008,"GhiBan":0,"value": false},
             {"TenCauThu":"Trần Đình Bảo","NgaySinh":"18/06/1997","MaLoaiCauThu":1001,"MaDoi":1008,"GhiBan":1,"value":false},
-            {"TenCauThu":"Ngô Tùng Quốc","NgaySinh":"27-/01/1998","MaLoaiCauThu":1001,"MaDoi":1008,"GhiBan":1,"value":false},
+            {"TenCauThu":"Ngô Tùng Quốc","NgaySinh":"27/01/1998","MaLoaiCauThu":1001,"MaDoi":1008,"GhiBan":1,"value":false},
             {"TenCauThu":"Dương Văn Khoa","NgaySinh":"06/05/1994","MaLoaiCauThu":1001,"MaDoi":1008,"GhiBan":0,"value": false},
             {"TenCauThu":"Sầm Ngọc Đức","NgaySinh":"18/05/1992","MaLoaiCauThu":1001,"MaDoi":1008,"GhiBan":0,"value": false},
             {"TenCauThu":"Phạm Hoàng Lâm","NgaySinh":"06/03/1993","MaLoaiCauThu":1001,"MaDoi":1008,"GhiBan":0,"value": false},
@@ -276,20 +276,20 @@
     ],
     "San":
     [
-        {"MaSan":"1000","TenSan":"Sân vận động Hàng Đẫy"},
-        {"MaSan":"1001","TenSan":"Sân vận động Lạch Tray"},
-        {"MaSan":"1002","TenSan":"Sân vận động Qui Nhơn"},
-        {"MaSan":"1003","TenSan":"Sân vận động Hàng Đẫy"},
-        {"MaSan":"1004","TenSan":"Sân vận động Vinh"},
-        {"MaSan":"1005","TenSan":"Sân vận động Pleiku"},
-        {"MaSan":"1006","TenSan":"Sân vận động Gò Đậu"},
-        {"MaSan":"1007","TenSan":"Sân vận động Thanh Hóa"},
-        {"MaSan":"1008","TenSan":"Sân vận động Thống Nhất"},
-        {"MaSan":"1009","TenSan":"Sân Vận Động Hòa Xuân"},
-        {"MaSan":"1010","TenSan":"Sân Vận động tỉnh Hà Tĩnh"},
-        {"MaSan":"1011","TenSan":"Sân vận động Thiên Trường"},
-        {"MaSan":"1012","TenSan":"Sân vận động Thống Nhất"},
-        {"MaSan":"1013","TenSan":"Sân vận động Quảng Nam"}
+        {"TenSan":"Sân vận động Hàng Đẫy"},
+        {"TenSan":"Sân vận động Lạch Tray"},
+        {"TenSan":"Sân vận động Qui Nhơn"},
+        {"TenSan":"Sân vận động Hàng Đẫy"},
+        {"TenSan":"Sân vận động Vinh"},
+        {"TenSan":"Sân vận động Pleiku"},
+        {"TenSan":"Sân vận động Gò Đậu"},
+        {"TenSan":"Sân vận động Thanh Hóa"},
+        {"TenSan":"Sân vận động Thống Nhất"},
+        {"TenSan":"Sân Vận Động Hòa Xuân"},
+        {"TenSan":"Sân Vận động tỉnh Hà Tĩnh"},
+        {"TenSan":"Sân vận động Thiên Trường"},
+        {"TenSan":"Sân vận động Thống Nhất"},
+        {"TenSan":"Sân vận động Quảng Nam"}
     ],
     "Trandau":
     [
@@ -475,5 +475,12 @@
         {"VongDau":26,"NgayGio":"21/7/2022 17:00","San":"Sân vận động Hàng Đẫy","Doi1":"Viettel","Doi2":"Hồ Chí Minh FC","SoBanThangDoi1":null,"SoBanThangDoi2":null},
         {"VongDau":26,"NgayGio":"21/7/2022 17:00","San":"Sân vận động Vinh","Doi1":"Sông Lam Nghệ An","Doi2":"Đông Á Thanh Hoá","SoBanThangDoi1":null,"SoBanThangDoi2":null},
         {"VongDau":26,"NgayGio":"21/7/2022 19:00","San":"Sân vận động Pleiku","Doi1":"Hoàng Anh Gia Lai","Doi2":"Bình Dương","SoBanThangDoi1":null,"SoBanThangDoi2":null}
+    ],
+    "LoaiBanThang":
+    [
+        {"TenLoaiBanThang":"Penaty"},
+        {"TenLoaiBanThang":"Sút phạt"},
+        {"TenLoaiBanThang":"Đánh đầu"},
+        {"TenLoaiBanThang":"Sút"}
     ]
 }
