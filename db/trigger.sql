@@ -171,6 +171,36 @@ BEGIN
 		raise notice 'null2';
 	end if;
 	
+	if(sotranthangdoi1 is null) then
+		sotranthangdoi1 := 0;
+		raise notice 'null1';
+	end if;
+	
+	if(sotranthangdoi2 is null) then
+		sotranthangdoi2 :=0;
+		raise notice 'null2';
+	end if;
+	
+	if(sotranthuadoi1 is null) then
+		sotranthuadoi1 := 0;
+		raise notice 'null1';
+	end if;
+	
+	if(sotranthuadoi2 is null) then
+		sotranthuadoi2 :=0;
+		raise notice 'null2';
+	end if;
+	
+	if(sotranhoadoi1 is null) then
+		sotranhoadoi1 := 0;
+		raise notice 'null1';
+	end if;
+	
+	if(sotranhoadoi2 is null) then
+		sotranhoadoi2 :=0;
+		raise notice 'null2';
+	end if;
+	
 	hieusodoi1 := hieusodoi1+(sobanthangdoi1 - sobanthangdoi2);
 	hieusodoi2 := hieusodoi2+(sobanthangdoi2 - sobanthangdoi1);
 	
@@ -208,20 +238,18 @@ BEGIN
 	
 	
 	CREATE TABLE "temp_table" AS SELECT "MaDoi", "SoTranThang","SoTranHoa","SoTranThua","HieuSo","Rank", 
-	RANK() OVER (ORDER BY "Rank","HieuSo" DESC) as "rank"
-	FROM "RANKING";
+	RANK() OVER (ORDER BY "SoTranThua","HieuSo" DESC ) as "rank"
+	FROM "RANKING"
+	ORDER BY "rank" ASC;
 	
 	
--- 	if (NOT EXISTS(SELECT *FROM "RANKING","temp_table" WHERE "MaDoi"=madoi)) THEN
--- 		raise notice 'abc1';
--- 	elseif (EXISTS(SELECT *FROM "RANKING" WHERE "MaDoi"=madoi1)) THEN
 		UPDATE "RANKING" 
 		SET "Rank"="temp_table".rank
 		FROM "temp_table"
 		WHERE "RANKING"."MaDoi"="temp_table"."MaDoi";
--- 	end if;
+
 	
-	drop table "temp_table";
+ 	drop table "temp_table";
 	
 	RETURN NEW;
 END;
@@ -236,5 +264,7 @@ EXECUTE PROCEDURE update_ranking_function();
 --nsert into "TRANDAU" ("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThang")
 
 -- select *from "RANKING"
+
+
 
 
