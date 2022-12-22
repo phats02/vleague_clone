@@ -46,6 +46,8 @@ module.exports={
     },
 
     InsertData: async () => {
+        // await db.none(`insert into "THAMSO" ("MaThamSo","TuoiToiThieu","TuoiToiDa","SoCauthutoiThieu","SoCauThuNuocNgoaiToiDa","SoCauThuToiDa","TDGhiBanToithieu","TDGhiBanToiDa","DiemBanThang","DiemBanHoa","DiemBanThua")
+        // values (1,20,40,15,3,22,0,90,3,1,0)`)
         const data=await readDataFromJson(pathJSON);
         dataSan=data.San;
         for(var i=0;i<data.San.length;i++){

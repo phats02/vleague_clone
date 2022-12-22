@@ -201,9 +201,6 @@ AFTER INSERT ON "TRANDAU"
 FOR EACH ROW 
 EXECUTE PROCEDURE update_ranking_function();
 
-INSERT INTO "TRANDAU" ("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThangDoi1","SoBanThangDoi2")
-values (1000,1001,'2022-12-19 12:34:56',1000,2,6,3);
-
 
 -- select *from "RANKING"
 
