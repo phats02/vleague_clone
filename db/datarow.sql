@@ -73,5 +73,9 @@ values (1000,0,0,0,0,0);
 insert into "RANKING" ("MaDoi","SoTranThang","SoTranHoa","SoTranThua","HieuSo","Rank")
 values (1001,0,0,0,0,0);
 
+/* Tham Số */
+insert into "THAMSO" ("TuoiToiThieu","TuoiToiDa","SoCauthutoiThieu","SoCauThuNuocNgoaiToiDa","SoCauThuToiDa","TDGhiBanToithieu","TDGhiBanToiDa","DiemBanThang","DiemBanHoa","DiemBanThua")
+values (20,40,15,3,22,0,90,3,1,0);
+
 
 
