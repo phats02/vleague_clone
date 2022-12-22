@@ -24,7 +24,7 @@ exports.rulePage = (req, res, next) => {
 exports.resultMatch = async (req, res, next) => {
     try {
         const match = await informationM.getResultMath(req.query.page || 0, 1)
-        //  res.json(match)
+         //res.json(match)
         res.render('information/result', {
             Tran: match,
             account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null,

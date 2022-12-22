@@ -24,6 +24,7 @@ exports.mathResult = async (req, res, next) => {
         const matches = await adminM.getMatchbyID(idMatch)
         const LoaiBanThang = await adminM.getLoaiBanThang()
         // console.log(matches)
+        // res.json(matches)
         res.render("admin/matchResult", {
             matches: matches,
             title: "Change Match Result",
@@ -100,6 +101,7 @@ exports.schedule = async (req, res, next) => {
     try {
         const TRANDAU = await getMatchUnfinished('NULL', 'NULL')
         // console.log(TRANDAU)
+        //res.json(TRANDAU)
         res.render('admin/schedule', {
             title: 'Schedule',
             TRANDAU: TRANDAU,
