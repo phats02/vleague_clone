@@ -186,3 +186,5 @@ ALTER TABLE IF EXISTS public."TRANDAU"
     NOT VALID;
 
 END;
+
+insert into 
