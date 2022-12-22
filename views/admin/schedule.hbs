@@ -17,11 +17,8 @@
     
     <div class="con1">
         <div class="but"><img src="/whitePreBut.png" alt="" id="pre"></div>
+        {{#if TRANDAU}}
         {{#each TRANDAU}}
-        {{!-- <div style="display: flex; justify-content:end; padding-top:1%; padding-right:7%; width:100%">
-            <button type="button" class="btn btn-outline-danger delete-Tran" style="height:5%; width:3%; background:red; border-radius:15%; color:white" 
-        id="delete-Tran-{{this.MaTran}}">X</button>
-        </div>  --}}
         <div class="teamScoreCon">
             <div class="team">
                 <img src="/Logo/{{MaDoi1}}.png" alt="">
@@ -48,9 +45,10 @@
             <button type="button" class="btn btn-outline-danger delete-Tran" style="height:5%; width:3%; background:red; border-radius:15%; color:white;left: 81%;" 
         id="delete-Tran-{{this.MaTran}}">X</button>
         </div>
-        
         {{/each}}
-  
+        {{else}}
+        <h1>Không có trận cần xóa! Hãy thêm trận.</h1>
+        {{/if}}
                     
   
         <div class="but">

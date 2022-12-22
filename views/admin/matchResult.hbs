@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="/CSS/admin.css">
 <div class="con">
     <div class="con1">
-
+        {{#if matches}}
         {{#with matches}}
         <form action="/{{currentURL}}" method="POST"  class="teamScoreCon">
             <div class="team">
@@ -59,6 +59,9 @@
             </script>
         </form>
         {{/with}}
+        {{else}}
+       <h1> Không có trận đấu </h1>
+        {{/if}}
     </div>
     <div style="display: flex; width:80%;height:30%; margin:auto; justify-content:space-around">
         {{#each 3Matches}}

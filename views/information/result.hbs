@@ -2,6 +2,7 @@
 <div class="con">
     <div class="con1">
         <div class="but"><img src="/back.png" alt="" id="pre"></div>
+        {{#if Tran}}
         {{#each Tran}}
         <div class="teamScoreCon">
             <div class="team">
@@ -32,6 +33,9 @@
             </div>
         </div>
         {{/each}}
+        {{else}}
+        <h1>Không có trận</h1>
+        {{/if}}
         <div class="but"><img src="/next.png" alt="" id="next"></div>
     </div>
     <div style="display: flex; width:80%;height:30%; margin:auto; justify-content:space-around">
