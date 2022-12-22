@@ -231,7 +231,6 @@
 <script>
     $("#score-team-1").on("input", () => {
         $(".player-team-1").html("")
-        console.log($("#score-team-1").val())
         for (var i = 0; i < $("#score-team-1").val(); i++) {
             $(".player-team-1").append(` 
            <div style="display:flex; flex-direction:row; width:100%; margin-top:2%; margin-bottom:2%">
@@ -251,7 +250,6 @@
     })
     $("#score-team-2").on("input", () => {
         $(".player-team-2").html("")
-        console.log($("#score-team-2").val())
         for (var i = 0; i < $("#score-team-2").val(); i++) {
             $(".player-team-2").append(` 
             <div style="display:flex; flex-direction:row; width:100%; margin-top:2%; margin-bottom:2%">
