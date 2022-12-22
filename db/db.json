@@ -483,6 +483,13 @@
         {"TenLoaiBanThang":"Đánh đầu"},
         {"TenLoaiBanThang":"Sút phạt"},
         {"TenLoaiBanThang":"Sút"}
+    ],
+    "LoaiCauThu":
+    [
+        {"TenLoaiCauThu":"Thủ môn"},
+        {"TenLoaiCauThu":"Hậu vệ"},
+        {"TenLoaiCauThu":"Tiền vệ"},
+        {"TenLoaiCauThu":"Tiền đạo"}
     ]
 
 }
