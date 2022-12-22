@@ -6,7 +6,7 @@ BEGIN;
 CREATE TABLE IF NOT EXISTS public."CAUTHU"
 (
     "MaCauThu" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
-    "TenCauThu" character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    "TenCauThu" character varying(150) COLLATE pg_catalog."default" NOT NULL,
     "NgaySinh" date NOT NULL,
     "MaLoaiCauThu" integer NOT NULL,
     "MaDoi" integer NOT NULL,

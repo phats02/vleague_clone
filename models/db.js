@@ -65,19 +65,18 @@ module.exports={
         for(var i=0;i<data.LoaiCauThu.length;i++){
             await db.one('INSERT INTO "LOAICAUTHU" ("TenLoaiCauThu") VALUES($1) ON CONFLICT DO NOTHING RETURNING $1', [data.LoaiCauThu[i].TenLoaiCauThu]);
         }
-        var ghiban=data.GHIBAN;
-        for(var i=0;i<data.GHIBAN.length;i++){
-            console.log(data.GHIBAN[i]);
-            await db.one('INSERT INTO "GHIBAN" ("MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang") VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING $1', [data.GHIBAN[i].MaTranDau,data.GHIBAN[i].MaCauThu,data.GHIBAN[i].ThoiDiem,data.GHIBAN[i].MaLoaiBanThang]);
-        }
-        dataCauThu=data.CAUTHU;
-        for(var i=0;i<14;i++){
-            for(var j=0;j<15;j++){
+        
+        const dataCauThu=data.CAUTHU;
+        for(var i=0;i<dataCauThu.length;i++){
+            for(var j=0;j<dataCauThu[i].length;j++){
                 var a=data.CAUTHU[i][j].NgaySinh;
                 const dateArray = a.split('/')
                 const [day, month, year] = dateArray;
-                const newDateString = `${month}/${day}/${year}`;
-                await db.one('INSERT INTO "CAUTHU"("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan") VALUES($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING RETURNING $1', [data.CAUTHU[i][j].TenCauThu,newDateString,data.CAUTHU[i][j].MaLoaiCauThu,data.CAUTHU[i][j].MaDoi,data.CAUTHU[i][j].GhiBan]);
+                const newDateString = `${year}/${month}/${day}`;
+                const ct=await db.one('INSERT INTO "CAUTHU"("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan") VALUES($1,$2,$3,$4,$5) RETURNING "MaCauThu"', [data.CAUTHU[i][j].TenCauThu,newDateString,data.CAUTHU[i][j].MaLoaiCauThu,data.CAUTHU[i][j].MaDoi,data.CAUTHU[i][j].GhiBan]);
+                if (ct.MaCauThu!=data.CAUTHU[i][j].MaCauThu){
+                    console.log(data.CAUTHU[i][j].MaCauThu)
+                }
             }
         }
         dataTranDau=data.TRANDAU;
@@ -88,10 +87,14 @@ module.exports={
             const [day, month, year] = dateArray;
             const newDateString = `${year}-${month}-${day}`;
             const newDatetimeString = `${newDateString} ${timeString}`;
-            console.log(newDatetimeString);
+            // console.log(newDatetimeString);
             await db.one('INSERT INTO "TRANDAU"("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThangDoi1","SoBanThangDoi2") VALUES($1,$2,$3,$4,$5,$6,$7) ON CONFLICT DO NOTHING RETURNING $1', [data.TRANDAU[i].MaDoi1,data.TRANDAU[i].MaDoi2,newDatetimeString,data.TRANDAU[i].MaSan,data.TRANDAU[i].VongDau,data.TRANDAU[i].SoBanThangDoi1,data.TRANDAU[i].SoBanThangDoi2]);
         }
-        
+        var ghiban=data.GHIBAN;
+        for(var i=0;i<data.GHIBAN.length;i++){
+            // console.log(data.GHIBAN[i]);
+            await db.one('INSERT INTO "GHIBAN" ("MaTranDau","MaCauThu","ThoiDiem","MaLoaiBanThang") VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING $1', [data.GHIBAN[i].MaTranDau,data.GHIBAN[i].MaCauThu,data.GHIBAN[i].ThoiDiem,data.GHIBAN[i].MaLoaiBanThang]);
+        }
     }
 
 }
