@@ -30,5 +30,8 @@ module.exports={
         order by "LOAICAUTHU"."MaLoaiCauThu" `)
         return rs
     },
-
+    getRanking: async()=>{
+        let rs= await db.query(`Select "RANKING".*, "d"."TenDoi" as "TenDoi"  from "RANKING", "DOI" as "d" where "RANKING"."MaDoi"="d"."MaDoi" order by "RANKING"."Rank"`)
+        return rs
+    }
 }
