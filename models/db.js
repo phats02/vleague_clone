@@ -49,33 +49,32 @@ module.exports={
         const data=await readDataFromJson(pathJSON);
         dataSan=data.San;
         for(var i=0;i<data.San.length;i++){
-            var a=data.San[i].TenSan;
-            //console.log(a);
-            db.one('INSERT INTO "SAN"("TenSan") VALUES($1) ON CONFLICT DO NOTHING RETURNING $1', [data.San[i].TenSan]);
+            //db.one('INSERT INTO "SAN"("TenSan") VALUES($1) ON CONFLICT DO NOTHING RETURNING $1', [data.San[i].TenSan]);
         }
         dataLoaiBanThang=data.LoaiBanThang;
         for(var i=0;i<dataLoaiBanThang.length;i++){
-            var a=data.LoaiBanThang[i].TenLoaiBanThang;
-            //console.log(a);
-            db.one('INSERT INTO "LOAIBANTHANG"("TenLoaiBanThang") VALUES($1) ON CONFLICT DO NOTHING RETURNING $1', [data.LoaiBanThang[i].TenLoaiBanThang]);
+            //db.one('INSERT INTO "LOAIBANTHANG"("TenLoaiBanThang") VALUES($1) ON CONFLICT DO NOTHING RETURNING $1', [data.LoaiBanThang[i].TenLoaiBanThang]);
         }
         dataDoi=data.Doi;
         for(var i=0;i<data.Doi.length;i++){
-            var a=data.Doi[i];
-            //console.log(a.TenDoi);
-            db.one('INSERT INTO "DOI"("TenDoi","MaSan","SoCauThu") VALUES($1,$2,$3) ON CONFLICT DO NOTHING RETURNING $1', [data.Doi[i].TenDoi,data.Doi[i].MaSan,data.Doi[i].SoCauThu]);
+            //db.one('INSERT INTO "DOI"("TenDoi","MaSan","SoCauThu") VALUES($1,$2,$3) ON CONFLICT DO NOTHING RETURNING $1', [data.Doi[i].TenDoi,data.Doi[i].MaSan,data.Doi[i].SoCauThu]);
         }
         dataCauThu=data.CauThu;
         for(var i=0;i<14;i++){
             for(var j=0;j<15;j++){
-                var a=data.CauThu[i][j].TenCauThu;
-                //console.log(a);
-                db.one('INSERT INTO "CAUTHU"("TenCauThu","MaLoaiCauThu","MaDoi","GhiBan") VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING $1', [data.CauThu[i][j].TenCauThu,data.CauThu[i][j].NgaySinh,data.CauThu[i][j].MaLoaiCauThu,data.CauThu[i][j].MaDoi,data.CauThu[i][j].GhiBan]);
+                var a=data.CauThu[i][j].NgaySinh;
+                const dateArray = a.split('/')
+                const [day, month, year] = dateArray;
+                const newDateString = `${month}/${day}/${year}`;
+                //db.one('INSERT INTO "CAUTHU"("TenCauThu","NgaySinh","MaLoaiCauThu","MaDoi","GhiBan") VALUES($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING RETURNING $1', [data.CauThu[i][j].TenCauThu,newDateString,data.CauThu[i][j].MaLoaiCauThu,data.CauThu[i][j].MaDoi,data.CauThu[i][j].GhiBan]);
             }
         }
-
-        
+        dataTranDau=data.Trandau;
+        for(var i=0;i<dataTranDau.length;i++){
+            var a=data.Trandau[i];
+            console.log(a);
+            //db.one('INSERT INTO "TRANDAU"("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThangDoi1","SoBanThangDoi2") VALUES($1,$2,$3,$4,$5,$6$7) ON CONFLICT DO NOTHING RETURNING $1', [data.Trandau[i].Doi1,data.Trandau[i].Doi2,data.Trandau[i].San,data.Trandau[i].VongDau,data.Trandau[i].NgayGio,data.Trandau[i].SoBanThangDoi1,data.Trandau[i].SoBanThangDoi2]);
+        }
     }
-
 
 }
