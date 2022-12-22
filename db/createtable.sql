@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS public."CAUTHU"
     "NgaySinh" date NOT NULL,
     "MaLoaiCauThu" integer NOT NULL,
     "MaDoi" integer NOT NULL,
-    "GhiBan" integer NOT NULL,
+    "GhiBan" integer NOT NULL DEFAULT 0,
     "NgoaiQuoc" boolean NOT NULL DEFAULT false,
     CONSTRAINT "CAUTHU_pkey" PRIMARY KEY ("MaCauThu")
 );
@@ -85,7 +85,9 @@ CREATE TABLE IF NOT EXISTS public."THAMSO"
     "TDGhiBanToiDa" integer NOT NULL,
     "DiemBanThang" integer NOT NULL,
     "DiemBanHoa" integer NOT NULL,
-    "DiemBanThua" integer NOT NULL
+    "DiemBanThua" integer NOT NULL,
+    "MaThamSo" integer NOT NULL GENERATED ALWAYS AS IDENTITY,
+    PRIMARY KEY ("MaThamSo")
 );
 
 CREATE TABLE IF NOT EXISTS public."TRANDAU"
@@ -183,5 +185,3 @@ ALTER TABLE IF EXISTS public."TRANDAU"
     NOT VALID;
 
 END;
-insert into "THAMSO" ("TuoiToiThieu","TuoiToiDa","SoCauthutoiThieu","SoCauThuNuocNgoaiToiDa","SoCauThuToiDa","TDGhiBanToithieu","TDGhiBanToiDa","DiemBanThang","DiemBanHoa","DiemBanThua")
-values (20,40,15,3,22,0,90,3,1,0);
