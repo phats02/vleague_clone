@@ -236,5 +236,3 @@ EXECUTE PROCEDURE update_ranking_function();
 --nsert into "TRANDAU" ("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThang")
 
 -- select *from "RANKING"
-
-
