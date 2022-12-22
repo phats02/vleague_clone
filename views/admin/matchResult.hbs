@@ -22,7 +22,7 @@
     <div class="con1">
         {{#if matches}}
         {{#with matches}}
-        <form action="/{{currentURL}}" method="POST"  class="teamScoreCon">
+        <form action="/admin/matchResult/{{MaTranDau}}" method="POST"  class="teamScoreCon">
             <div class="team">
                 <img src="/Logo/{{MaDoi1}}.png" alt="">
                 <div class="teamname">{{CauThuDoi1.0.TenDoi}}</div>
@@ -65,7 +65,7 @@
     </div>
     <div style="display: flex; width:80%;height:30%; margin:auto; justify-content:space-around">
         {{#each 3Matches}}
-        <a href="../{{MaTran}}">
+        <a href="/admin/matchResult/{{MaTranDau}}">
         <div class="minicon">
             <div class="minicon1">
                 <img class="minilogo" src="/Logo/{{MaDoi1}}.png" alt="">
