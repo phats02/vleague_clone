@@ -2,19 +2,17 @@ const e = require('express')
 const homeM = require('../models/home.m')
 var jwt = require('jsonwebtoken');
 var opts = require("../config/opts")
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 const models=require('../models/db');
 exports.insertdata= (req,res,next)=>{
     res.render('login',models.InsertData);
 }
-=======
+
 var path = require('path')
->>>>>>> d535d886a7dced5e41a97b3b0f03d32fd90c7b59
-=======
+
 var path = require('path')
->>>>>>> f925fd28779402875a8e984f62159ee7a7de5092
+
 
 exports.landingPage = (req, res, next) => {
     try {
