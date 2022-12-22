@@ -34,4 +34,6 @@ body {
     height: 70%;
   }
 
-  
+  #pre,#next{
+    cursor:pointer; opacity:0.7;
+  }

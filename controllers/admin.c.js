@@ -18,6 +18,7 @@ exports.menu = (req, res, next) => {
     }
 }
 exports.mathResult = async (req, res, next) => {
+    //sửa cái này nè đmm
     var idMatch = req.params.id
     if (req.method == 'GET') {
         var page = req.query.page
