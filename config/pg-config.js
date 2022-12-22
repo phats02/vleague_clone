@@ -10,7 +10,7 @@ module.exports = {
 // module.exports={
 //     host: 'localhost',
 //     port: 5432,
-//     database:'data1',
+//     database:'data2',
 //     user:'postgres',
 //     password:'1234567890',
 //     max: 30
