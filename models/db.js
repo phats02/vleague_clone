@@ -86,9 +86,9 @@ module.exports={
             const [dateString, timeString] = a.split(' ');
             const dateArray = dateString.split('/');
             const [day, month, year] = dateArray;
-            const newDateString = `${day}-${month}-${year}`;
+            const newDateString = `${year}-${month}-${day}`;
             const newDatetimeString = `${newDateString} ${timeString}`;
-            //console.log(newDatetimeString);
+            console.log(newDatetimeString);
             await db.one('INSERT INTO "TRANDAU"("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThangDoi1","SoBanThangDoi2") VALUES($1,$2,$3,$4,$5,$6,$7) ON CONFLICT DO NOTHING RETURNING $1', [data.TRANDAU[i].MaDoi1,data.TRANDAU[i].MaDoi2,newDatetimeString,data.TRANDAU[i].MaSan,data.TRANDAU[i].VongDau,data.TRANDAU[i].SoBanThangDoi1,data.TRANDAU[i].SoBanThangDoi2]);
         }
         
