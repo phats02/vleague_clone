@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS public."CAUTHU"
 CREATE TABLE IF NOT EXISTS public."DOI"
 (
     "MaDoi" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
-    "TenDoi" character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    "TenDoi" character varying(150) COLLATE pg_catalog."default" NOT NULL,
     "MaSan" integer NOT NULL,
     "SoCauThu" integer NOT NULL,
     CONSTRAINT "DOI_pkey" PRIMARY KEY ("MaDoi")
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS public."RANKING"
 CREATE TABLE IF NOT EXISTS public."SAN"
 (
     "MaSan" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
-    "TenSan" character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    "TenSan" character varying(150) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "SAN_pkey" PRIMARY KEY ("MaSan")
 );
 
