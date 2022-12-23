@@ -48,24 +48,34 @@
 </div>
 
 <style>
+    body{
+        height: 120vh;
+        padding-bottom: 5%;
+        overflow-x: hidden;
+    }
+    .con{
+        height: 80%;
+        overflow: hidden;
+    }
     .TeamInfo {
-        font-size: 1.5vw;
+        font-size: 2vw;
         width: 35%;
         height: 100%;
         border-right: solid black 1px;
     }
     .PlayerInfo {
-        font-size: 1.5vw;
+        font-size: 2vw;
         width: 55%;
         height: 100%;
     }
 
     label {
         width: 30%;
-        font-size: 1.2vw;
+        font-size: 1.5vw;
     }
 
     .form-control {
+        font-size: 1.2vw;
         width: 60%;
         height: 100%;
     }
@@ -201,9 +211,11 @@
             rules: {
                 TeamName: {
                     required: true,
+                    maxlength:150
                 },
                 TeamField: {
                     required: true,
+                    maxlength:150
                 },
                 PlayerNum: {
                     required: true,
@@ -221,9 +233,11 @@
             messages: {
                 TeamName: {
                     required: "Hãy nhập tên đội",
+                    maxlength: "Tên không vượt quá 150 kí tự"
                 },
                 TeamField: {
                     required: "Hãy nhập tên sân",
+                    maxlength: "Tên không vượt quá 150 kí tự"
                 },
                 PlayerNum: {
                     required: "Hãy nhập số lượng cầu thủ",
@@ -258,11 +272,11 @@
         return false;
         }, "Tuổi cầu thủ tối thiểu là {{Luat.TuoiToiThieu}} và tối đa là {{Luat.TuoiToiDa}} ");
 
-
+        $.validator.addMethod("cMaxLength", $.validator.methods.maxlength,jQuery.validator.format("Tên phải dưới {0} kí tự"));
         $.validator.addMethod("cRequired", $.validator.methods.required, "Hãy nhập thông tin");
 
         $.validator.addClassRules("PlayerBD", { cAge: true,cRequired:true });
-        $.validator.addClassRules("PlayerName", { cRequired: true, });
+        $.validator.addClassRules("PlayerName", { cRequired: true, cMaxLength: 150});
 
 
         $.validator.addMethod("cForeignCount", function(value,element){

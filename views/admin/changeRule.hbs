@@ -146,17 +146,15 @@
         overflow: auto;
         height: auto;
         background-repeat: no-repeat;
-
-        background-image: ;
-
+        font-size: 2.5vh;
     }
 
     .con:after {
         content: '';
         position: absolute;
-        top: 25%;
+        top: 40%;
         right: 0;
-        bottom: 0;
+        bottom: -50%;
         left: 50%;
         filter:opacity(0.5);
 
@@ -203,8 +201,8 @@
     }
 
     .form-control {
+        font-size: 2vh;
         width: 10%;
-        height: fit-content;
         padding-top: 0;
         padding-bottom: 0;
     }
@@ -266,7 +264,8 @@
             color()
             $(".content").append(`
         <div class="form-group">
-                <input type="text" name="newBanThang" class="form-control" style="width:50%; margin-top:2%; margin-bottom:2%" placeholder="Ten loai ban thang" id="valueLoaiBanThang-${i}" required>
+                <input type="text" name="newBanThang" class="form-control" style="width:50%; margin-top:2%; margin-bottom:2%" 
+                placeholder="Tên loại bàn thắng" id="valueLoaiBanThang-${i}" required maxlength="10">
                 <div><button type="button" class="btn  btn-success delete-Loai"
                         id="addLoaiBanThang-${i}">✔️</button></div>
             </div>

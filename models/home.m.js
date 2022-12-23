@@ -1,10 +1,11 @@
-const { password } = require('../config/pg-config')
 const db=require('./db')
 var fs = require('fs')
-
+const bcrypt = require('bcrypt');
 module.exports={
-    checkSignIn:(username,password)=>{
-        return (username=='admin' && password=="admin")
+    checkSignIn:async (username,password)=>{
+        const user=await db.getOne("TAIKHOAN","TenTaiKhoanAdmin",username)
+        if (!user) return -1;
+        return await bcrypt.compare(password, user['MatKhau'])
     },
     getRule:async()=>{
         const rs=await db.getOne('THAMSO','MaThamSo',1)

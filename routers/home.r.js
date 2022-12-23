@@ -18,7 +18,7 @@ router.use('/admin',passport.authenticate('jwt', {
 
 
 
-router.get('/test',homeC.insertdata);
+router.get('/insert',homeC.insertdata);
 
 
 module.exports = router
