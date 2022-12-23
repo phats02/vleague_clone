@@ -34,6 +34,8 @@ body {
     background: #FFFCFC;
     border: solid black 1px;
     /* overflow: auto; */
+        overflow-x:hidden;
+    
 }
 
 #pre,#next{

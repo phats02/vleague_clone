@@ -65,18 +65,16 @@
     </div>
     <div style="display: flex; width:80%;height:30%; margin:auto; justify-content:space-around">
         {{#each OtherMatches}}
-        <a href="/admin/matchResult/{{MaTranDau}}">
-        <div class="minicon">
+        <a href="/admin/matchResult/{{MaTranDau}}" class="minicon">
             <div class="minicon1">
                 <img class="minilogo" src="/Logo/{{MaDoi1}}.png" alt="">
                 <div style="text-align: center;">{{TenDoi1}}</div>
             </div>
-            <div>{{SoBanThangDoi1}} - {{SoBanThangDoi2}}</div>
+            <b>VS</b>
             <div class="minicon1">
                 <img class="minilogo" src="/Logo/{{MaDoi2}}.png" alt="">
-                <div style="text-align: center;">{{Doi2}}</div>
+                <div style="text-align: center;">{{TenDoi2}}</div>
             </div>
-        </div>
         </a>
         {{/each}}
     </div>
