@@ -44,11 +44,11 @@ module.exports = {
     },
     updateMatch: async (data, id) => {
         const rs = await db.query(`update "TRANDAU" set "SoBanThangDoi1"=${data["score-team-1"]}, "SoBanThangDoi2"=${data["score-team-2"]} where "MaTranDau"=${id} RETURNING "MaTranDau"`)
-        console.log(data)
+        // console.log(data)
         if (data["player-team-1"]) {
             console.log(typeof data["player-team-1"])
             for (var i = 0; i < data["player-team-1"].length; i++) {
-                console.log(1,data["player-team-1"][i])
+                // console.log(1,data["player-team-1"][i])
                 var entity = { "MaTranDau": id, "MaCauThu": data["player-team-1"][i], "ThoiDiem": data["time-team-1"][i], "MaLoaiBanThang": data["loaiban-team-1"][i] }
                 await db.insert("GHIBAN", entity)
             }
