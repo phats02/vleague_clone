@@ -57,6 +57,9 @@
     <div class="row w-25 mx-auto"> <button type="submit" class="btn btn-primary">Gui</button></div>
 </form> --}}
 <form  method="POST" action="/{{currentURl}}" class="con" id="RuleForm">
+{{#if success}}
+  <div class="p-3 mb-2 bg-success text-white">Thay đổi quy định thành công</div>
+{{/if}}
     <div class="header"> Thay đổi quy định</div>
     <div class="con1">
         <div>Cầu thủ: </div>

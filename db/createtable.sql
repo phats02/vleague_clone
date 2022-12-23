@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS public."TAIKHOAN"
 (
     "MaTK" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     "TenTaiKhoanAdmin" character varying(10) COLLATE pg_catalog."default" NOT NULL,
-    "MatKhau" character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    "MatKhau" character varying(128) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "TAIKHOAN_pkey" PRIMARY KEY ("MaTK")
 );
 

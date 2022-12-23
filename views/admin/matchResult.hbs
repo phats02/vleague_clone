@@ -34,7 +34,7 @@
                     <b>{{NgayGio}} Vòng đấu:{{VongDau}}</b>
                 </div>
                 <div class="recScore">
-                    <input type="numbẻ" class="form-control"
+                    <input type="number" class="form-control"
                         id="score-team-1"   name="score-team-1" required>
                     -
                     <input type="number" class="form-control"
@@ -64,7 +64,7 @@
         {{/if}}
     </div>
     <div style="display: flex; width:80%;height:30%; margin:auto; justify-content:space-around">
-        {{#each 3Matches}}
+        {{#each OtherMatches}}
         <a href="/admin/matchResult/{{MaTranDau}}">
         <div class="minicon">
             <div class="minicon1">

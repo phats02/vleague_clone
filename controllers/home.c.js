@@ -3,17 +3,15 @@ const homeM = require('../models/home.m')
 var jwt = require('jsonwebtoken');
 var opts = require("../config/opts")
 
+var path = require('path')
 
-const models=require('../models/db');
-exports.insertdata= (req,res,next)=>{
-    res.render('login',models.InsertData);
+var path = require('path');
+const db = require('../models/db');
+
+exports.insertdata= async (req,res,next)=>{
+    await db.InsertData()
+    res.redirect('/')
 }
-
-var path = require('path')
-
-var path = require('path')
-
-
 exports.landingPage = (req, res, next) => {
     try {
 
@@ -46,7 +44,7 @@ exports.login = (req, res, next) => {
             if (homeM.checkSignIn(req.body.user, req.body.password)) {
                 let payload = { user: req.body.user }
                 const token = jwt.sign(payload, opts.secretOrKey)
-                const oneHour = 60 * 60 * 60;
+                const oneHour = 60 * 60 * 60*60;
                 res.cookie('jwt', token, { maxAge: oneHour, httpOnly: true, });
                 return res.redirect('/admin')
             }
@@ -84,7 +82,7 @@ exports.registration = async (req, res, next) => {
             const addDoi = await homeM.addDoi({ "TenDoi": body["TeamName"], "MaSan": addSan["MaSan"], "SoCauThu": body["PlayerNum"] })
             homeM.writeFile(`./public/Logo/${addDoi.MaDoi}`+path.extname(req.file.originalname), req.file.buffer)
             for (var i = 1; i <= body["PlayerNum"]; i++) {
-                const addCauThu = await homeM.addCauThu({ "TenCauThu":body[`PlayerName${i}`],"NgaySinh":body[`PlayerBD${i}`],"MaLoaiCauThu":body['PlayerPos'][i-1],"MaDoi":addDoi.MaDoi,"NhapTich":(body[`isFor${i}`]!=null)})
+                const addCauThu = await homeM.addCauThu({ "TenCauThu":body[`PlayerName${i}`],"NgaySinh":body[`PlayerBD${i}`],"MaLoaiCauThu":body['PlayerPos'][i-1],"MaDoi":addDoi.MaDoi,"NgoaiQuoc":(body[`isFor${i}`]!=null)})
             }
             return res.redirect('/registration?success=1')
         }

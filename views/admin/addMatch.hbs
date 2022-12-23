@@ -2,11 +2,14 @@
     <div class="title">
         Thêm trận đấu
     </div>
+    {{#if success}}
+  <div class="p-3 mb-2 bg-success text-white">Thêm trận đấu thành công</div>
+{{/if}}
     <div class="butcon">
         <form method="POST" action="/{{currentURL}}" class="w-50 mx-auto">
             <div class="form-group">
                 <label for=""> Chọn đội 1: </label>
-                <select class="form-control" aria-label="Default select example" name="">
+                <select class="form-control" aria-label="Default select example" name="MaDoi1">
                     {{#each DOI}}
                     <option value="{{this.MaDoi}}">{{this.TenDoi}}</option>
                     {{/each}}

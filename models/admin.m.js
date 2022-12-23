@@ -1,4 +1,3 @@
-
 const db = require('./db.js')
 
 module.exports = {
@@ -27,6 +26,7 @@ module.exports = {
     },
     getMatchbyID: async (id) => {
         const match = await db.getOne("TRANDAU", "MaTranDau", id)
+        if (!match) return null
         const playerOfTeam1 = await db.query(`Select * from "DOI" as "d","CAUTHU" as "ct" where "d"."MaDoi"=${match.MaDoi1} and "ct"."MaDoi"="d"."MaDoi"`)
         const playerOfTeam2 = await db.query(`Select * from "DOI" as "d","CAUTHU" as "ct" where "d"."MaDoi"=${match.MaDoi2} and "ct"."MaDoi"="d"."MaDoi"`)
 
@@ -112,6 +112,13 @@ module.exports = {
     },
     getRanking: async()=>{
         let rs= await db.query(`Select "RANKING".*, "d"."TenDoi" as "TenDoi"  from "RANKING", "DOI" as "d" where "RANKING"."MaDoi"="d"."MaDoi" order by "RANKING"."Rank"`)
+        return rs
+    },
+    getOtherUnfinishedMatch: async(idMatch) =>{
+        let rs= await db.query(`select "otherMatch".*,"team1"."TenDoi" as "TenDoi1","team2"."TenDoi" as "TenDoi2" 
+        from "TRANDAU" as "currMatch","TRANDAU" as "otherMatch", "DOI" as "team1", "DOI" as "team2" 
+        where "currMatch"."MaTranDau"='${idMatch}' and "otherMatch"."MaTranDau"!="currMatch"."MaTranDau" and "otherMatch"."MaDoi1"="team1"."MaDoi" and "otherMatch"."MaDoi2"="team2"."MaDoi" and "otherMatch"."SoBanThangDoi1" is null and "otherMatch"."SoBanThangDoi2" is null 
+        order by extract(day from "currMatch"."NgayGio" - "otherMatch"."NgayGio") limit 3`)
         return rs
     }
 }

@@ -18,19 +18,19 @@ exports.menu = (req, res, next) => {
     }
 }
 exports.mathResult = async (req, res, next) => {
-    //sửa cái này nè má mệt vãi 
     var idMatch = req.params.id
     if (req.method == 'GET') {
         var page = req.query.page
         const matches = await adminM.getMatchbyID(idMatch)
         const LoaiBanThang = await adminM.getLoaiBanThang()
-        // console.log(matches)
-        // res.json(matches)
+        const THAMSO = await adminM.getAllThamSo()
+        const otherUnfinishedMatch=await adminM.getOtherUnfinishedMatch(idMatch)
         res.render("admin/matchResult", {
             matches: matches,
             title: "Change Match Result",
             currentURL: url_helper.formatURL(req.originalUrl),
             LoaiBanThang: LoaiBanThang,
+            OtherMatches:otherUnfinishedMatch,
             account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
         })
     }
@@ -69,12 +69,13 @@ exports.changeRule = async (req, res, next) => {
                 THAMSO: THAMSO,
                 LOAIBANTHANG: LOAIBANTHANG,
                 currentURl: url_helper.formatURL(req.originalUrl),
-                account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
+                account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null,
+                success:req.query.success
             })
         }
         else if (req.method == 'POST') {
             await adminM.updateThamSo(req.body)
-            res.redirect('/admin')
+            res.redirect('/admin/changeRule?success=1')
         }
     }
     catch (err) {
@@ -120,16 +121,19 @@ exports.addMatch = async (req, res, next) => {
             const san = await db.getAll("SAN")
             const doi = await db.getAll("DOI")
             res.render('admin/addMatch', {
+                title:'Add match',
                 SAN: san,
                 DOI: doi,
                 currentURL: url_helper.formatURL(req.originalUrl),
-                account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
+                account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null,
+                success:req.query.success
+
             })
         }
         else {
             try {
                 await adminM.addMatch(req.body)
-                res.redirect('/admin')
+                res.redirect('/admin/addMatch?success=1')
             }
             catch (err) {
                 next(err)
