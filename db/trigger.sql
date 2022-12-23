@@ -153,52 +153,42 @@ BEGIN
 	
 	if(sobanthangdoi1 is null) then
 		sobanthangdoi1 := 0;
-		raise notice 'null1';
 	end if;
 	
 	if(sobanthangdoi2 is null) then
 		sobanthangdoi2 :=0;
-		raise notice 'null2';
 	end if;
 	
 	if(hieusodoi1 is null) then
 		hieusodoi1 := 0;
-		raise notice 'null1';
 	end if;
 	
 	if(hieusodoi2 is null) then
 		hieusodoi2 :=0;
-		raise notice 'null2';
 	end if;
 	
 	if(sotranthangdoi1 is null) then
 		sotranthangdoi1 := 0;
-		raise notice 'null1';
 	end if;
 	
 	if(sotranthangdoi2 is null) then
 		sotranthangdoi2 :=0;
-		raise notice 'null2';
 	end if;
 	
 	if(sotranthuadoi1 is null) then
 		sotranthuadoi1 := 0;
-		raise notice 'null1';
 	end if;
 	
 	if(sotranthuadoi2 is null) then
 		sotranthuadoi2 :=0;
-		raise notice 'null2';
 	end if;
 	
 	if(sotranhoadoi1 is null) then
 		sotranhoadoi1 := 0;
-		raise notice 'null1';
 	end if;
 	
 	if(sotranhoadoi2 is null) then
 		sotranhoadoi2 :=0;
-		raise notice 'null2';
 	end if;
 	
 	hieusodoi1 := hieusodoi1+(sobanthangdoi1 - sobanthangdoi2);
@@ -238,7 +228,7 @@ BEGIN
 	
 	
 	CREATE TABLE "temp_table" AS SELECT "MaDoi", "SoTranThang","SoTranHoa","SoTranThua","HieuSo","Rank", 
-	RANK() OVER (ORDER BY "SoTranThua","HieuSo" DESC ) as "rank"
+	RANK() OVER (ORDER BY "SoTranThang" DESC, "HieuSo" DESC ) as "rank"
 	FROM "RANKING"
 	ORDER BY "rank" ASC;
 	
@@ -261,7 +251,8 @@ AFTER INSERT ON "TRANDAU"
 FOR EACH ROW 
 EXECUTE PROCEDURE update_ranking_function();
 
---nsert into "TRANDAU" ("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThang")
+--insert into "TRANDAU" ("MaDoi1","MaDoi2","NgayGio","MaSan","VongDau","SoBanThangDoi1","SoBanThangDoi2")
+--values (1004,1010,'2002-11-12 5:45',1000,1,2,1)
 
 -- select *from "RANKING"
 
