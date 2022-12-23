@@ -22,11 +22,11 @@ module.exports = {
 //     password:'1234567890',
 //     max: 30
 // }
-// module.exports={
-//     host: 'localhost',
-//     port: 5432,
-//     database:'CNPM',
-//     user:'postgres',
-//     password:'1234567890',
-//     max: 30
-// }
+module.exports={
+    host: 'localhost',
+    port: 5432,
+    database:'CNPM',
+    user:'postgres',
+    password:'1234567890',
+    max: 30
+}
