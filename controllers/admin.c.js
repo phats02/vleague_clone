@@ -26,6 +26,7 @@ exports.mathResult = async (req, res, next) => {
         const THAMSO = await adminM.getAllThamSo()
         const otherUnfinishedMatch=await adminM.getOtherUnfinishedMatch(idMatch)
         res.render("admin/matchResult", {
+            ThamSo:THAMSO,
             matches: matches,
             title: "Change Match Result",
             currentURL: url_helper.formatURL(req.originalUrl),

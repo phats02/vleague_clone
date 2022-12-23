@@ -23,7 +23,7 @@ module.exports={
         return rs
     },
     getPlayerOfTeam: async(maDoi)=>{
-        let rs=await db.query(`Select "CAUTHU"."MaCauThu" as "MaCauThu","CAUTHU"."TenCauThu" as "TenCauThu", "LOAICAUTHU"."TenLoaiCauThu" as "LoaiCauThu",
+        let rs=await db.query(`Select "CAUTHU"."MaCauThu" as "MaCauThu","CAUTHU"."TenCauThu" as "TenCauThu", "LOAICAUTHU"."TenLoaiCauThu" as "LoaiCauThu", "CAUTHU"."NgoaiQuoc" as "NgoaiQuoc",
         (Select count(*) from "GHIBAN" where "GHIBAN"."MaCauThu"= "CAUTHU"."MaCauThu") as "SoBanThang"
         from "CAUTHU","LOAICAUTHU"
         where "CAUTHU"."MaDoi"=${maDoi} and "LOAICAUTHU"."MaLoaiCauThu"="CAUTHU"."MaLoaiCauThu"
