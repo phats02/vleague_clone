@@ -19,26 +19,27 @@
 </form> --}}
 <link rel="stylesheet" href="/CSS/admin.css">
 <div class="con">
+    {{#if success}}
+    <div class="p-3 mb-2 bg-success text-white">Thêm kết quả trận thành công</div>
+    {{/if}}
     <div class="con1">
         {{#if matches}}
         {{#with matches}}
-        <form action="/admin/matchResult/{{MaTranDau}}" method="POST"  class="teamScoreCon">
+        <form action="/admin/matchResult/{{MaTranDau}}" method="POST" class="teamScoreCon">
             <div class="team">
                 <img src="/Logo/{{MaDoi1}}.png" alt="">
                 <div class="teamname">{{CauThuDoi1.0.TenDoi}}</div>
-                <div class="playergoal player-team-1">   
-            </div>
+                <div class="playergoal player-team-1">
+                </div>
             </div>
             <div class="score">
                 <div class="teamname" style="border-bottom:0px; font-size:1.5vw; padding-bottom:10%">
                     <b>{{NgayGio}} Vòng đấu:{{VongDau}}</b>
                 </div>
                 <div class="recScore">
-                    <input type="number" class="form-control"
-                        id="score-team-1"   name="score-team-1" required>
+                    <input type="number" class="form-control" id="score-team-1" name="score-team-1" required>
                     -
-                    <input type="number" class="form-control"
-                         id="score-team-2" name="score-team-2" required>
+                    <input type="number" class="form-control" id="score-team-2" name="score-team-2" required>
                 </div>
                 <div class="teamname">
 
@@ -55,12 +56,12 @@
                 </div>
             </div>
             <script>
-                
+
             </script>
         </form>
         {{/with}}
         {{else}}
-       <h1> Không có trận đấu </h1>
+        <h1> Không có trận đấu </h1>
         {{/if}}
     </div>
     <div style="display: flex; width:80%;height:30%; margin:auto; justify-content:space-around">
@@ -83,10 +84,11 @@
 
 
 <style>
-    .con{
+    .con {
         height: 95%;
         width: 100%;
     }
+
     .minicon {
         display: flex;
         flex-direction: row;
@@ -171,7 +173,7 @@
         font-size: 7vw;
     }
 
-    .recScore input{
+    .recScore input {
         font-size: 2.5vw;
         text-align: center;
         height: 50%;
@@ -204,7 +206,8 @@
         font-family: 'Poppins';
         overflow: auto;
     }
-    .playergoal button{
+
+    .playergoal button {
         background: linear-gradient(180deg, #D9D9D9 0%, #E05A4D 15.62%, #E32B19 86.46%, #D9D9D9 100%);
         border: 1px solid #000000;
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -255,5 +258,5 @@
                     </div>`)
         }
     })
- 
+
 </script>

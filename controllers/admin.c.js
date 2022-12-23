@@ -31,15 +31,21 @@ exports.mathResult = async (req, res, next) => {
             currentURL: url_helper.formatURL(req.originalUrl),
             LoaiBanThang: LoaiBanThang,
             OtherMatches:otherUnfinishedMatch,
-            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null
+            account: (jwt.decode(req.cookies.jwt)) ? jwt.decode(req.cookies.jwt).user:null,
+            success:req.query.success
+
         })
     }
     else if (req.method == 'POST') {
         try {
-            if (req.body['player-team-1'] && typeof req.body['player-team-1'] == 'int') req.body['player-team-1'] = new Array(req.body['player-team-1'])
-            if (req.body['player-team-2'] && typeof req.body['player-team-2'] == 'int') req.body['player-team-2'] = new Array(req.body['player-team-2'])
+            if (req.body['player-team-1'] && typeof req.body['player-team-1'] == 'string') req.body['player-team-1'] = new Array(req.body['player-team-1'])
+            if (req.body['player-team-2'] && typeof req.body['player-team-2'] == 'string') req.body['player-team-2'] = new Array(req.body['player-team-2'])
+            if (req.body['time-team-1'] && typeof req.body['time-team-1'] == 'string') req.body['time-team-1'] = new Array(req.body['time-team-1'])
+            if (req.body['time-team-2'] && typeof req.body['time-team-2'] == 'string') req.body['time-team-2'] = new Array(req.body['time-team-2'])
+            if (req.body['loaiban-team-1'] && typeof req.body['loaiban-team-1'] == 'string') req.body['loaiban-team-1'] = new Array(req.body['loaiban-team-1'])
+            if (req.body['loaiban-team-2'] && typeof req.body['loaiban-team-2'] == 'string') req.body['loaiban-team-2'] = new Array(req.body['loaiban-team-2'])
             const rs = await adminM.updateMatch(req.body, idMatch)
-            res.redirect('/admin')
+            res.redirect('/admin/mathResult')
         }
         catch (err) {
             next(err)
