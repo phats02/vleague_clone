@@ -60,4 +60,4 @@ If your response is html that my home page, it was success, otherwise it may fai
 | Front-end | 20120367 |<a href='https://github.com/TamaKhank02'>@TamaKhank02</a>
 | Back-end | 20120157 |<a href='https://github.com/phats02'>@phats02</a>|
 |Create data to emulator league|20120576|<a href='https://github.com/thach030103'>@thach030103</a>|
-|Create and manager database|20120157|<a href='https://github.com/nthanhnhan-dev'>@nthanhnhan-dev</a>|
+|Create and manager database|20120151|<a href='https://github.com/nthanhnhan-dev'>@nthanhnhan-dev</a>|
