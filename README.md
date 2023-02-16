@@ -2,7 +2,7 @@
 # A Vleauge Clone Project
 ## Introduction
 The Project of Introduction of Software.  
-Prototype and Screenshoot: [Figma](https://www.figma.com/file/DBvkN0jidLcpPNNL2kO4jI/Prototype-for-NMCNPM?node-id=0%3A1&t=DEb25AthAiwD7i8J-1)
+Prototype and Screenshot: [Figma](https://www.figma.com/file/DBvkN0jidLcpPNNL2kO4jI/Prototype-for-NMCNPM?node-id=0%3A1&t=DEb25AthAiwD7i8J-1)
 ## I. How to run
 ###  I.1. Init Modules
 To install the modules listed above, follow these steps:  
