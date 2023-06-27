@@ -93,5 +93,9 @@ exports.registration = async (req, res, next) => {
 }
 exports.logout = (req, res, next) => {
     res.cookie('jwt', '', { maxAge: 1, httpOnly: true, })
+    req.logout((err)=>{
+        if (err) return next(err);
     res.redirect('/')
+
+    })
 }
