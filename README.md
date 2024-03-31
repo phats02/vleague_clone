@@ -1,5 +1,5 @@
 
-# A Football League Clone Project
+# A Football League Management Project
 ## Introduction
 The Project of Introduction of Software.  
 Prototype and Screenshot: [Figma](https://www.figma.com/file/DBvkN0jidLcpPNNL2kO4jI/Prototype-for-NMCNPM?node-id=0%3A1&t=DEb25AthAiwD7i8J-1)
