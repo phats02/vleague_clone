@@ -24,7 +24,7 @@ This will create a package.json file with default values.
 Install the modules listed above by running the following command:  
 
 ```console
-npm install cookie-parser express express-handlebars express-session jsonwebtoken multer passport passport-jwt pg-promise bcrypt
+npm install
 ```
 This will install the required modules and add them to the dependencies section of your package.json file.</li>
 </ol>  
@@ -54,10 +54,3 @@ npm start
 ### Insert data row from json that emulator my league
 Send GET request to http://localhost:3000/insert  
 If your response is html that my home page, it was success, otherwise it may fail. Please let we know if you have a problem at any step.
-## II. Assignment Sheet:
-| Desciption | MSSV | Member|
-| --- | ----------- |-------|
-| Front-end | 20120367 |<a href='https://github.com/TamaKhank02'>@TamaKhank02</a>
-| Back-end | 20120157 |<a href='https://github.com/phats02'>@phats02</a>|
-|Create data to emulator league|20120576|<a href='https://github.com/thach030103'>@thach030103</a>|
-|Create and manager database|20120151|<a href='https://github.com/nthanhnhan-dev'>@nthanhnhan-dev</a>|
